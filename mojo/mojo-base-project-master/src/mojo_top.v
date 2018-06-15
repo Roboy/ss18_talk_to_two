@@ -17,7 +17,8 @@ module mojo_top(
     // Serial connections
     input avr_tx, // AVR Tx => FPGA Rx
     output avr_rx, // AVR Rx => FPGA Tx
-    input avr_rx_busy // AVR Rx buffer full
+    input avr_rx_busy, // AVR Rx buffer full
+	 output slowclk // P50
     );
 
 wire rst = ~rst_n; // make reset active high
@@ -28,5 +29,10 @@ assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 
 assign led = 8'b0;
+
+coregen_clk coregen_clk(
+		.CLK_IN1(clk), 
+		.CLK_OUT1(slowclk)
+);
 
 endmodule

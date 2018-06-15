@@ -3,6 +3,7 @@
   <files>
     <src top="true">mojo_top.v</src>
     <src>message_printer.v</src>
+    <src>clk_div.v</src>
     <src>serial_tx.v</src>
     <src>cclk_detector.v</src>
     <src>spi_slave.v</src>

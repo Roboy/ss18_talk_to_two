@@ -1,0 +1,7 @@
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (lin64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+PMSPEC -- Overriding Xilinx file </opt/Xilinx/14.7/ISE_DS/ISE/data/edif2ngd.pfd>
+with local file
+</media/psf/Home/Documents/Uni/RCI/Roboy/ubuntu_opt/Xilinx/14.7/ISE_DS/ISE/data/
+edif2ngd.pfd>
+Writing module to "_ngo/mojo_top_0.ngo"...
