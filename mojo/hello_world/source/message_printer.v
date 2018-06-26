@@ -8,11 +8,16 @@ module message_printer (
     input new_rx_data
   );
  
-  localparam STATE_SIZE = 1;
+  localparam STATE_SIZE = 2;
   localparam IDLE = 0,
-    PRINT_MESSAGE = 1;
+    PRINT_MESSAGE = 1,
+    PRINT_HELLO = 2,
+    PRINT_WORLD = 3;
+    
  
-  localparam MESSAGE_LEN = 14;
+  localparam MESSAGE_LEN = 14; // real length(if array to 13 it is a 14)
+  localparam HELLO_LEN = 8;
+  localparam WORLD_LEN = 8;
  
   reg [STATE_SIZE-1:0] state_d, state_q;
  
@@ -32,14 +37,36 @@ module message_printer (
     case (state_q)
       IDLE: begin
         addr_d = 4'd0;
-        if (new_rx_data && rx_data == "h")
-          state_d = PRINT_MESSAGE;
+        if (new_rx_data && rx_data == "h") begin
+          state_d = PRINT_HELLO;
+          addr_d = 4'd0;
+        end
+        if (new_rx_data && rx_data == "w") begin
+          state_d = PRINT_WORLD;
+          addr_d = 4'd8;
+        end
       end
       PRINT_MESSAGE: begin
         if (!tx_busy) begin
           new_tx_data = 1'b1;
           addr_d = addr_q + 1'b1;
           if (addr_q == MESSAGE_LEN-1)
+            state_d = IDLE;
+        end
+      end
+      PRINT_HELLO: begin
+        if (!tx_busy) begin
+          new_tx_data = 1'b1;
+          addr_d = addr_q + 1'b1;
+          if (addr_q == HELLO_LEN-1)
+            state_d = IDLE;
+        end
+      end
+      PRINT_WORLD: begin
+        if (!tx_busy) begin
+          new_tx_data = 1'b1;
+          addr_d = addr_q + 1'b1;
+          if (addr_q == WORLD_LEN-1+8)
             state_d = IDLE;
         end
       end

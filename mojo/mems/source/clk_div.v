@@ -1,7 +1,7 @@
 module clk_div 
 #( 
 parameter WIDTH = 5, // Width of the register required
-parameter N = 8// We will divide by 12 for example in this case
+parameter N = 9// We will divide by 12 for example in this case
 )(
 input clk,
 input reset, 

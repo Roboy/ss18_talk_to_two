@@ -33,7 +33,7 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 403960 kilobytes
+Total memory usage is 403972 kilobytes
 
 Writing NGD file "mojo_top_0.ngd" ...
 Total REAL time to NGDBUILD completion:  8 sec

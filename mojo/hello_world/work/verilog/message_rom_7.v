@@ -4,7 +4,7 @@ module message_rom_7 (
     output [7:0] data
   );
  
-  wire [7:0] rom_data [13:0];
+  wire [7:0] rom_data [15:0];
  
   assign rom_data[0] = "H";
   assign rom_data[1] = "e";
@@ -12,21 +12,23 @@ module message_rom_7 (
   assign rom_data[3] = "l";
   assign rom_data[4] = "o";
   assign rom_data[5] = " ";
-  assign rom_data[6] = "W";
-  assign rom_data[7] = "o";
-  assign rom_data[8] = "r";
-  assign rom_data[9] = "l";
-  assign rom_data[10] = "d";
-  assign rom_data[11] = "!";
-  assign rom_data[12] = "\n";
-  assign rom_data[13] = "\r";
+  assign rom_data[6] = "\n";
+  assign rom_data[7] = "\r";
+  assign rom_data[8] = "W";
+  assign rom_data[9] = "o";
+  assign rom_data[10] = "r";
+  assign rom_data[11] = "l";
+  assign rom_data[12] = "d";
+  assign rom_data[13] = "!";
+  assign rom_data[14] = "\n";
+  assign rom_data[15] = "\r";
  
   reg [7:0] data_d, data_q;
  
   assign data = data_q;
  
   always @(*) begin
-    if (addr > 4'd13)
+    if (addr > 4'd15)
       data_d = " ";
     else
       data_d = rom_data[addr];

@@ -1,8 +1,0 @@
-INTSTYLE=pa
-INFILE=/home/parallels/git_repos/ss18_talk_to_two/mojo/mems/work/planAhead/mems/mems.runs/impl_1/mojo_top_0_routed.ncd
-OUTFILE=/home/parallels/git_repos/ss18_talk_to_two/mojo/mems/work/planAhead/mems/mems.runs/impl_1/mojo_top_0.bit
-FAMILY=Spartan6
-PART=xc6slx9-2tqg144
-WORKINGDIR=/home/parallels/git_repos/ss18_talk_to_two/mojo/mems/work/planAhead/mems/mems.runs/impl_1
-LICENSE=WebPack
-USER_INFO=211545159_0_0_259
