@@ -67,18 +67,18 @@ avr_interface_2 avr_interface (
   .new_rx_data(new_rx_data)
 );
 
-message_printer_3 zeroOnePrinter (
-  .clk(slow_clk),
-  .rst(rst),
-  .tx_data(tx_data),
-  .new_tx_data(new_tx_data),
-  .tx_busy(tx_busy),
-  .rx_data(rx_data),
-  .new_rx_data(new_rx_data),
-  .pdm_signal(pdm_data)
-);
+//message_printer zeroOnePrinter (
+//  .clk(slow_clk),
+//  .rst(rst),
+//  .tx_data(tx_data),
+//  .new_tx_data(new_tx_data),
+//  .tx_busy(tx_busy),
+//  .rx_data(rx_data),
+//  .new_rx_data(new_rx_data),
+//  .pdm_signal(pdm_data)
+//);
 
-helloPrinter_4 helloPrinter (
+helloPrinter_3 helloPrinter (
   .clk(clk),
   .rst(rst),
   .tx_data(tx_data),

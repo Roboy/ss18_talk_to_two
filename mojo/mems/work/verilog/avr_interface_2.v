@@ -56,14 +56,14 @@ module avr_interface_2 #(
   
   // cclk_detector is used to detect when cclk is high signaling when
   // the AVR is ready
-  cclk_detector_5 #(.CLK_RATE(CLK_RATE)) cclk_detector (
+  cclk_detector_4 #(.CLK_RATE(CLK_RATE)) cclk_detector (
     .clk(clk),
     .rst(rst),
     .cclk(cclk),
     .ready(ready)
   );
   
-  spi_slave_6 spi_slave (
+  spi_slave_5 spi_slave (
     .clk(clk),
     .rst(n_rdy),
     .ss(spi_ss),
@@ -79,7 +79,7 @@ module avr_interface_2 #(
   // rtoi converts a 'real' number to an 'integer'
   parameter CLK_PER_BIT = $rtoi($ceil(CLK_RATE/SERIAL_BAUD_RATE));
   
-  serial_rx_7 #(.CLK_PER_BIT(CLK_PER_BIT)) serial_rx (
+  serial_rx_6 #(.CLK_PER_BIT(CLK_PER_BIT)) serial_rx (
     .clk(clk),
     .rst(n_rdy),
     .rx(rx),
@@ -87,7 +87,7 @@ module avr_interface_2 #(
     .new_data(new_rx_data)
   );
   
-  serial_tx_8 #(.CLK_PER_BIT(CLK_PER_BIT)) serial_tx (
+  serial_tx_7 #(.CLK_PER_BIT(CLK_PER_BIT)) serial_tx (
     .clk(clk),
     .rst(n_rdy),
     .tx(tx_m),

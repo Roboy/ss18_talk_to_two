@@ -8,6 +8,7 @@
     <src>cclk_detector.v</src>
     <src>spi_slave.v</src>
     <src>serial_rx.v</src>
+    <src>hello_world_rom.v</src>
     <src>avr_interface.v</src>
     <src>message_rom.v</src>
     <src>helloPrinter.v</src>

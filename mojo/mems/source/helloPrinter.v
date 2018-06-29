@@ -16,14 +16,14 @@ module helloPrinter (
     
  
   localparam MESSAGE_LEN = 14; // real length(if array to 13 it is a 14)
-  localparam HELLO_LEN = 8;
-  localparam WORLD_LEN = 8;
+  localparam HELLO_LEN = 9;
+  localparam WORLD_LEN = 9;
  
   reg [STATE_SIZE-1:0] state_d, state_q;
  
-  reg [3:0] addr_d, addr_q;
+  reg [5:0] addr_d, addr_q;
  
-  message_rom message_rom (
+  hello_world_rom message_rom (
   .clk(clk),
   .addr(addr_q),
   .data(tx_data)
@@ -36,15 +36,16 @@ module helloPrinter (
  
     case (state_q)
       IDLE: begin
-        addr_d = 4'd0;
         if (new_rx_data && rx_data == "h") begin
           state_d = PRINT_HELLO;
-          addr_d = 4'd0;
+          addr_d = 5'd0;
         end
         if (new_rx_data && rx_data == "w") begin
           state_d = PRINT_WORLD;
-          addr_d = 4'd8;
+          addr_d = 5'd9;
         end
+        else 
+          addr_d = 5'd0;
       end
       PRINT_MESSAGE: begin
         if (!tx_busy) begin
@@ -66,7 +67,7 @@ module helloPrinter (
         if (!tx_busy) begin
           new_tx_data = 1'b1;
           addr_d = addr_q + 1'b1;
-          if (addr_q == WORLD_LEN-1+8)
+          if (addr_q == WORLD_LEN-1+HELLO_LEN)
             state_d = IDLE;
         end
       end
