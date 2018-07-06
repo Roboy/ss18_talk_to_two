@@ -10,7 +10,7 @@ If you want to read more about the theory and how the program works you find add
 
 
 ## Pre-requisites
-Speaker diarization is an ipython notebook running only in python 2.7, so please make sure that you have a working python 2.7 environment set up in anaconda before you continue.
+Speaker diarization is an ipython notebook running only in python 2.7, so please make sure that you have a working python 2.7 environment set up and a program that can run ipython notebooks e.g. anaconda before you continue.
 
 You need to make sure that you have some dependencies installed or install them. Those are the Linux installing commands, but you can also install everything on windows:
 
@@ -77,7 +77,7 @@ Note: it is possible to make it work on windows but I think running it on ubuntu
 
 ## How to test
 The speaker diarization is an ipython notebook that is contained in the folder pyAudioAnalysis which you just cloned from github.
-Open the file 'speaker_diarization_with_visualization.ipynb' in anaconda.
+Open the file 'speaker_diarization_with_visualization.ipynb' with your ipython notebook reader.
 Afterwards run all the files.
 
 ## How to use
