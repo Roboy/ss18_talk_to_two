@@ -19,11 +19,14 @@ module mojo_top(
     output avr_rx, // AVR Rx => FPGA Tx
     input avr_rx_busy, // AVR Rx buffer full
     output slow_clk,
-    input pdm_data
+    output r_out,
+    input r_in
     );
 
 wire rst = ~rst_n; // make reset active high
 //wire int_slow_clk = slow_clk;
+
+// assign pdm_data = pin_11;
 
 // these signals should be high-z when not used
 assign spi_miso = 1'bz;
@@ -31,6 +34,8 @@ assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 
 assign led = 8'b0;
+
+
 
 wire [7:0] tx_data;
 wire new_tx_data;
@@ -44,7 +49,7 @@ clk_div clk_div (
   .clk_out(slow_clk)
 );
 
-avr_interface avr_interface (
+/* avr_interface avr_interface (
   .clk(clk),
   .rst(rst),
   .cclk(cclk),
@@ -65,7 +70,7 @@ avr_interface avr_interface (
   .tx_block(avr_rx_busy),
   .rx_data(rx_data),
   .new_rx_data(new_rx_data)
-);
+);*/
 
 //message_printer zeroOnePrinter (
 //  .clk(slow_clk),
@@ -78,7 +83,7 @@ avr_interface avr_interface (
 //  .pdm_signal(pdm_data)
 //);
 
-helloPrinter helloPrinter (
+/*helloPrinter helloPrinter (
   .clk(clk),
   .rst(rst),
   .tx_data(tx_data),
@@ -86,5 +91,5 @@ helloPrinter helloPrinter (
   .tx_busy(tx_busy),
   .rx_data(rx_data),
   .new_rx_data(new_rx_data)
-);
+);*/
 endmodule

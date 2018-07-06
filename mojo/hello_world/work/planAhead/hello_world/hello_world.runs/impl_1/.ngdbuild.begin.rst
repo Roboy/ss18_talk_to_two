@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="ngdbuild" Owner="parallels" Host="" Pid="7855">
-    </Process>
-</ProcessHandle>
