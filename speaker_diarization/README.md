@@ -64,6 +64,9 @@ Note: it is possible to make it work on windows but I think running it on ubuntu
 
       git clone https://github.com/Roboy/ss18_talk_to_two.git
 
+- clone used submodules:
+      git submodule update --init
+
 - switch to the speaker diarization branch:
 
       git checkout speaker_diarization
@@ -74,7 +77,7 @@ Note: it is possible to make it work on windows but I think running it on ubuntu
 ## How to test
 The speaker diarization is an ipython notebook that is contained in the folder pyAudioAnalysis which you just cloned from github.
 Open the file 'speaker_diarization_with_visualization.ipynb' in anaconda.
-Afterwards run all the files. 
+Afterwards run all the files.
 
 ## How to use
 If you want to analyze your own wav file, just
