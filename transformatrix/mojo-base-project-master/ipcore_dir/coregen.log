@@ -1,0 +1,66 @@
+Welcome to Xilinx CORE Generator.
+Help system initialized.
+The IP Catalog has been reloaded.
+Wrote CGP file for project 'clk_gen'.
+Customize and GenerateINFO:sim:172 - Generating IP...
+Applying current project options...
+Finished applying current project options.
+WARNING:sim - Verilog simulation file type 'Behavioral' is not valid for this
+   core. Overriding with simulation file type 'Structural'.
+Cancelled executing Tcl generator.
+WARNING:sim:381 - Unable to determine location of PDF viewer
+WARNING:sim:381 - Unable to determine location of PDF viewer
+clk_gen.cgp already exists.
+New Project Cancelled.
+Closed project file.
+Wrote CGP file for project 'clk_gen'.
+Customize and GenerateINFO:sim:172 - Generating IP...
+Applying current project options...
+Finished applying current project options.
+Resolving generics for 'coregen_clk'...
+Applying external generics to 'coregen_clk'...
+Delivering associated files for 'coregen_clk'...
+WARNING:sim - Component clk_wiz_v3_6 does not have a valid model name for
+   Verilog synthesis
+Delivering EJava files for 'coregen_clk'...
+Delivered 3 files into directory
+/home/parallels/git_repos/ss18_talk_to_two/mojo/mojo-base-project-master/ipcore_
+dir/tmp/_cg/coregen_clk
+Delivered 1 file into directory
+/home/parallels/git_repos/ss18_talk_to_two/mojo/mojo-base-project-master/ipcore_
+dir/tmp/_cg/coregen_clk
+Generating ASY schematic symbol...
+Loading device for application Rf_Device from file '6slx9.nph' in environment
+/media/psf/Home/Documents/Uni/RCI/Roboy/ubuntu_opt/Xilinx/14.7/ISE_DS/ISE/.
+INFO:sim:949 - Finished generation of ASY schematic symbol.
+Generating ISE project...
+XCO file found: coregen_clk.xco
+XMDF file found: coregen_clk_xmdf.tcl
+Adding
+/home/parallels/git_repos/ss18_talk_to_two/mojo/mojo-base-project-master/ipcore_
+dir/tmp/_cg/coregen_clk.asy -view all -origin_type imported
+Adding
+/home/parallels/git_repos/ss18_talk_to_two/mojo/mojo-base-project-master/ipcore_
+dir/tmp/_cg/coregen_clk.ucf -view all -origin_type created
+Adding
+/home/parallels/git_repos/ss18_talk_to_two/mojo/mojo-base-project-master/ipcore_
+dir/tmp/_cg/coregen_clk.v -view all -origin_type created
+INFO:HDLCompiler:1845 - Analyzing Verilog file
+   "/home/parallels/git_repos/ss18_talk_to_two/mojo/mojo-base-project-master/ipc
+   ore_dir/tmp/_cg/coregen_clk.v" into library work
+INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
+Adding
+/home/parallels/git_repos/ss18_talk_to_two/mojo/mojo-base-project-master/ipcore_
+dir/tmp/_cg/coregen_clk.veo -view all -origin_type imported
+INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
+   Please set the new top explicitly by running the "project set top" command.
+   To re-calculate the new top automatically, set the "Auto Implementation Top"
+   property to true.
+Top level has been set to "/coregen_clk"
+Generating README file...
+Generating FLIST file...
+INFO:sim:948 - Finished FLIST file generation.
+Launching README viewer...
+Moving files to output directory...
+Finished moving files to output directory
+Saved CGP file for project 'clk_gen'.
