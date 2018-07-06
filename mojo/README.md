@@ -25,8 +25,9 @@ Once the Mojo is connected, you can press on one of the arrow Icons, for whether
 ## How to test
 Right now we're not getting a audio signal that we could test by hearing it or something like that, **but** you can test the PDM Signal that is coming out of the microphone by using an Osciloscope. If you don't know how to use an osci, you can whether ask me [(Kevin)](kevinjust87@gmail.com), Simon, Luis or anybody that has fortunately some experience with using an osci ;) . Before we're going to connect the pins, the Mojo pins are fortunately labeled on the Mojo itself. For the breakout board you can lookup onto this figure from the pcb
 
-![breakout_pcb](./images/breakout_board_pcb.png "screenshot from the PCB of the breakout board for the SIMICs")
-
+<p align="center">
+  <img src="./images/breakout_board_pcb.png" width="300" title="screenshot from the PCB of the breakout board for the SIMICs">
+</p>
 The pins that you will need to connect to see cool stuff:
 
 **Mojo -> board**
