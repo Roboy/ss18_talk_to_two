@@ -1,4 +1,4 @@
-# Talk to two
+# Speaker Diarization
 
 This will be the most important stuff regarding this impressive project. It's about beeing able to talk to two people at the same time. And these are the Instructions to make it work.
 
@@ -47,12 +47,15 @@ You need to make sure that you have some dependencies installed or install them.
       pip install pydub
 
 - pyAudio
+
       pip install pyaudio
 
 - tkinter
+
       sudo apt-get install python-tk
 
 - wave
+
       pip install wave
 
 
@@ -67,9 +70,7 @@ Note: it is possible to make it work on windows but I think running it on ubuntu
 - clone used submodules:
       git submodule update --init
 
-- switch to the speaker diarization branch:
-
-      git checkout speaker_diarization
+- cd to speaker_diarization folder
 
 
 
@@ -81,5 +82,5 @@ Afterwards run all the files.
 
 ## How to use
 If you want to analyze your own wav file, just
-copy it to the folder input_data which is located in ss18_talk_to_two/pyAudioAnalysis.
+copy it to the folder input_data which is located in ss18_talk_to_two/speaker_diarization/pyAudioAnalysis.
 Afterwards run speaker_diarization_with_visualization again.
