@@ -38,7 +38,9 @@ The pins that you will need to connect to see cool stuff:
 
 As you might have noticed, the mic has a 4th still free pin, the DATA pin. This one you do analyze with the osci to see the ultimate fancy PDM Signal. What you should see now is something like the yellow signal from this osci screenshot
 
-![osci_screenshot](./images/PDM_CLK_osci.PNG "PDM in yellow, CLK in blue")
+<p align="center">
+  <img src="./images/PDM_CLK_osci.PNG" title="PDM in yellow, CLK in blue">
+</p>
 
 ## How to use
 Right now there is no real usage of the current state. But basically you're just doing the same as you do when you test it ;) .
