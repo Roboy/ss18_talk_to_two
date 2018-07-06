@@ -1,9 +1,0 @@
-[submodule "roboy_communication"]
-	path = roboy_communication
-	url = git@github.com:Roboy/roboy_communication.git
-[submodule "roboy_audio"]
-	path = roboy_audio
-	url = git@github.com:Roboy/roboy_audio.git
-[submodule "roboy_dialog"]
-	path = roboy_dialog
-	url = git@github.com:Roboy/roboy_dialog.git
