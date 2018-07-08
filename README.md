@@ -10,7 +10,7 @@ For more detailed and theoretic information about the project please check out o
 
 ## Transformatrix
 
-In this subporject we're developing our own microphone array. You can find these software parts in our repository:
+In this subproject we're developing our own microphone array. You can/will find these software parts in our repository:
 
   -  Verilog driver for the SIMIC (in progress)
   -  Communication module for ARM-Core and FPGA (not implemented yet)
@@ -18,14 +18,14 @@ In this subporject we're developing our own microphone array. You can find these
 
 For now everything is running on a Mojo V3. You'll obviously need one if you want to use the code from this repository.
 
-Please find more information and the code in the folder called 'Transformatrix'. There's an additional README.md where you can find more detailed information about its functionality and how to use it.
+Please find more information and the code in the folder called `transformatrix`. There's an additional README where you can find more detailed information about its functionality and how to use it.
 
 ## Breakout board
 
-We designed our costum breakout board and 3D printed it. In the folder 'stuff_related_to_custum_mic_array' you can find all the files we used to print it.
+We designed our costum breakout board and 3D printed it. In the folder `stuff_related_to_custum_mic_array`you can find all the files we used to print it.
 
 ## Speaker diarization
 
 In order to be able to have a conversation with multiple people the question 'who is talking when?' raises. Our first approach to solve this question was speaker diarization.
 
-Please find more information and the code in the folder called 'Speaker Diarization'. There's an additional README.md where you can find more detailed information about its functionality and how to use it.
+Please find more information and the code in the folder called `speaker_diarization`. There's an additional README where you can find more detailed information about its functionality and how to use it.
