@@ -84,12 +84,17 @@ You need to make sure that you have some dependencies installed or install them.
       pip install wave
 
 
-Note: it is possible to make it work on windows but I think running it on ubuntu is easier.
+##### Notes 
+it is possible to make it work on windows but I think running it on ubuntu is easier.
 You might need sudo permissions (sudo pip install ...)
 
 you might need to install:
 
     conda install distributed grin
+
+if pip isn't working properly but giving an error message like 'no module named -internal', try:
+
+    rm -rf ~/.local
 
 ## How to build
 
@@ -120,4 +125,4 @@ Currently you can just differentiate between two speakers. That's easily changea
 
 result = speakerDiarization(input_path, 2)
 
-here input_path specifies where the input file is located and 2 is the number of speakers. The program will always find as many people as you specified before. 
+here input_path specifies where the input file is located and 2 is the number of speakers. The program will always find as many people as you specified before.
