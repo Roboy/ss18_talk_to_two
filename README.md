@@ -22,7 +22,7 @@ Please find more information and the code in the folder called `transformatrix`.
 
 ## Breakout board
 
-We designed our costum breakout board and 3D printed it. In the folder `stuff_related_to_custum_mic_array`you can find all the files we used to print it.
+We designed our costum breakout board and 3D printed it. In the folder `stuff_related_to_custom_mic_array`you can find all the files we used to print it.
 
 ## Speaker diarization
 
