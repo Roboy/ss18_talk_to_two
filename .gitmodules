@@ -7,3 +7,6 @@
 [submodule "roboy_dialog"]
 	path = roboy_dialog
 	url = git@github.com:Roboy/roboy_dialog.git
+[submodule "transformatrix/roboy_de0_nano"]
+	path = transformatrix/roboy_de0_nano
+	url = https://github.com/Roboy/roboy_de0_nano
