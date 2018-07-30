@@ -10,40 +10,58 @@ from scipy.fftpack import fft,ifft
 import pickle
 import MFCC_extractor
 import sys
+import helpful_functions as hf
+import time
 
-def load_sample_file(sample_file):
-	f= open(sample_file, "r")
-	Fs = pickle.load(f)
-	x = pickle.load(f)
-	speaker_id=pickle.load(f)
-	print Fs
-	print x
-	print speaker_id
-	f.close()
-	return Fs,x,speaker_id
 
-def save_model_in_file(gmm,speaker_id,speaker_name):	
-	f = open('train_models/'+speaker_name+'.txt', "w")
-	pickle.dump(gmm, f)
-	pickle.dump(speaker_id,f)
-	pickle.dump(speaker_name,f)
-	f.close()
+	
+def look_for_existing_model_for_speaker(speaker_id_given):
+	for modelfile in sorted(glob.glob('train_models/*.txt')):
+		print modelfile
+		gmm,speaker_id,speaker_name=hf.load_mode_file(modelfile)
+		if speaker_id==speaker_id_given:
+			print 'gmm found and returned'
+			return gmm
+	return 0
+
+def update_model_if_existing(speaker_id_given,features):
+	gmm=look_for_existing_model_for_speaker(speaker_id)
+	print gmm
+	if gmm !=0:
+		gmm.fit(features)
+		print 'existing model updated'
+	else:
+		print 'no existing model, creating a new one '
+		gmm = mixture.GaussianMixture(n_components=n_mixtures, covariance_type='diag' , max_iter = max_iterations ).fit(features)
+	return gmm
+	
+def set_update_model(str):
+	if str == 'True' or str == 'true':
+		return True
+	elif str == 'False' or str == 'false' or str =='FALSE':
+		return False
+	else:
+		print 'update model variable not readable'
+		sys.exit(0)
 	
 if __name__=="__main__":
 
 	use_folder_for_training=False
 
-	if len(sys.argv) != 2 or len(sys.argv)!=1:
-		print 'amount of sys.argv has to be 1 or 0, first is txt file, countaing fs,x,speaker_id you want to train, if 0 folder train_data is used for training'
-		#break
-		#######TODO: beende programm hiere!!
+	if len(sys.argv) != 3 and len(sys.argv)!=2:
+		print 'ERROR: amount of sys.argv has to be 1 or 0, first is txt file, countaing fs,x,speaker_id you want to train,second is bool if you want to date model up or train completely new, if 0 folder train_data is used for training'
+		sys.exit(0)
 		
 	
-	if len(sys.argv) ==1:
+	if len(sys.argv) ==2:
 		use_folder_for_training = True
+		update_model=set_update_model(sys.argv[1])
+		#update_model=sys.argv[1]
 		print 'in one'
 	else:
 		training_file_name=sys.argv[1]
+		update_model=set_update_model(sys.argv[2])
+		#update_model=sys.argv[2]
 		
 	
 		
@@ -61,34 +79,44 @@ if __name__=="__main__":
 	
 	
 	if not use_folder_for_training:
-		Fs,x,speaker_id=load_sample_file(training_file_name)
-		print training_file_name
+		start_time=time.time()
+		Fs,x,speaker_id=hf.load_sample_file(training_file_name)
+		#print training_file_name
 		speaker_name=training_file_name.replace('.txt','')
-		print speaker_name
+		#print speaker_name
 		features = MFCC_extractor.extract_MFCCs(x,Fs,window*Fs,window_overlap*Fs,voiced_threshold_mul,voiced_threshold_range,calc_deltas)
-		gmm = mixture.GaussianMixture(n_components=n_mixtures, covariance_type='diag' , max_iter = max_iterations ).fit(features)
-		save_model_in_file(gmm,speaker_id,speaker_name)
+		print update_model
+		if update_model:
+			print 'in updating model'
+			gmm = update_model_if_existing(speaker_id,features)
+		else:
+			print 'model trained without changing existing models if there are some'
+			gmm = mixture.GaussianMixture(n_components=n_mixtures, covariance_type='diag' , max_iter = max_iterations ).fit(features)
+		hf.save_model_in_file(gmm,speaker_id,speaker_name)
+		print 'training took '+str (time.time()-start_time)+ ' for the one training file'
+	
 	else: 
-		######delete all models that are still in the train_models folder
-		if len(glob.glob('train_models/*'))>0:
-			for f in glob.glob('train_models/*'):
-				os.remove(f)
+		speaker_count=0
+		start_time=time.time()
+		if not update_model:
+			######delete all models that are still in the train_models folder
+			if len(glob.glob('train_models/*'))>0:
+				for f in glob.glob('train_models/*'):
+					os.remove(f)
+				
+		#print update_model		
 		spct=0
 		total_sp=len(glob.glob('train_wavdata/*'))	
 		for speaker in sorted(glob.glob('train_wavdata/*')):
 			print (spct/float(total_sp))*100.0,'% completed'
-			#print speaker
-			###### speaker_name should get rid of the folder name, but it doesnt work 
 			speaker_name=speaker.replace('train_wavdata','')
-			#print speaker_name
-			#speakers.update({speaker_name:spct})
-			
+
 			all_speaker_Fs,all_speaker_data=0,[]
 			####### if there are more then one trainig file for one speaker, train all
 			for sample_file in glob.glob(speaker+'/*.txt'):
 				####### read the pickled np arrays 
-				print sample_file
-				Fs,x,speaker_id=load_sample_file(sample_file)
+				#print sample_file
+				Fs,x,speaker_id=hf.load_sample_file(sample_file)
 				if all_speaker_Fs==0:	all_speaker_Fs=Fs
 
 				if Fs==all_speaker_Fs:
@@ -96,15 +124,19 @@ if __name__=="__main__":
 					if len(all_speaker_data)==0:	all_speaker_data=features
 					else:							all_speaker_data=np.concatenate((all_speaker_data,features),axis=0)
 				else:	print sample_file+" skipped due to mismatch in frame rate"
-			#try:
-			gmm = mixture.GaussianMixture(n_components=n_mixtures, covariance_type='diag' , max_iter = max_iterations ).fit(all_speaker_data)
-			#except:
-				#print "ERROR : Error while training model for file "+speaker
-			save_model_in_file(gmm,speaker_id,speaker_name)
+			#print update_model
+			if update_model:
+				print 'training whole folder, updating existing models if there are some'
+				gmm = update_model_if_existing(speaker_id,all_speaker_data)
+			else:
+				print 'training whole folder, model trained without changing existing models if there are some'
+				gmm = mixture.GaussianMixture(n_components=n_mixtures, covariance_type='diag' , max_iter = max_iterations ).fit(all_speaker_data)
+			hf.save_model_in_file(gmm,speaker_id,speaker_name)
 			
 			spct+=1
 			print 'training done for speaker: '+ speaker_name + ' with speaker_id' + str(speaker_id)
-			
+			speaker_count+=1	
+		print 'training took '+str (time.time()-start_time)+ ' for '+ str(speaker_count)+  '  speakers'
 		
 	print 'training done '
 
