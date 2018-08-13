@@ -1,13 +1,9 @@
 # Speaker-Recognition-System-using-GMM
-System for identifying speaker from given speech signal using MFCC,LPC features and Gaussian Mixture Models
+System to identify speaker recognition using MFCC features and GMMs.
 
-Here we have two systems which are desinged for speaker recognition, One uses the popular MFCC features while the other does the same using Linear Predictive Coeficients.
 
-For MFCC-GMM system, implementation is completely python based.
-PyaudioAnalysis library has been used for feature extraction of voiced reagion of speaker
-GMM modeling is done using sklearn package in python
+you can use save_wav_as_np_array.py to convert wav files into np_arrays and adding a speaker identification number and a name.
 
-For LPCC-GMM system implementation is partly in Scilab and python
-For feature extraction Scilab script is used and GMM training is done using sklearn
+train_MFCC_GMM.py takes as input variables either a file to train on or uses the folder train_wavdata to train the GMM, and a bool True if you want to update the GMMs with the new data if there already exists one with the same speaker ID.
 
-Various experiments done for hyderparameter optimization can be found in report.
+test_MFCC_GMM.py takes as input a test_file or uses the folder test_wavdata to test all files.
