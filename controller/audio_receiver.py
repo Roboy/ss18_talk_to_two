@@ -1,6 +1,6 @@
 import threading
-from queue import Queue
-from queue import Empty
+from Queue import Queue
+from Queue import Empty
 import socket 
 import numpy as np 
 

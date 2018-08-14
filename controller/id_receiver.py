@@ -1,16 +1,14 @@
 import threading
-from queue import Queue
-from queue import Empty
-from queue import Full
+from Queue import Queue
+from Queue import Empty
 import socket
 import json
 
 class Id_Receiver(threading.Thread):
     
-    def __init__(self, outq, outq_vis=None):
+    def __init__(self, outq):
         threading.Thread.__init__(self)
         self.outq = outq
-        self.outq_vis = outq_vis
         self.please_stop = threading.Event()
 
     def run(self):
@@ -60,12 +58,6 @@ class Id_Receiver(threading.Thread):
                                 pass
                     self.outq.put(latest_sound_source_data) #this is blocking and thread safe
                     
-                    if self.outq_vis is not None:
-                        try:
-                            self.outq_vis.put(latest_sound_source_data, block=False)
-                        except Full:
-                            #print("couldn't put data into visualization queue, its full")
-                            pass
                     
             #print("buffer len post:",len(buffer))
             

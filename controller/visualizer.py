@@ -1,12 +1,15 @@
 import threading
-from queue import Queue
-from queue import Empty
+from Queue import Queue
+from Queue import Empty
 import time
 import numpy as np 
+
 from mpl_toolkits.mplot3d import Axes3D
-import matplotlib
 import matplotlib.cm as cm
 import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+#matplotlib.use("gtk")
 
 
 
@@ -36,15 +39,17 @@ class Visualizer(threading.Thread):
         
         while not self.please_stop.is_set():
             #wait for data to arrive
-            latest_id = self.inq.get(block=True) 
+            latest_data = self.inq.get(block=True) 
             
             #sometime multiple rrive at once, make sure to clear the que and only use the latest one
             while 1:
                 try:
-                    latest_id = self.inq.get(block=False)  
+                    latest_data = self.inq.get(block=False)  
                 except Empty:
                     break
-                
+            
+            
+            """
             data = []
             for i in range(len(latest_id['src'])):
                 #{ "id": 53, "tag": "dynamic", "x": -0.828, "y": -0.196, "z": 0.525, "activity": 0.926 }   
@@ -52,21 +57,35 @@ class Visualizer(threading.Thread):
                     data.append([latest_id['src'][i]['id'], latest_id['src'][i]['x'], latest_id['src'][i]['y'], latest_id['src'][i]['z'], latest_id['src'][i]['activity'] ])
                 if len(data) == 0:
                     data.append([0,0,0,0,0])
+            """
     
-            sources = np.array(data)
+            sources = np.array(latest_data['current_speakers'])
+            if sources.size == 0:
+                sources = np.array([0, 0, 0, 0, 0, 0])
                 
             ax.clear()
             #add big center point in front
-            plotsources = np.vstack((np.array([0, 0, 0, 0, 2]), sources)) #center point
-            ax.scatter(plotsources[:,1], plotsources[:,2], plotsources[:,3], s=plotsources[:,4]*150+50, c=plotsources[:,4], cmap=cm.cool)
-            for i in range(1, plotsources.shape[0]): #display the assigned id
-                ax.text(plotsources[i,1],plotsources[i,2],plotsources[i,3],  '%s, %s' % (str(int(plotsources[i,0])), str(plotsources[i,4])), size=20) 
+            #array is   ourid, odasid, x,y,z,activity
+            plotsources = np.vstack((np.array([0, 0, 0, 0, 0, 2]), sources)) #center point
+            
+            #array for plotting all known speakers:
+            speakerplot = []
+            for sp in latest_data['known_speakers']:
+                speakerplot.append([sp.id, 0, sp.pos[0], sp.pos[1], sp.pos[2], 0])
+            np_speakerplot = np.array(speakerplot)
+            
+            #TODO: fic colors
+            if(len(speakerplot) > 0):
+                ax.scatter(np_speakerplot[:,2], np_speakerplot[:,3], np_speakerplot[:,4], s=100, c=np_speakerplot[:,0], cmap=cm.Pastel1)
+                
+            ax.scatter(plotsources[:,2], plotsources[:,3], plotsources[:,4], s=plotsources[:,5]*150+50, c=plotsources[:,0], cmap=cm.Set1)
+            for sp in latest_data['known_speakers']: #display the assigned id
+                ax.text(sp.pos[0],sp.pos[1],sp.pos[2],  '%s' % (str(int(sp.id))), size=15) 
             ax.set_xlim3d(-1.2,1.2) #dont know why, but otherwise it keeps changin them...
             ax.set_ylim3d(-1.2,1.2)
             ax.set_zlim3d(-1.2,1.2) 
-            #plt.pause(0.00001)
+            plt.pause(0.001)
             fig.canvas.draw()
-            print("drew")
             
             
             
