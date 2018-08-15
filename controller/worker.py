@@ -12,6 +12,8 @@ from visualizer import Visualizer
 from speaker import Speaker
 from recording import Recording
 
+from speaker_recognition_new.speaker_recognition import Speaker_recognition
+
 
     
 
@@ -28,6 +30,7 @@ class Worker:
               
         self.speakers = {}
         self.num_speakers = 0
+        self.sr = Speaker_recognition()
         
     def run(self):
         self.merger.start()
@@ -40,9 +43,6 @@ class Worker:
         
         recordings = {}
         sr_requests = {} #request to speaker recognotiotion waiting to be anawered, key is the id, value is the queue in which the result will be stored
-        
-        audio_recording_buffer = [np.empty(0, dtype=np.int16), np.empty(0, dtype=np.int16), np.empty(0, dtype=np.int16), np.empty(0, dtype=np.int16)]
-        
         
         while self.merger.is_alive():
             
@@ -85,16 +85,18 @@ class Worker:
                 try:
                     #sr_id: -99 means new speaker
                     #certainty between 0-10
+                    certainty = 0
                     preliminary_id, sr_id, certainty = req.get(block=False) 
                     #TODO:merge these two infos together
-                    recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
+                    if certainty < 3:
+                        recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
                     print("response for req %d, results is" % (rec_id))    
                     recordings[rec_id].is_back_from_sr = True
                     todelete_req.append(rec_id)
                     
                 except Empty:
-                    if time.time() - recordings[rec_id].time_sent_to_sr > 1: #no response from sr for 10 sec -> timeout
-                        print("no response for request %d in 1 sec -> timeout" % (rec_id))
+                    if time.time() - recordings[rec_id].time_sent_to_sr > 10: #no response from sr for 10 sec -> timeout
+                        print("no response for request %d in 10 sec -> timeout" % (rec_id))
                         recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
                         recordings[rec_id].is_back_from_sr = True
                         todelete_req.append(rec_id)
@@ -135,6 +137,7 @@ class Worker:
                 elif not rec.was_sent_sr and rec.audio.shape[0] > 16000 * 3: #its longer than 3 sec, time to send it to speaker recognition
                     sr_requests[rec_id] = Queue(maxsize=1)
                     #dummy_sr_call(rec.audio, rec.preliminary_speaker_id, sr_requests[rec_id])
+                    self.sr.test(rec.audio, rec.preliminary_speaker_id, sr_requests[rec_id])
                     rec.was_sent_sr = True
                     rec.time_sent_to_sr = time.time()
                     
