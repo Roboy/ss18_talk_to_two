@@ -36,26 +36,30 @@ class Tester (threading.Thread):
 		max_speaker=9999
 		certainty=10
 		scores=dict()
-		for id in self.gmm_models:
-			print id
-			score=self.gmm_models[id].score(features)
-			print score
-			scores[id]=score
-			if score>max_score:
-				max_score,max_speaker=score,id
-		###### new speaker detected
-		max_score_key=max(scores.iteritems(), key=operator.itemgetter(1))[0]
-		max_score=max(scores.iteritems(), key=operator.itemgetter(1))[1]
-		min_score_key=min(scores.iteritems(), key=operator.itemgetter(1))[0]
-		min_score=min(scores.iteritems(), key=operator.itemgetter(1))[1]
-		#print max_score_key,max_score
-		#print min_score_key,min_score
-		###### calculate 
-		print 'dif '+str(abs(max_score-min_score))
-		if abs(max_score-min_score)<self.threshold:
-			print 'new speaker'
-			max_speaker=-99
-			certainty=5
+		if len(self.gmm_models)==0:
+			certainty=0
+			max_speaker=self.odas_id
+		else:
+			for id in self.gmm_models:
+				print id
+				score=self.gmm_models[id].score(features)
+				print score
+				scores[id]=score
+				if score>max_score:
+					max_score,max_speaker=score,id
+			###### new speaker detected
+			max_score_key=max(scores.iteritems(), key=operator.itemgetter(1))[0]
+			max_score=max(scores.iteritems(), key=operator.itemgetter(1))[1]
+			min_score_key=min(scores.iteritems(), key=operator.itemgetter(1))[0]
+			min_score=min(scores.iteritems(), key=operator.itemgetter(1))[1]
+			#print max_score_key,max_score
+			#print min_score_key,min_score
+			###### calculate 
+			print 'dif '+str(abs(max_score-min_score))
+			if abs(max_score-min_score)<self.threshold:
+				print 'new speaker'
+				max_speaker=-99
+				certainty=5
 			
 		self.outq.put((self.odas_id,max_speaker,certainty))
 		print self.odas_id,max_speaker,certainty
