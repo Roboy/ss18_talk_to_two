@@ -50,7 +50,7 @@ class Id_Receiver(threading.Thread):
                     #print("elapsed time:", time.time() - last_time)
                     #last_time = time.time()
                     if self.outq.qsize() > self.outq.maxsize-20: 
-                        print("id queue has grown to large, discarding some, this should not happen!!!!!!")
+                        print("id queue has grown to large, discarding some, this should rarely happen!!!!!!")
                         for i in range(20): #q is almost full, discard some data
                             try:
                                 self.outq.get(block=False)  

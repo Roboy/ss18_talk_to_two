@@ -1,7 +1,5 @@
-import controller as c
+import worker as w
 
-if __name__ == "__main__":
-    
-    
-    cntrl=c.Controller()
-    cntrl.run()
+if __name__ == "__main__":  
+    work=w.Worker()
+    work.run()
