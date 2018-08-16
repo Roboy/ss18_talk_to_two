@@ -6,14 +6,11 @@ based on https://github.com/Uberi/speech_recognition
 
 import json
 import uuid
-import wave, pyaudio
+import wave
 import io
 from monotonic import monotonic
 from urllib import urlencode
-from urllib2 import Request, urlopen, URLError, HTTPError 
-import httplib
-import numpy as np
-import struct
+from urllib2 import Request, urlopen, URLError, HTTPError
 
 # get a key from https://www.microsoft.com/cognitive-services/en-us/speech-api
 BING_KEY = ''
@@ -34,8 +31,8 @@ class LocaleError(Exception):
 class BingVoice():
     def __init__(self, key):
         self.key = key
-        # self.access_token = None
-        # self.expire_time = None
+        self.access_token = None
+        self.expire_time = None
         self.locales = {
             "ar-eg": {"Female": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)"},
             "de-DE": {"Female": "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda)",
@@ -68,66 +65,34 @@ class BingVoice():
                       "Male": "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)"}
         }
 
-        # authorize 
-        params = ""
-        headers = {"Ocp-Apim-Subscription-Key": self.key}
-
-        AccessTokenHost = "api.cognitive.microsoft.com"
-        path = "/sts/v1.0/issueToken"
-
-        # Connect to server to get the Access Token
-        print ("Connect to server to get the Access Token")
-        conn = httplib.HTTPSConnection(AccessTokenHost)
-        start_time = monotonic()
-        conn.request("POST", path, params, headers)
-        response = conn.getresponse()
-        print(response.status, response.reason)
-
-        data = response.read()
-
-        conn.close()
-
-        self.access_token = data.decode("UTF-8")
-        print ("Access Token: " + self.access_token)
-        self.expire_time = start_time + 60*9
-
-
     def auth(self):
-
         if self.expire_time is None or monotonic() > self.expire_time:  # first credential request, or the access token from the previous one expired
-            apiKey = self.key
-
-            params = ""
-            headers = {"Ocp-Apim-Subscription-Key": apiKey}
-
-            #AccessTokenUri = "https://api.cognitive.microsoft.com/sts/v1.0/issueToken";
-            AccessTokenHost = "api.cognitive.microsoft.com"
-            path = "/sts/v1.0/issueToken"
-
-            # Connect to server to get the Access Token
-            print ("Connect to server to get the Access Token")
-            conn = httplib.HTTPSConnection(AccessTokenHost)
+            # get an access token using OAuth
+            credential_url = "https://oxford-speech.cloudapp.net/token/issueToken"
+            credential_request = Request(credential_url, data=urlencode({
+                "grant_type": "client_credentials",
+                "client_id": "python",
+                "client_secret": self.key,
+                "scope": "https://speech.platform.bing.com"
+            }).encode("utf-8"))
             start_time = monotonic()
-            conn.request("POST", path, params, headers)
-            response = conn.getresponse()
-            print(response.status, response.reason)
+            try:
+                credential_response = urlopen(credential_request)
+            except HTTPError as e:
+                raise RequestError("recognition request failed: {0}".format(
+                    getattr(e, "reason", "status {0}".format(e.code))))  # use getattr to be compatible with Python 2.6
+            except URLError as e:
+                raise RequestError("recognition connection failed: {0}".format(e.reason))
+            credential_text = credential_response.read().decode("utf-8")
+            credentials = json.loads(credential_text)
+            self.access_token, expiry_seconds = credentials["access_token"], float(credentials["expires_in"])
 
-            data = response.read()
-
-            conn.close()
-
-            self.access_token = data.decode("UTF-8")
-            print ("Access Token: " + self.access_token)
-            self.expire_time = start_time + 60*9
-
-            
-
+            self.expire_time = start_time + expiry_seconds
 
     def recognize(self, audio_data, language="en-US", show_all=False):
         self.auth()
         wav_data = self.to_wav(audio_data)
-
-        url = "https://speech.platform.bing.com/recognize?{0}".format(urlencode({
+        url = "https://speech.platform.bing.com/recognize/query?{0}".format(urlencode({
             "version": "3.0",
             "requestid": uuid.uuid4(),
             "appID": "D4D52672-91D7-4C74-8AD8-42B1D98141A5",
@@ -135,13 +100,13 @@ class BingVoice():
             "locale": language,
             "device.os": "wp7",
             "scenarios": "ulm",
-            "instanceid": uuid.uuid4()
+            "instanceid": uuid.uuid4(),
+            "result.profanitymarkup": "0",
         }))
         request = Request(url, data=wav_data, headers={
             "Authorization": "Bearer {0}".format(self.access_token),
-            "Content-Type": "audio/wav; samplerate=16000; sourcerate={0}; trustsourcerate=true".format(16000)
+            "Content-Type": "audio/wav; samplerate=16000; sourcerate={0}; trustsourcerate=true".format(16000),
         })
-
         try:
             response = urlopen(request)
         except HTTPError as e:
@@ -150,7 +115,6 @@ class BingVoice():
         except URLError as e:
             raise RequestError("recognition connection failed: {0}".format(e.reason))
         response_text = response.read().decode("utf-8")
-        print response_text
         result = json.loads(response_text)
 
         # return results
@@ -197,31 +161,6 @@ class BingVoice():
 
         data = response.read()
 
-        
-        
-        p = pyaudio.PyAudio()
-
-        stream = p.open(format=p.get_format_from_width(2),
-                        channels=1,
-                        rate=16000,
-                        output=True)
-
-        # TODO: change voice pitch
-
-        # data = np.array(wave.struct.unpack("%dh"%(len(data)/2), data))*2
-        # data = np.fft.rfft(data)
-        # data = np.fft.irfft(data)
-        # dataout = np.array(data*0.1, dtype='int16') #undo the *2 that was done at reading
-        # chunkout = struct.pack("%dh"%(len(dataout)), *list(dataout)) #convert back to 16-bit data
-        # stream.write(chunkout)
-
-        stream.write(data)
-
-        stream.stop_stream()
-        stream.close()
-
-        p.terminate()
-
         return data
 
     @staticmethod
@@ -236,7 +175,6 @@ class BingVoice():
                 wav_writer.writeframes(raw_data)
                 wav_data = wav_file.getvalue()
             finally:  # make sure resources are cleaned up
-                wav_file.write("test.wav")
                 wav_writer.close()
         return wav_data
 
@@ -244,12 +182,11 @@ class BingVoice():
 if __name__ == '__main__':
     import sys
 
-    #if len(sys.argv) != 2:
-        #print('Usage: %s 16k_mono.wav' % sys.argv[0])
-        #sys.exit(-1)
+    if len(sys.argv) != 2:
+        print('Usage: %s 16k_mono.wav' % sys.argv[0])
+        sys.exit(-1)
 
-    #wf = wave.open(sys.argv[1])
-    wf = wave.open("testfile.wav")
+    wf = wave.open(sys.argv[1])
     if wf.getframerate() != 16000 or wf.getnchannels() != 1 or wf.getsampwidth() != 2:
         print('only support 16000 sample rate, 1 channel and 2 bytes sample width')
         sys.exit(-2)
