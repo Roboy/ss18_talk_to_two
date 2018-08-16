@@ -13,7 +13,7 @@ from speaker import Speaker
 from recording import Recording
 from t2t_stt import T2t_stt
 
-#from speaker_recognition.speaker_recognition import Speaker_recognition
+from speaker_recognition.speaker_recognition import Speaker_recognition
 
 
     
@@ -32,7 +32,7 @@ class Worker:
         self.speakers = {}
         self.num_speakers = 0
         self.stt = T2t_stt()
-        #self.sr = Speaker_recognition()
+        self.sr = Speaker_recognition()
         
     def run(self):
         self.merger.start()
