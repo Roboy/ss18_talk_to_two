@@ -10,3 +10,6 @@
 [submodule "transformatrix/roboy_de0_nano"]
 	path = transformatrix/roboy_de0_nano
 	url = https://github.com/Roboy/roboy_de0_nano
+[submodule "controller/speaker_recognition/pyAudioAnalysis"]
+	path = controller/speaker_recognition/pyAudioAnalysis
+	url = https://github.com/tyiannak/pyAudioAnalysis.git
