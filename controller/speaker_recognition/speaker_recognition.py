@@ -21,20 +21,21 @@ class Speaker_recognition(threading.Thread):
 		self.please_stop=threading.Event()
 		
 		
-	def train(self,odas_id,train_audio):
+	def train(self,speaker_id_worker,train_audio):
+       print("start training")
 		#while not self.please_stop.set():
 		
 		###### check if we have to call a tester 
 		#TODO: handle an empty gmm_models 
-		'''odas_id,latest_audio_to_test=self.tester_queue.get(block=False)
+		'''speaker_id_worker,latest_audio_to_test=self.tester_queue.get(block=False)
 		tester=te.Tester()
-		tester.start(odas_id,latest_audio_to_test,self.gmm_models,self.tester_id_queue)
+		tester.start(speaker_id_worker,latest_audio_to_test,self.gmm_models,self.tester_id_queue)
 		print 'testing done'''
 		
 		######odas was sure about which speaker is speaking in the audio file, we can directly train on it 
 		
 
-		trainer=tr.Trainer(odas_id,train_audio,self.gmm_models,self.trainer_gmm_queue)
+		trainer=tr.Trainer(speaker_id_worker,train_audio,self.gmm_models,self.trainer_gmm_queue)
 		trainer.run()
 		#print 'training done'
 		
@@ -58,9 +59,9 @@ class Speaker_recognition(threading.Thread):
 		
 	
 	
-	def test(self,audio_to_test,odas_id,outq):
+	def test(self,audio_to_test,speaker_id_worker,outq):
 		print 'in test'
-		tester=te.Tester(audio_to_test,odas_id,outq,self.gmm_models)
+		tester=te.Tester(audio_to_test,speaker_id_worker,outq,self.gmm_models)
 		tester.run()
 		
 		

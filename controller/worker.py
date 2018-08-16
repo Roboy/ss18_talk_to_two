@@ -12,7 +12,7 @@ from visualizer import Visualizer
 from speaker import Speaker
 from recording import Recording
 
-from speaker_recognition_new.speaker_recognition import Speaker_recognition
+from speaker_recognition.speaker_recognition import Speaker_recognition
 
 
     
@@ -90,7 +90,20 @@ class Worker:
                     #TODO:merge these two infos together
                     if certainty < 3:
                         recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
-                    print("response for req %d, results is" % (rec_id))    
+                        
+                    
+                    if sr_id == recordings[rec_id].preliminary_speaker_id:
+                        #both agree, thats nice
+                        recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
+                        recordings[rec_id].send_to_trainer = True
+                    elif recordings[rec_id].created_new_speaker: # and sr_id == -99:
+                        #both agree, that this is a new speaker
+                        print("both agree that rec %d is new speaker %d" %(rec_id, recordings[rec_id].preliminary_speaker_id))
+                        recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
+                        recordings[rec_id].send_to_trainer = True
+                        
+                    
+                    print("response for req %d, results is %d" % (rec_id, sr_id))    
                     recordings[rec_id].is_back_from_sr = True
                     todelete_req.append(rec_id)
                     
@@ -131,6 +144,9 @@ class Worker:
                         rec.created_new_speaker = True
                         print("creating new speaker %d for recording %d" % (new_id, rec_id))
                         
+                        if(self.num_speakers == 1):
+                            rec.send_to_trainer = True
+                        
                     rec.new = False
                     
                     
@@ -159,6 +175,13 @@ class Worker:
                             
                             #TODO:
                             #send to speech to text
+                            
+                            #send this to trainer
+                            if(rec.send_to_trainer):
+                                self.sr.train(rec.final_speaker_id, rec.audio)
+                                print("sending recording %d to trainer" % (rec_id))
+                            
+                            
                             print("succesfully handeld recording ", rec_id)
                             rec.alldone = True
                             
