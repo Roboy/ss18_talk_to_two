@@ -25,22 +25,33 @@ Setup guide:
 
 
   1.2 copy the config file "wip_creator.config" from this folder into odas/bin/ on the Pi.
-  In this file search for the lines 255-260
+  In this file search for the lines 256-260
   
   ```
-   format = "json";
-        interface: {
-            type = "socket";
-            ip = "192.168.178.42";
-            port = 9003;
-        };
-   ```    
-   and 323-326
-   ```
-    interface: {
-            type = "socket";
-            ip = "192.168.178.42";
-            port = 9002;
-        }; 
-   ```   
-   and change the ip adresses to match the ones of your computer
+  interface: {
+         type = "socket";
+         ip = "192.168.178.42";
+         port = 9003;
+  };
+  ```    
+  and 323-326
+  ```
+  interface: {
+         type = "socket";
+         ip = "192.168.178.42";
+         port = 9002;
+  }; 
+  ```   
+  and change the ip adresses to match the ones of your computer.
+  
+  On your computer depending on your python environment you might need to install some dependencies for pyaudioanalysis, which is required for the speaker recognition. Python will tell you which. (Note to self: Ask kathi for these dependencies and put them here)
+  
+  
+  To Run:
+  First run main.py / main.ipybn on your computer. When you see "Waiting for Connection..." start ODAS on the creator using the command
+  ```
+  cd odas
+  cd bin
+  ./odaslive -v -c wip_creator.cfg
+  ```
+  
