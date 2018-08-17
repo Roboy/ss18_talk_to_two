@@ -49,20 +49,20 @@
   
   
  2. **Setup your Python Environment**. We are using **Python 2.7**. While most of our code is designed to be also compatible to Python 3, PyAudioAnalysis, a dependecy for Speaker Recognition requires 2.7.
- Make sure you have the following Packages installed:
- ```
- numpy
- matplotlib
- ```
- for Bing voice
- ```
- monotonic
- ``` 
- for Speaker Recognition
- todo: get these rquirenments from kathi
- ```
- eyed3
- ```
+    Make sure you have the following Packages installed:
+    ```
+    numpy
+    matplotlib
+    ```
+    for Bing voice
+    ```
+    monotonic
+    ``` 
+    for Speaker Recognition
+    todo: get these rquirenments from kathi
+    ```
+    eyed3
+    ```
  
   
   
