@@ -49,12 +49,17 @@ class SAM:
         while self.merger.is_alive():
             
             #wait for/get next data
-            next_data = self.merger_to_main_queue.get(block=True)
+            try:
+                next_data = self.merger_to_main_queue.get(block=True, timeout=1)
+            except Empty:
+                continue #restart loop, but check again if we maybe got a stop signal
+            
             cid = next_data['id_info']
             caudio = next_data['audio_data']
             
-            
+            ############################################################################################
             #this part separates the 4 streams and manages the ones where currently audio is being recorded
+            #########################################################################################
             #cid[i] = [id, x, y, z, activity]
             for i in range(len(cid)):  #len=4
                 
@@ -80,8 +85,9 @@ class SAM:
                     
                 last_recording_id_odas[i] = recording_id_odas[i]
                     
-                    
+            ##########################################################     
             #check if we got any ansers from sr (speaker recognition) in the meantime
+            #############################################################
             todelete_req = []
             for rec_id, req in sr_requests.iteritems():
                 try:
@@ -121,12 +127,21 @@ class SAM:
                     
                     
                     
-                    
-            #here we go through our recordings and try to assign speakers
+            ##################################################################################      
+            #here we go through our recordings and handle them based on their current status
+            ####################################################################################
             todelete = []
             if self.visualization:
                 rec_info_to_vis = [] 
             for rec_id, rec in recordings.iteritems():
+                
+                
+                if self.visualization:
+                    if not rec.stopped:
+                        rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2], 200])#200 is the size of the blob
+                    else:
+                        rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2], 50])
+                
                 if rec.new:
                     print("new recording ", rec_id)
                     #get angles to all known speakers
@@ -136,6 +151,7 @@ class SAM:
                     if len(self.speakers)>0 and rec.angles_to_speakers[0][1] < 35: #degree
                         print("preliminary assigning recording %d to speaker %d" % (rec_id, rec.angles_to_speakers[0][0]))
                         rec.preliminary_speaker_id = rec.angles_to_speakers[0][0]
+                        rec.final_speaker_id = rec.preliminary_speaker_id #this will be overwritten later
                         
                     else:
                         #create a new speaker
@@ -143,6 +159,7 @@ class SAM:
                         new_id = self.num_speakers
                         self.speakers[new_id] = Speaker(new_id, rec.startpos)
                         rec.preliminary_speaker_id = new_id
+                        rec.final_speaker_id = rec.preliminary_speaker_id #this will be overwritten later
                         rec.created_new_speaker = True
                         print("creating new speaker %d for recording %d" % (new_id, rec_id))
                         
@@ -197,11 +214,6 @@ class SAM:
                 if rec.alldone:
                     todelete.append(rec_id)
                     
-                if self.visualization:
-                    if not rec.stopped:
-                        rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2], 200])#200 is the size of the blob
-                    else:
-                        rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2], 100])
             
             for rec_id in todelete:
                 del recordings[rec_id]
@@ -216,7 +228,7 @@ class SAM:
                 
             
             
-        print("Worker is done.")
+        print("SAM is done.")
         self.merger.stop()
         if self.visualization:
             self.visualizer.stop()

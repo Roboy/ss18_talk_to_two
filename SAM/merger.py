@@ -30,7 +30,10 @@ class Merger(threading.Thread):
         while self.id_recv.is_alive() and self.audio_recv.is_alive() and not self.please_stop.is_set():
             
             #wait for new audio data
-            latest_audio = self.audio_to_merger_queue.get(block=True)
+            try:
+                latest_audio = self.audio_to_merger_queue.get(block=True, timeout=1)
+            except Empty:
+                continue #restart loop, but check again if we maybe got a stop signal
                       
             #get the latest id update (empties queue and save the last one)
             while 1:

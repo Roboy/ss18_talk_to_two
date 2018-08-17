@@ -7,15 +7,20 @@ BING_KEY = ''
 
 class T2t_stt:
     def __init__(self):
-        #self.bing = bing_voice.BingVoice(BING_KEY)
-        pass
+        
+        if BING_KEY != '':
+            self.bing = bing_voice.BingVoice(BING_KEY)
+        else:
+            pass
         
     def get_text(self, audio):
         # recognize speech using Microsoft Bing Voice Recognition
         try:
             # pdb.set_trace()
-            #text = self.bing.recognize(audio, language='en-US')
-            text = "Bing key is not set"
+            if BING_KEY != '':
+                text = self.bing.recognize(audio, language='en-US')
+            else:
+                text = "Bing key is not set"
             # pdb.set_trace()
             print('Bing:' + text.encode('utf-8'))
             return text

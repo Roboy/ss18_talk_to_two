@@ -6,7 +6,8 @@ based on https://github.com/Uberi/speech_recognition
 
 import json
 import uuid
-import wave, pyaudio
+import wave
+#import pyaudio
 import io
 from monotonic import monotonic
 from urllib import urlencode
