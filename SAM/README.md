@@ -2,7 +2,7 @@
 ## Setup guide:
 (For explanation of how this code works and what the classes do see our doku in confluence)
 
-1. Setup ODAS on the matrix creator. ODAS as a new version 2.0 comming up, where it will introduce major changes that will probably break our code. Thus we have forked the current version, to make sure this will also run in the Future, so best us this repo: https://github.com/Roboy/odas
+1. **Setup ODAS** on the matrix creator. ODAS as a new version 2.0 comming up, where it will introduce major changes that will probably break our code. Thus we have forked the current version, to make sure this will also run in the Future, so best us this repo: https://github.com/Roboy/odas
 
    1.1) 
    Install ODAS on the Pi
@@ -46,7 +46,11 @@
      ```   
    and change the ip adresses to match the ones of your computer.
   
-  On your computer depending on your python environment you might need to install some dependencies for pyaudioanalysis, which is required for the speaker recognition. Python will tell you which. (Note to self: Ask kathi for these dependencies and put them here)
+  
+ 2. **Setup your Python Environment**. We are using **Python 2.7**. While most of our code is designed to be also compatible to Python 3, PyAudioAnalysis, a dependecy for Speaker Recognition requires 2.7.
+ Make sure you have the following Packages installed:
+ ```
+ ```
   
   
   ## To Run:
