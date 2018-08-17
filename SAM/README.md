@@ -4,7 +4,7 @@
 
 1. Setup ODAS on the matrix creator. ODAS as a new version 2.0 comming up, where it will introduce major changes that will probably break our code. Thus we have forked the current version, to make sure this will also run in the Future, so best us this repo: https://github.com/Roboy/odas
 
-  1.1  Install ODAS on the Pi
+   1.1)Install ODAS on the Pi
   ```
   sudo apt-get install libfftw3-dev
   sudo apt-get install libconfig-dev
@@ -24,8 +24,8 @@
   ```
 
 
-  1.2 copy the config file "wip_creator.config" from this folder into odas/bin/ on the Pi.
-  In this file search for the lines 256-260
+   1.2) Copy the config file "wip_creator.config" from this folder into odas/bin/ on the Pi.
+    In this file search for the lines 256-260
   
   ```
   interface: {
@@ -34,7 +34,7 @@
          port = 9003;
   };
   ```    
-  and 323-326
+   and 323-326
   ```
   interface: {
          type = "socket";
