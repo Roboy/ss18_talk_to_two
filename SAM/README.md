@@ -59,7 +59,7 @@
     monotonic
     ``` 
     for Speaker Recognition
-    todo: get these rquirenments from kathi
+    TODO: get these rquirenments from kathi
     ```
     eyed3
     ```
@@ -67,7 +67,7 @@
   
   
   ## To Run:
-  First run main.py / main.ipynb (they both do the same thing, but appearantly on windows the matplotlib output only works in Ipython) on your computer. When you see "Waiting for Connection..." start ODAS on the creator using the command
+  First run **main.py** / **main.ipyn** (they both do the same thing, but appearantly on windows the matplotlib output only works in Ipython) on your computer. When you see "Waiting for Connection..." start ODAS on the creator using the command
   ```
   cd odas
   cd bin
