@@ -26,7 +26,7 @@
 
 
    1.2) 
-   Copy the config file "wip_creator.config" from this folder into odas/bin/ on the Pi.
+   Copy the config file "Roboy_creator.config" from this folder into odas/bin/ on the Pi.
     In this file search for the lines 256-260
   
      ```
@@ -71,6 +71,6 @@
   ```
   cd odas
   cd bin
-  ./odaslive -v -c wip_creator.cfg
+  ./odaslive -v -c Roboy_creator.cfg
   ```
   
