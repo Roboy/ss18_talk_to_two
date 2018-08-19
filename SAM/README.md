@@ -44,7 +44,7 @@
             port = 9002;
      }; 
      ```   
-   and change the ip adresses to match the ones of your computer.
+   and change the ip adresses to match the one of your computer.
   
   
   
