@@ -47,16 +47,16 @@ class Tester (threading.Thread):
 				scores[id]=score
 				if score>max_score:
 					max_score,max_speaker=score,id
-			###### new speaker detected
+			
 			max_score_key=max(scores.iteritems(), key=operator.itemgetter(1))[0]
 			max_score=max(scores.iteritems(), key=operator.itemgetter(1))[1]
 			min_score_key=min(scores.iteritems(), key=operator.itemgetter(1))[0]
 			min_score=min(scores.iteritems(), key=operator.itemgetter(1))[1]
 			#print max_score_key,max_score
 			#print min_score_key,min_score
-			###### calculate 
+			###### calculate diference to see if it's a new speaker
 			print 'dif '+str(abs(max_score-min_score))
-			if abs(max_score-min_score)<self.threshold:
+			if abs(max_score-min_score)<self.threshold and abs(max_score-min_score)!=0:
 				print 'new speaker'
 				max_speaker=-99
 				certainty=5
@@ -67,13 +67,4 @@ class Tester (threading.Thread):
 		print 'testing took '+str (time.time()-start_time)+ ' for the one test file'
 		
 		
-		'''for modelfile in sorted(glob.glob('train_models/*.txt')):
-			gmm,speaker_id,speaker_name=load_mode_file(modelfile)
-			score=gmm.score(features)
-			#print score
-			if score>max_score:
-				max_score,max_speaker=score,speaker_id
-		print 'speaker indicated by test_file: '+str(speaker_id_test_file)+" -> "+ 'what model believes:  '+str(max_speaker)+(" Y" if speaker_id_test_file==max_speaker  else " N")
-		print 'testing took '+ str(time.time()-start_time) + ' seconds'
 		
-		return max_speaker'''

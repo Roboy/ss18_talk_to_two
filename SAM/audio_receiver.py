@@ -32,9 +32,11 @@ class Audio_Receiver(threading.Thread):
         while not self.please_stop.is_set():
             
             data = conn.recv(BUFFER_SIZE)
+            #print (data)
             if not data: break
 
             dataarray = np.frombuffer(data, dtype=np.int16)
+            
             #first put all data into my buffer
             for i in range(4):
                 channel_buffer_feeder[i] = np.append(channel_buffer_feeder[i], dataarray[i::4])

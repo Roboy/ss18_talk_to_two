@@ -13,7 +13,7 @@ from speaker import Speaker
 from recording import Recording
 from t2t_stt import T2t_stt
 
-#from speaker_recognition.speaker_recognition import Speaker_recognition
+from speaker_recognition.speaker_recognition import Speaker_recognition
 
 
     
@@ -32,7 +32,7 @@ class SAM:
         self.speakers = {}
         self.num_speakers = 0
         self.stt = T2t_stt()
-        #self.sr = Speaker_recognition()
+        self.sr = Speaker_recognition()
         
     def run(self):
         self.merger.start()
@@ -104,7 +104,7 @@ class SAM:
                         #both agree, thats nice
                         recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
                         recordings[rec_id].send_to_trainer = True
-                    elif recordings[rec_id].created_new_speaker: # and sr_id == -99:
+                    elif recordings[rec_id].created_new_speaker and sr_id == -99:
                         #both agree, that this is a new speaker
                         print("both agree that rec %d is new speaker %d" %(rec_id, recordings[rec_id].preliminary_speaker_id))
                         recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
@@ -171,7 +171,7 @@ class SAM:
                     
                 elif not rec.was_sent_sr and rec.audio.shape[0] > 16000 * 3: #its longer than 3 sec, time to send it to speaker recognition
                     sr_requests[rec_id] = Queue(maxsize=1)
-                    #self.sr.test(rec.audio, rec.preliminary_speaker_id, sr_requests[rec_id])
+                    self.sr.test(rec.audio, rec.preliminary_speaker_id, sr_requests[rec_id])
                     rec.was_sent_sr = True
                     rec.time_sent_to_sr = time.time()
                     
@@ -200,7 +200,7 @@ class SAM:
                             
                             #send this to trainer
                             if(rec.send_to_trainer):
-                                #self.sr.train(rec.final_speaker_id, rec.audio)
+                                self.sr.train(rec.final_speaker_id, rec.audio)
                                 print("sending recording %d to trainer" % (rec_id))
                             
                             
