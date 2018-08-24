@@ -1,6 +1,6 @@
 # SAM - Speaker and Audio Manager
 
-ODAS is used to get the audio data and a speaker id based on direction of arrival calculations. At the same time speaker recognition is used to identify speakers based on voice features.
+ODAS is used to get the audio data and direction of arrival information. At the same time speaker recognition is used to identify speakers based on voice features.
 SAM manages both aspects and controlls the communication to both subsystems and the speech-to-text subsystem used to translate the audio input to strings.
 If you want to know more about the theoretical background, check out our [best-docu-you-could-think of](https://devanthro.atlassian.net/wiki/spaces/SS18/pages/246546662/Best+Docu+you+could+think+of)
 
