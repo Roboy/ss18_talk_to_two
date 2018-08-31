@@ -1,12 +1,13 @@
 close all;
 
 do_pdm_stuff = 0;
-do_scale_stuff = 0;
-do_get_rid = 1;
-do_rid_pdm_stuff = 1;
+do_scale_stuff = 1;
+do_get_rid = 0;
+do_rid_pdm_stuff = 0;
+do_sin_stuff = 1;
 f_s = 3072000;
 f_c = 8e3;
-bit_width = 24;
+bit_width = 32;
 lpfilter = designfilt('lowpassiir', 'PassbandFrequency', f_c, 'StopbandFrequency', 15e3, 'PassbandRipple', 1, 'StopbandAttenuation', 60, 'SampleRate', f_s, 'DesignMethod', 'butter', 'MatchExactly', 'passband');
 % lpfilter = designfilt('lowpassiir', 'PassbandFrequency', f_c, 'StopbandFrequency', 10e3, 'PassbandRipple', 1, 'StopbandAttenuation', 60, 'SampleRate', f_s, 'DesignMethod', 'cheby1');
 coeffs = lpfilter.Coefficients;
@@ -38,7 +39,7 @@ end
 % y[n] = 1 / a_0 * (b_0 * x[n] + b_1 * x[n - 1] + b_2 * x[n - 2]
 %        - a_1 * y[n - 1] - a_2 * y[n - 2]
 if do_scale_stuff == 1
-    x = ch;
+    x=ch;
     y = x;
     co = scaled_coeffs;
     b0 = 1;
@@ -61,8 +62,12 @@ if do_scale_stuff == 1
         x = y;
     end
     figure;
+    plot(t, ch);
+    title('original signal')
+    
+    figure;
     plot(t, y);
-    title('my way')
+    title('filtered signal')
 end
 % ---- test with existing pdm file ----
 % y[n] = 1 / a_0 * (b_0 * x[n] + b_1 * x[n - 1] + b_2 * x[n - 2]
@@ -72,17 +77,11 @@ if do_pdm_stuff == 1
     pdm = zeros(1, 4000);
     pdm(1, :) = fread(pdm_data, 4000, '*ubit1', 'ieee-be');
 
-    for i=size(pdm, 2)
-        if pdm(1, i) == 1
-            pdm(1, i) = 255;
-        else
-            pdm(1, i) = -255;
-        end
-    end
+    pdm = pdm .* 2^23;
 
     x = pdm;
     y = x;
-    co_pdm = scaled_coeffs;
+    co_pdm = coeffs;
     b0 = 1;
     b1 = 2;
     b2 = 3;
@@ -142,7 +141,12 @@ if do_get_rid == 1
     a1 = 5;
     a2 = 6;
     % use filter 
-    x = ch;
+    t_less = 0:0.0001:2;
+    ch_less = chirp(t_less,1,2,f_s,'logarithmic');
+    ch_scaled = floor(ch_less * 2^23);
+%     x = zeros(size(ch_scaled));
+%     y = zeros(size(ch_scaled));
+    x = ch_scaled;
     y = x;
     for i = 1:size(rid_coeffs, 1)
         for n=1:size(x, 2)
@@ -156,14 +160,14 @@ if do_get_rid == 1
     end
 
     figure; 
-    plot(t, x);
+    plot(t_less, x);
     title('got rid of a0')
     % scale that shit
 
     rid_scale_co = floor(rid_coeffs * 2^23);
 
     % use that scaled shit
-    x = ch;
+    x = ch_scaled;
     y = x;
     for i = 1:size(rid_scale_co, 1)
         for n=1:size(x, 2)
@@ -178,7 +182,7 @@ if do_get_rid == 1
 
 
     figure; 
-    plot(t, y);
+    plot(t_less, y);
     title('scaled that shit')
 end
 
@@ -235,3 +239,49 @@ if do_rid_pdm_stuff == 1
     title('decimated rid signal')
 end
 
+% ---- sinus test data ----
+if do_sin_stuff == 1
+    fs_sin =  f_s;                    % Sampling frequency (samples per second)
+    dt = 1/fs_sin;                   % seconds per sample
+    StopTime = (1/8) * 10^-3;             % seconds
+    t_sin = (0:dt:StopTime-dt)';     % seconds
+    F_8k = 8000;                      % Sine wave frequency (hertz)
+    F_1M = 1 * 10^6;
+    sin_8k = sin(2*pi*F_8k*t_sin);
+    sin_1M = sin(2*pi*F_1M*t_sin);
+    sin_comb = sin_8k + sin_1M;
+    
+    
+    % y[n] = 1 / a_0 * (b_0 * x[n] + b_1 * x[n - 1] + b_2 * x[n - 2]
+    %        - a_1 * y[n - 1] - a_2 * y[n - 2]
+
+    x=sin_comb;
+    y = x;
+    co = coeffs;
+    b0 = 1;
+    b1 = 2;
+    b2 = 3;
+    a0 = 4; 
+    a1 = 5;
+    a2 = 6;
+
+    figure;
+    plot(t_sin, sin_comb);
+    title('before')
+   
+    for i = 1:size(co, 1)
+        for n=1:size(x, 2)
+            if n < 3
+                y(n) = 0;
+            else
+                y(n) = (co(i, b0) * x(n) + co(i, b1) * x(n-1) + co(i, b2) * x(n-2) - co(i, a1) * y(n-1) - co(i, a2) * y(n-2)) / co(i, a0);
+            end
+        end
+    %     figure;
+    %     plot(t, y);
+        x = y;
+    end
+    figure;
+    plot(t_sin, y);
+    title('after')
+end
