@@ -3,7 +3,7 @@ import bing_voice
 
 
 ######hier bing key einsetzen
-BING_KEY = ''
+BING_KEY = 'b62d103033b94881b01bf73c1d44ac60'
 
 class T2t_stt:
     def __init__(self):

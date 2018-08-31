@@ -17,7 +17,7 @@ import numpy as np
 import struct
 
 # get a key from https://www.microsoft.com/cognitive-services/en-us/speech-api
-BING_KEY = ''
+BING_KEY = 'b62d103033b94881b01bf73c1d44ac60'
 
 
 class RequestError(Exception):
