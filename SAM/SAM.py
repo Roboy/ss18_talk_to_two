@@ -137,7 +137,7 @@ class SAM:
                                 recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
                         
                     
-                    print("response for req %d, results is %d" % (rec_id, sr_id))    
+                    print("response for req %d, results is %d, certanty %d" % (rec_id, sr_id, certainty))    
                     recordings[rec_id].is_back_from_sr = True
                     todelete_req.append(rec_id)
                     
@@ -175,7 +175,7 @@ class SAM:
                     
                     #if it is wihthin a certain range to a known speaker, assign it to him
                     if len(self.speakers)>0 and rec.angles_to_speakers[0][1] < 35: #degree
-                        print("preliminary assigning recording %d to speaker %d" % (rec_id, rec.angles_to_speakers[0][0]))
+                        print("preliminary assigning recording %d to speaker %d, angle is %d" % (rec_id, rec.angles_to_speakers[0][0], rec.angles_to_speakers[0][1]))
                         rec.preliminary_speaker_id = rec.angles_to_speakers[0][0]
                         rec.final_speaker_id = rec.preliminary_speaker_id #this will be overwritten later
                         
@@ -187,7 +187,10 @@ class SAM:
                         rec.preliminary_speaker_id = new_id
                         rec.final_speaker_id = rec.preliminary_speaker_id #this will be overwritten later
                         rec.created_new_speaker = True
-                        print("creating new speaker %d for recording %d" % (new_id, rec_id))
+                        closest_ang = -999
+                        if len(rec.angles_to_speakers)>0:
+                            closest_ang = rec.angles_to_speakers[0][1]
+                        print("creating new speaker %d for recording %d, closest angle is %d" % (new_id, rec_id, closest_ang))
                         
                         if(self.num_speakers == 1):
                             rec.send_to_trainer = True
