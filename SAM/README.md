@@ -52,7 +52,7 @@ If you want to know more about the theoretical background, check out our [best-d
  If you don't have a working python 2.7 anaconda environment you can check out this page [Conda User Guide](https://conda.io/docs/user-guide/tasks/manage-python.html) or follow these steps:
   - make a new 2.7 environment in anaconda:
 
-          conda create -n <environment_name> pythone=2.7 anaconda
+          conda create -n <environment_name> python=2.7 anaconda
 
   - activate your environment:
 
