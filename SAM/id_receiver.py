@@ -76,7 +76,7 @@ class Id_Receiver(threading.Thread):
     #the data we receive over the netowrk does not neatly aling with the json objects, so je need to search the buffer for valid objects
     def dynamic_json_extractor(self, buffer):
         
-        if len(buffer) > 10000:
+        if len(buffer) > 50000:
             #if the buffer has gotten too large (thats over 20 messages) somethin obviously has gone wrong, (mybe something misformatted?) and we should discard this
             print("Buffer has grown too large, something must have gone wrong, clearing buffer. Buffer size was", len(buffer))
             buffer = ''
