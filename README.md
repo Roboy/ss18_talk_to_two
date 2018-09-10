@@ -20,7 +20,7 @@ For now everything is running on a Mojo V3. You'll obviously need one if you wan
 
 Please find more information and the code in the folder called `transformatrix`. There's an additional README where you can find more detailed information about its functionality and how to use it.
 
-##SAM
+## SAM
 SAM - Speaker and Audio Manager. Handles identifing who is speaking. More info in the Readme in the the folder SAM.
 
 ## Breakout board
