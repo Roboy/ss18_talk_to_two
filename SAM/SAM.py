@@ -94,12 +94,10 @@ class SAM:
                     #sr_id: -99 means new speaker
                     #certainty between 0-10
                     certainty = 0
-                    preliminary_id, sr_id, certainty = req.get(block=False) 
-                    #TODO:merge these two infos together
-                    if certainty < 3:
-                        recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
+                    preliminary_id, sr_id, certainty = req.get(block=False)         
                         
-                    
+                    #Fuse info of speaker recognition on localization together
+                    #First the best case, both agree on an is/new speker
                     if sr_id == recordings[rec_id].preliminary_speaker_id:
                         #both agree, thats nice
                         recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
@@ -109,6 +107,34 @@ class SAM:
                         print("both agree that rec %d is new speaker %d" %(rec_id, recordings[rec_id].preliminary_speaker_id))
                         recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
                         recordings[rec_id].send_to_trainer = True
+                    else:
+                    
+                        #Now come the harder parts.
+                        if certainty < 1:
+                        #if speaker recognition is unsure we rely on localization
+                            recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
+                        elif certainty > 8:
+                        #sr is super sure, we trust it 
+                            recordings[rec_id].final_speaker_id = sr_id
+                            recordings[rec_id].sr_changed_speaker = True
+                        else:
+                        #check the angle the the speaker sr suggested, and depending on the certatnty decide
+                            #go through the lsit of speaker angles and find the one one which sr suggests
+                            found = False
+                            for (oth_id, angl) in recordings[rec_id].angles_to_speakers:
+                                if oth_id == sr_id:
+                                    #the furthere we are away the shurer sr has to be
+                                    if certainty*20 > ang:
+                                        recordings[rec_id].final_speaker_id = sr_id
+                                        recordings[rec_id].sr_changed_speaker = True
+                                    else:
+                                        recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
+                                    found = True
+                                    break
+                            if not found:
+                                #this shouldnt happen
+                                print("Speaker recognition suggestested id {} for recording {}, which doesn't exist".format(sr_id, rec_id))
+                                recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
                         
                     
                     print("response for req %d, results is %d" % (rec_id, sr_id))    
@@ -116,8 +142,8 @@ class SAM:
                     todelete_req.append(rec_id)
                     
                 except Empty:
-                    if time.time() - recordings[rec_id].time_sent_to_sr > 0.1: #no response from sr for 10 sec -> timeout
-                        #print("no response for request %d in 10 sec -> timeout" % (rec_id))
+                    if time.time() - recordings[rec_id].time_sent_to_sr > 3: #no response from sr for 3 sec -> timeout
+                        #print("no response for request %d in 3 sec -> timeout" % (rec_id))
                         recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
                         recordings[rec_id].is_back_from_sr = True
                         todelete_req.append(rec_id)
@@ -190,6 +216,12 @@ class SAM:
                                 #it seems like this has been to short to be sent to
                                 rec.final_speaker_id = rec.preliminary_speaker_id
                             self.speakers[rec.final_speaker_id].pos = rec.currentpos
+                            
+                            if rec.created_new_speaker and rec.sr_changed_speaker:
+                                try:   
+                                    del self.speakers[rec.preliminary_speaker_id]
+                                except:
+                                    print("Error deleting preliminary speaker ", rec.preliminary_speaker_id)
                             
                             #TODO:
                             #send to speech to text

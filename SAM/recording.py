@@ -18,6 +18,7 @@ class Recording:
         self.created_new_speaker = False
         self.angles_to_speakers = []
         self.send_to_trainer = False
+        self.sr_changed_speaker = False
         
         
     #redurns a list of soerted touples (speaker_id, angle)
