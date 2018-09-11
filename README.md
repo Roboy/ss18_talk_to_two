@@ -21,13 +21,13 @@ In this subproject we're developing our own microphone array. You can/will find 
 
 Please find more information and the code in the folder called `transformatrix`. There's an additional README where you can find more detailed information about its functionality and how to use it.
 
-##### Breakout board
+##### Microphone holder
 
-We designed our costum breakout board and 3D printed it. In the folder `stuff_related_to_custom_mic_array`you can find all the files we used to print it.
+We designed our costum microphone holder and 3D printed it. In the folder `stuff_related_to_custom_mic_array`you can find all the files we used to print it.
 
 
 ## SAM
-SAM - Speaker and Audio Manager. Handles identifing who is speaking using direction of arrival information and speaker recognitioon. More information can be found in the README in the the folder `SAM`.
+SAM - Speaker and Audio Manager. Handles the identification of who is speaking using direction of arrival information and speaker recognition. More information can be found in the README in the the folder `SAM`.
 
 
 ## Speaker diarization
@@ -38,8 +38,8 @@ Please find more information and the code in the folder called `speaker_diarizat
 
 ## Multiparty Dialog
 
-The current dialog system was adapted in order to be able to not only understand that there are different people talking but to have a real meaningful conversation with more than one person. This part was directly modified in the [Dialog System]{https://github.com/Roboy/roboy_dialog/tree/negin_multi_party_dialog_3}
+The current dialog system was adapted in order to be able to not only understand that there are different people talking but to have a real meaningful conversation with more than one person. This part was directly modified in the [Dialog System](https://github.com/Roboy/roboy_dialog/tree/negin_multi_party_dialog_3)
 
-## odas_server_this_is_legacy
+## odas_initial_experiments
 
-Here you can find some of our experiments with ODAS to understand how it works and how we can use it.
+Here you can find some of our initial experiments with ODAS to understand how it works and how we can use it.
