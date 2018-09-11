@@ -6,7 +6,7 @@ If you want to know more about the theoretical background, check out our [best-d
 
 
 
-## Setup guide:
+## Pre-requesites:
 
 1. **Setup ODAS** on the matrix creator. ODAS as a new version 2.0 comming up, where it will introduce major changes that will probably break our code. Thus we have forked the current version, to make sure this will also run in the Future, so best us this repo: https://github.com/Roboy/odas
     - Install ODAS on the Pi

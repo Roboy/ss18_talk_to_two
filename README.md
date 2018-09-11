@@ -12,23 +12,30 @@ For more detailed and theoretic information about the project please check out o
 
 In this subproject we're developing our own microphone array. You can/will find these software parts in our repository:
 
-  -  Verilog driver for the SIMIC (in progress)
-  -  Communication module for ARM-Core and FPGA (not implemented yet)
+  -  Verilog driver for the SIMIC (solved)
+  -  Communication module for ARM-Core and FPGA (solved)
   -  Python driver to access the audio data as Numpy array (far far away)
+  - the Lowpass filter and decimation implementation and algorithm in Matlab (solved)
 
-For now everything is running on a Mojo V3. You'll obviously need one if you want to use the code from this repository.
+ For now everything that is related to a FPGA is running on a DE0-Nano. You'll obviously need one if you want to use the code from this repository.
 
 Please find more information and the code in the folder called `transformatrix`. There's an additional README where you can find more detailed information about its functionality and how to use it.
 
-## SAM
-SAM - Speaker and Audio Manager. Handles identifing who is speaking. More info in the Readme in the the folder SAM.
-
-## Breakout board
+##### Breakout board
 
 We designed our costum breakout board and 3D printed it. In the folder `stuff_related_to_custom_mic_array`you can find all the files we used to print it.
+
+
+## SAM
+SAM - Speaker and Audio Manager. Handles identifing who is speaking using direction of arrival information and speaker recognitioon. More information can be found in the README in the the folder `SAM`.
+
 
 ## Speaker diarization
 
 In order to be able to have a conversation with multiple people the question 'who is talking when?' raises. Our first approach to solve this question was speaker diarization.
 
 Please find more information and the code in the folder called `speaker_diarization`. There's an additional README where you can find more detailed information about its functionality and how to use it.
+
+## Multiparty Dialog
+
+The current dialog system was adapted in order to be able to not only understand that there are different people talking but to have a real meaningful conversation with more than one person. This part was directly modified in the [Dialog System]{https://github.com/Roboy/roboy_dialog/tree/negin_multi_party_dialog_3}

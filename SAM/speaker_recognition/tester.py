@@ -19,6 +19,7 @@ class Tester (threading.Thread):
 		self.odas_id=odas_id
 		self.outq=outq
 		self.gmm_models=gmm_models
+		###### this threshold should be tuned 
 		self.threshold=9.53
 		
 		
@@ -41,9 +42,9 @@ class Tester (threading.Thread):
 			max_speaker=self.odas_id
 		else:
 			for id in self.gmm_models:
-				print id
+				#print id
 				score=self.gmm_models[id].score(features)
-				print score
+				#print score
 				scores[id]=score
 				if score>max_score:
 					max_score,max_speaker=score,id
@@ -52,18 +53,19 @@ class Tester (threading.Thread):
 			max_score=max(scores.iteritems(), key=operator.itemgetter(1))[1]
 			min_score_key=min(scores.iteritems(), key=operator.itemgetter(1))[0]
 			min_score=min(scores.iteritems(), key=operator.itemgetter(1))[1]
-			#print max_score_key,max_score
-			#print min_score_key,min_score
-			###### calculate diference to see if it's a new speaker
+
+			
+			###### calculate diference to see if it's a new speaker, still needs some tuning 
 			print 'dif '+str(abs(max_score-min_score))
 			if abs(max_score-min_score)<self.threshold and abs(max_score-min_score)!=0:
 				print 'new speaker'
 				max_speaker=-99
+				###### adjust certainty
 				certainty=5
 			
 		self.outq.put((self.odas_id,max_speaker,certainty))
-		print self.odas_id,max_speaker,certainty
-		#print self.outq
+		print 'speaker '+str(self.max_speaker)+ ' recognized with certainty  '+ certainty
+
 		print 'testing took '+str (time.time()-start_time)+ ' for the one test file'
 		
 		

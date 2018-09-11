@@ -22,7 +22,7 @@ class Trainer (threading.Thread):
 		self.gmm_models=gmm_models
 		
 	def run(self):
-			print 'run trainer'
+			#print 'run trainer'
 			start_time=time.time()
 			features = MFCC_extractor.extract_MFCCs(self.latest_audio_to_train,self.Fs,self.window*self.Fs,self.window_overlap*self.Fs,self.voiced_threshold_mul,self.voiced_threshold_range,self.calc_deltas)
 			##### if gmm with latest_id_to_train exists update that model
@@ -31,15 +31,15 @@ class Trainer (threading.Thread):
 			if self.latest_id_to_train in self.gmm_models:
 				old_model=copy.deepcopy(self.gmm_models[self.latest_id_to_train])
 				print 'updating existing model'
-				print self.latest_id_to_train
+				#print self.latest_id_to_train
 				new_model=old_model.fit(features)
 			######else train new one and write it at the right place 
 			else: 
 				print 'creating new model'
-				print self.latest_id_to_train
+				#print self.latest_id_to_train
 				new_model= mixture.GaussianMixture(n_components=self.n_mixtures, covariance_type='diag' , max_iter = self.max_iterations ).fit(features)
 			
 			self.trainer_gmm_queue.put((self.latest_id_to_train,new_model))
 			#print self.latest_id_to_train,new_model
 			print 'training took '+str (time.time()-start_time)+ ' for the one training file'
-			print 'trainer is done and closing itself'
+			#print 'trainer is done and closing itself'
