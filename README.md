@@ -39,3 +39,7 @@ Please find more information and the code in the folder called `speaker_diarizat
 ## Multiparty Dialog
 
 The current dialog system was adapted in order to be able to not only understand that there are different people talking but to have a real meaningful conversation with more than one person. This part was directly modified in the [Dialog System]{https://github.com/Roboy/roboy_dialog/tree/negin_multi_party_dialog_3}
+
+## odas_server_this_is_legacy
+
+Here you can find some of our experiments with ODAS to understand how it works and how we can use it.
