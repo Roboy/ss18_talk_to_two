@@ -16,8 +16,7 @@ In this subproject we're developing our own microphone array. You can/will find 
   -  Communication module for ARM-Core and FPGA (solved)
   -  Python driver to access the audio data as Numpy array (far far away)
   - the Lowpass filter and decimation implementation and algorithm in Matlab (solved)
-
- For now everything that is related to a FPGA is running on a DE0-Nano. You'll obviously need one if you want to use the code from this repository.
+  - the Lowpass filter ported onto the FPGA (still in progress)
 
 Please find more information and the code in the folder called `transformatrix`. There's an additional README where you can find more detailed information about its functionality and how to use it.
 

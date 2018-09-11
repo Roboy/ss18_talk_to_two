@@ -6,6 +6,7 @@ This is the Hardware related Software part of the Talk to Two project. As the na
 - Communication module for ARM-Core and FPGA (solved)
 - Python driver to access the audio data as Numpy array (far far away)
 - the Lowpass filter and decimation implementation and algorithm in Matlab (solved)
+- the Lowpass filter ported onto the FPGA (still in progress)
 
 can be found in this subproject. For now everything that is related to a FPGA is running on a [DE0-Nano](https://www.terasic.com.tw/cgi-bin/page/archive.pl?No=593). You'll obviously need one if you want to use the code from this repository, plus it's highly recommended to use **Ubuntu** for programming it since we only tried it on Ubuntu yet. Through that we are not going to offer any support if you're trying it on some fruit or window related OS.
 The second part will care about Matlab and there you'll just need a working Matlab in at least the 2016b Version.
