@@ -20,9 +20,9 @@ In this subproject we're developing our own microphone array. You can/will find 
 
 Please find more information and the code in the folder called `transformatrix`. There's an additional README where you can find more detailed information about its functionality and how to use it.
 
-##### Microphone holder
+##### Modular microphone array base
 
-We designed our costum microphone holder and 3D printed it. In the folder `stuff_related_to_custom_mic_array`you can find all the files we used to print it.
+We designed our costum microphone array base and 3D printed it. In the folder `stuff_related_to_custom_mic_array`you can find all the files we used to create it.
 
 
 ## SAM
