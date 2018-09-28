@@ -111,6 +111,10 @@ If you want to know more about the theoretical background, check out our [best-d
     - wave
 
           pip install wave
+          
+    - pyAudioAnalysis
+          git clone https://github.com/tyiannak/pyAudioAnalysis.git
+          pip install -e pyAudioAnalysis
 
 ##### Notes
 it is possible to make it work on windows but I think running it on ubuntu is easier.
