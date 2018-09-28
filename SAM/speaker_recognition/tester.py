@@ -63,8 +63,8 @@ class Tester (threading.Thread):
 				###### adjust certainty
 				certainty=5
 			
-		self.outq.put((self.odas_id,max_speaker,certainty))
-		print 'speaker '+str(self.max_speaker)+ ' recognized with certainty  '+ certainty
+		self.outq.put((self.odas_id, max_speaker, certainty))
+		print 'speaker ', str(max_speaker), ' recognized with certainty  ', certainty
 
 		print 'testing took '+str (time.time()-start_time)+ ' for the one test file'
 		
