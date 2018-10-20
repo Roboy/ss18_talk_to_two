@@ -6,7 +6,7 @@ import rospy
 from std_msgs.msg import String
 
 ######hier bing key einsetzen
-BING_KEY = '5d655632276744b388fce13c1045c757'
+BING_KEY = ''
 
 class T2t_stt:
     def __init__(self):
