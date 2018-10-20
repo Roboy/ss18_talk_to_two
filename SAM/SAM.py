@@ -3,8 +3,11 @@
 import time
 import numpy as np
 from Queue import Queue
-from Queue import Empty
+from Queue import Empty as q_Empty
 from Queue import Full
+
+from multiprocessing import Process
+from multiprocessing import Queue as mult_Queue
 
 from merger import Merger
 from visualizer import Visualizer
@@ -17,6 +20,9 @@ from speaker_recognition.speaker_recognition import Speaker_recognition
 # kevins ros changes
 import rospy
 from std_msgs.msg import String
+from roboy_communication_cognition.srv import RecognizeSpeech
+from roboy_communication_control.msg import ControlLeds
+from std_msgs.msg import Empty as msg_Empty, Int32
 
 
 class SAM:
@@ -34,6 +40,41 @@ class SAM:
         self.num_speakers = 0
         self.stt = T2t_stt()
         self.sr = Speaker_recognition()
+        self.text_queue = mult_Queue()
+        self.bing_allowed = False
+
+    def handle_service(self, req):
+        rospy.loginfo("entered handle service")
+        msg = ControlLeds()
+        msg.mode = 2
+        msg.duration = 0
+        self.ledmode_pub.publish(msg)
+        queue = mult_Queue()
+        self.bing_allowed = True
+        p = Process(target=self.stt_subprocess, args=(queue,))
+        p.start()
+        p.join()
+        msg = msg_Empty()
+        self.ledfreeze_pub.publish(msg)
+        self.bing_allowed = False
+        return queue.get()
+
+    def stt_subprocess(self, q):
+        # clear the text queue
+        rospy.loginfo("clear the text queue")
+        while not self.text_queue.empty():
+            rospy.loginfo("got an item from the queue ->" + self.text_queue.get())
+
+        # wait for the next text to arrive
+        rospy.loginfo("going to wait for the text_queue to be filled again")
+        rate = rospy.Rate(1)
+        while self.text_queue.empty() and not rospy.is_shutdown():
+            rospy.loginfo("still waiting, current length : " + str(self.text_queue.qsize()))
+            rate.sleep()
+
+        # put it into the return queue
+        rospy.loginfo("got one and put it into the dedicated queue")
+        q.put(self.text_queue.get())
 
     def run(self):
         self.merger.start()
@@ -51,15 +92,22 @@ class SAM:
 
         # kevins ros changes
         pub = rospy.Publisher('SAM_output', String, queue_size=10)
+        s = rospy.Service('SAM_service', RecognizeSpeech, self.handle_service)
+        self.ledmode_pub = rospy.Publisher("/roboy/control/matrix/leds/mode", ControlLeds, queue_size=3)
+        self.ledoff_pub = rospy.Publisher('/roboy/control/matrix/leds/off', msg_Empty, queue_size=10)
+        self.ledfreeze_pub = rospy.Publisher("/roboy/control/matrix/leds/freeze", msg_Empty, queue_size=1)
+        self.ledpoint_pub = rospy.Publisher("/roboy/control/matrix/leds/point", Int32, queue_size=1)
         rospy.init_node("SAM", anonymous=True)
-        rate = rospy.Rate(10)
 
         while self.merger.is_alive() and not rospy.is_shutdown():
+
+            # we do ask for the next data block
+            # maybe this is the place where i can insert a call and replace the while loop
 
             # wait for/get next data
             try:
                 next_data = self.merger_to_main_queue.get(block=True, timeout=1)
-            except Empty:
+            except q_Empty:
                 continue  # restart loop, but check again if we maybe got a stop signal
 
             cid = next_data['id_info']
@@ -159,7 +207,7 @@ class SAM:
                     recordings[rec_id].is_back_from_sr = True
                     to_delete_req.append(rec_id)
 
-                except Empty:
+                except q_Empty:
                     if time.time() - recordings[rec_id].time_sent_to_sr > 3:  # no response from sr for 3 sec -> timeout
                         # print("no response for request %d in 3 sec -> timeout" % (rec_id))
                         recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
@@ -177,6 +225,29 @@ class SAM:
                 rec_info_to_vis = []
             for rec_id, rec in recordings.iteritems():
 
+                print
+                print "-------------------------------"
+                print "maybe position info"
+                print "-------------------------------"
+                print "rec_id: ", rec_id
+                print "rec.currentpos[0]: ", rec.currentpos[0]
+                print "rec.currentpos[1]: ", rec.currentpos[1]
+                print "rec.currentpos[2]: ", rec.currentpos[2]
+                print "-------------------------------"
+                print
+                msg = Int32()
+                if 1 > rec.currentpos[0] >= 0.5:
+                    msg.data = 0
+                    self.ledpoint_pub.publish(msg)
+                elif 0.5 > rec.currentpos[0] >= 0:
+                    msg.data = 9
+                    self.ledpoint_pub.publish(msg)
+                elif 0 > rec.currentpos[0] >= -0.5:
+                    msg.data = 18
+                    self.ledpoint_pub.publish(msg)
+                elif -0.5 > rec.currentpos[0] >= -1:
+                    msg.data = 27
+                    self.ledpoint_pub.publish(msg)
                 if self.visualization:
                     if not rec.stopped:
                         rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2],
@@ -258,12 +329,19 @@ class SAM:
 
                             # TODO:
                             # send to speech to text
-                            text = self.stt.get_text(rec.audio)
+                            if self.bing_allowed:
+                                text = self.stt.get_text(rec.audio)
+                            else:
+                                text = "bing is not allowed yet"
                             output_string = "Speaker {}: ".format(rec.final_speaker_id) + text.encode('utf-8')
                             print("\n\n")
                             print(output_string)
                             print("\n\n")
                             pub.publish(output_string)
+                            rospy.loginfo("going to wait for the queue tasks to be processed befor we fill it againg")
+
+                            self.text_queue.put(output_string)
+                            rospy.loginfo("text_queue lenght in main: " + str(self.text_queue.qsize()))
 
                             # send this to trainer
                             if (rec.send_to_trainer):
@@ -292,9 +370,6 @@ class SAM:
                 except Full:
                     # print("couldn't put data into visualization queue, its full")
                     pass
-            # kevins ros changes
-            # for normal here should come a rate.sleep but maybe i just let it commented out
-            #rate.sleep()
 
         output_string = "SAM is done."
         print output_string
