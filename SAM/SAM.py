@@ -99,6 +99,9 @@ class SAM:
         self.ledpoint_pub = rospy.Publisher("/roboy/control/matrix/leds/point", Int32, queue_size=1)
         rospy.init_node("SAM", anonymous=True)
 
+        # operation average
+        angle_list = []
+
         while self.merger.is_alive() and not rospy.is_shutdown():
 
             # we do ask for the next data block
@@ -223,37 +226,53 @@ class SAM:
             to_delete = []
             if self.visualization:
                 rec_info_to_vis = []
+
+            # ---------------------------------------------------------------------------------------------------
+            # new doa to led addon
+            rec_info_to_vis = []
+            # ---------------------------------------------------------------------------------------------------
+
             for rec_id, rec in recordings.iteritems():
 
-                print
-                print "-------------------------------"
-                print "maybe position info"
-                print "-------------------------------"
-                print "rec_id: ", rec_id
-                print "rec.currentpos[0]: ", rec.currentpos[0]
-                print "rec.currentpos[1]: ", rec.currentpos[1]
-                print "rec.currentpos[2]: ", rec.currentpos[2]
-                print "-------------------------------"
-                print
-                msg = Int32()
-                if 1 > rec.currentpos[0] >= 0.5:
-                    msg.data = 0
-                    self.ledpoint_pub.publish(msg)
-                elif 0.5 > rec.currentpos[0] >= 0:
-                    msg.data = 9
-                    self.ledpoint_pub.publish(msg)
-                elif 0 > rec.currentpos[0] >= -0.5:
-                    msg.data = 18
-                    self.ledpoint_pub.publish(msg)
-                elif -0.5 > rec.currentpos[0] >= -1:
-                    msg.data = 27
-                    self.ledpoint_pub.publish(msg)
+                # print
+                # print "-------------------------------"
+                # print "maybe position info"
+                # print "-------------------------------"
+                # print "rec_id: ", rec_id
+                # print "rec.currentpos[0]: ", rec.currentpos[0]
+                # print "rec.currentpos[1]: ", rec.currentpos[1]
+                # print "rec.currentpos[2]: ", rec.currentpos[2]
+                # print "-------------------------------"
+                # print
+                # msg = Int32()
+                # if 1 > rec.currentpos[0] >= 0.5:
+                #     msg.data = 0
+                #     self.ledpoint_pub.publish(msg)
+                # elif 0.5 > rec.currentpos[0] >= 0:
+                #     msg.data = 9
+                #     self.ledpoint_pub.publish(msg)
+                # elif 0 > rec.currentpos[0] >= -0.5:
+                #     msg.data = 18
+                #     self.ledpoint_pub.publish(msg)
+                # elif -0.5 > rec.currentpos[0] >= -1:
+                #     msg.data = 27
+                #     self.ledpoint_pub.publish(msg)
                 if self.visualization:
                     if not rec.stopped:
                         rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2],
                                                 200])  # 200 is the size of the blob
                     else:
                         rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2], 50])
+
+                # ---------------------------------------------------------------------------------------------------
+                # new doa to led addon
+                if not rec.stopped:
+                    rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2],
+                                            200])  # 200 is the size of the blob
+                else:
+                    rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2], 50])
+
+                # ---------------------------------------------------------------------------------------------------
 
                 if rec.new:
                     output_string = "new recording " + str(rec_id)
@@ -370,6 +389,30 @@ class SAM:
                 except Full:
                     # print("couldn't put data into visualization queue, its full")
                     pass
+            # ---------------------------------------------------------------------------------------------------
+            # new doa to led addon
+            # print
+            # print "------------------------------------"
+            # print "speakers: "
+            # print self.speakers
+            # print "rec_info_to_vis: "
+            # operation average
+            # if len(rec_info_to_vis) > 0 and not self.bing_allowed:
+            #     # print "0 -> ", rec_info_to_vis[0][0]
+            #     # print "1 -> ", rec_info_to_vis[0][1]
+            #     # print "2 -> ", rec_info_to_vis[0][2]
+            #     # print "3 -> ", rec_info_to_vis[0][3]
+            #     # print "4 -> ", rec_info_to_vis[0][4]
+            #     angle_list.append(rec_info_to_vis[0][1])
+            #     if len(angle_list) >= 10:
+            #         publish_point_left_right(self.ledpoint_pub, sum(angle_list)/len(angle_list))
+            #         angle_list = []
+            # else:
+            #     print "Empty dude"
+            # print "------------------------------------"
+            # print
+            # publish_point(self.ledpoint_pub, rec_info_to_vis[1])
+            # ---------------------------------------------------------------------------------------------------
 
         output_string = "SAM is done."
         print output_string
@@ -377,6 +420,45 @@ class SAM:
         self.merger.stop()
         if self.visualization:
             self.visualizer.stop()
+
+
+# ---------------------------------------------------------------------------------------------------
+# new doa to led addon
+def publish_point(pub, angle):
+    msg = ControlLeds()
+    if -0.125 < angle < 0.125:
+        msg.data = 25
+        pub.publish(msg)
+    elif 0.125 < angle < 0.625:
+        msg.data = 15
+        pub.publish(msg)
+    elif 0.625 < angle < 0.825:
+        msg.data = 10
+        pub.publish(msg)
+    elif 0.825 < angle < 1:
+        msg.data = 5
+        pub.publish(msg)
+    elif -1 < angle < -0.825:
+        msg.data = 0
+        pub.publish(msg)
+    elif -0.825 < angle < -0.625:
+        msg.data = 35
+        pub.publish(msg)
+    elif -0.625 < angle < -0.125:
+        msg.data = 30
+        pub.publish(msg)
+
+
+def publish_point_left_right(pub, angle):
+    msg = Int32()
+    #msg.duration = 0
+    if -1 < angle <= 0:
+        msg.data = 35
+        pub.publish(msg)
+    elif 0 < angle <= 1:
+        msg.data = 17
+        pub.publish(msg)
+# ---------------------------------------------------------------------------------------------------
 
 
 if __name__ == "__main__":
