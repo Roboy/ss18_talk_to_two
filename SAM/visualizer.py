@@ -4,10 +4,10 @@ from Queue import Empty
 import time
 import numpy as np 
 
-from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.cm as cm
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
+# from mpl_toolkits.mplot3d import Axes3D
+# import matplotlib.cm as cm
+# import matplotlib.pyplot as plt
+# from matplotlib.animation import FuncAnimation
 
 #matplotlib.use("gtk")
 

@@ -27,7 +27,7 @@ from std_msgs.msg import Empty as msg_Empty, Int32
 
 class SAM:
 
-    def __init__(self, visualization=False):
+    def __init__(self, visualization=False, speaker_recognition=False):
         self.merger_to_main_queue = Queue(maxsize=1000)  # very roughly 30sec
         self.merger = Merger(self.merger_to_main_queue)
 
@@ -39,7 +39,9 @@ class SAM:
         self.speakers = {}
         self.num_speakers = 0
         self.stt = T2t_stt()
-        self.sr = Speaker_recognition()
+        self.speaker_recognition = speaker_recognition
+        if self.speaker_recognition:
+            self.sr = Speaker_recognition()
         self.text_queue = mult_Queue()
         self.bing_allowed = False
 
@@ -61,9 +63,9 @@ class SAM:
 
     def stt_subprocess(self, q):
         # clear the text queue
-        rospy.loginfo("clear the text queue")
-        while not self.text_queue.empty():
-            rospy.loginfo("got an item from the queue ->" + self.text_queue.get())
+        # rospy.loginfo("clear the text queue")
+        # while not self.text_queue.empty():
+        #     rospy.loginfo("got an item from the queue ->" + self.text_queue.get())
 
         # wait for the next text to arrive
         rospy.loginfo("going to wait for the text_queue to be filled again")
@@ -132,7 +134,7 @@ class SAM:
                         recordings[recording_id_odas[i]].currentpos = [cid[i][1], cid[i][2], cid[i][3]]
 
                     else:
-                        # a person startet speaking
+                        # a person started speaking
                         recordings[recording_id_odas[i]] = Recording(recording_id_odas[i],
                                                                      [cid[i][1], cid[i][2], cid[i][3]])
                         recordings[recording_id_odas[i]].audio = np.append(recordings[recording_id_odas[i]].audio,
@@ -168,8 +170,7 @@ class SAM:
                         # both agree, that this is a new speaker
                         output_string = "both agree that rec %d is new speaker %d" % (
                             rec_id, recordings[rec_id].preliminary_speaker_id)
-                        print(output_string)
-                        rospy.loginfo(output_string)
+                        rospy.logdebug(output_string)
                         recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
                         recordings[rec_id].send_to_trainer = True
                     else:
@@ -200,13 +201,11 @@ class SAM:
                                 # this shouldn't happen
                                 output_string = "Speaker recognition suggestested id {} for recording {}," \
                                                 " which doesn't exist".format(sr_id, rec_id)
-                                print output_string
-                                rospy.loginfo(output_string)
+                                rospy.logerr(output_string)
                                 recordings[rec_id].final_speaker_id = recordings[rec_id].preliminary_speaker_id
 
                     output_string = "response for req %d, results is %d, certanty %d" % (rec_id, sr_id, certainty)
-                    print output_string
-                    rospy.loginfo(output_string)
+                    rospy.logdebug(output_string)
                     recordings[rec_id].is_back_from_sr = True
                     to_delete_req.append(rec_id)
 
@@ -276,7 +275,6 @@ class SAM:
 
                 if rec.new:
                     output_string = "new recording " + str(rec_id)
-                    print output_string
                     rospy.loginfo(output_string)
                     # get angles to all known speakers
                     rec.get_angles_to_all_speakers(self.speakers, rec.startpos)
@@ -285,7 +283,6 @@ class SAM:
                     if len(self.speakers) > 0 and rec.angles_to_speakers[0][1] < 35:  # degree
                         output_string = "preliminary assigning recording %d to speaker %d, angle is %d" % (
                             rec_id, rec.angles_to_speakers[0][0], rec.angles_to_speakers[0][1])
-                        print output_string
                         rospy.loginfo(output_string)
                         rec.preliminary_speaker_id = rec.angles_to_speakers[0][0]
                         rec.final_speaker_id = rec.preliminary_speaker_id  # this will be overwritten later
@@ -303,16 +300,15 @@ class SAM:
                             closest_ang = rec.angles_to_speakers[0][1]
                         output_string = "creating new speaker %d for recording %d, closest angle is %d" % (
                             new_id, rec_id, closest_ang)
-                        print output_string
-                        rospy.loginfo(output_string)
+                        rospy.logdebug(output_string)
 
                         if self.num_speakers == 1:
                             rec.send_to_trainer = True
 
                     rec.new = False
 
-                elif not rec.was_sent_sr and rec.audio.shape[
-                    0] > 16000 * 3:  # its longer than 3 sec, time to send it to speaker recognition
+                elif self.speaker_recognition and (not rec.was_sent_sr and rec.audio.shape[
+                    0] > 16000 * 3):  # its longer than 3 sec, time to send it to speaker recognition
                     sr_requests[rec_id] = Queue(maxsize=1)
                     self.sr.test(rec.audio, rec.preliminary_speaker_id, sr_requests[rec_id])
                     rec.was_sent_sr = True
@@ -327,9 +323,8 @@ class SAM:
                             rospy.loginfo(output_string)
                             if rec.created_new_speaker:
                                 del self.speakers[rec.preliminary_speaker_id]
-                                output_string = "thus also deleting seaker" + str(rec.preliminary_speaker_id)
-                                print output_string
-                                rospy.loginfo(output_string)
+                                output_string = "thus also deleting speaker" + str(rec.preliminary_speaker_id)
+                                rospy.logdebug(output_string)
                             rec.alldone = True
                     if not rec.alldone:
                         if (rec.was_sent_sr and rec.is_back_from_sr) or (not rec.was_sent_sr):
@@ -344,7 +339,7 @@ class SAM:
                                 except:
                                     output_string = "Error deleting preliminary speaker " + str(rec.preliminary_speaker_id)
                                     print output_string
-                                    rospy.loginfo(output_string)
+                                    rospy.logerr(output_string)
 
                             # TODO:
                             # send to speech to text
@@ -353,25 +348,21 @@ class SAM:
                             else:
                                 text = "bing is not allowed yet"
                             output_string = "Speaker {}: ".format(rec.final_speaker_id) + text.encode('utf-8')
-                            print("\n\n")
-                            print(output_string)
-                            print("\n\n")
+                            rospy.loginfo(output_string)
                             pub.publish(output_string)
-                            rospy.loginfo("going to wait for the queue tasks to be processed befor we fill it againg")
 
-                            self.text_queue.put(output_string)
-                            rospy.loginfo("text_queue lenght in main: " + str(self.text_queue.qsize()))
+                            if self.bing_allowed:
+                                self.text_queue.put(output_string)
+                                rospy.logdebug("text_queue lenght in main: " + str(self.text_queue.qsize()))
 
                             # send this to trainer
-                            if (rec.send_to_trainer):
-                                self.sr.train(rec.final_speaker_id, rec.audio)
+                            if self.speaker_recognition and rec.send_to_trainer:
+                                #self.sr.train(rec.final_speaker_id, rec.audio)
                                 output_string = "sending recording %d to trainer" % (rec_id)
-                                print output_string
                                 rospy.loginfo(output_string)
 
                             output_string = "succesfully handeld recording " + str(rec_id)
-                            print output_string
-                            rospy.loginfo(output_string)
+                            rospy.logdebug(output_string)
                             rec.alldone = True
 
                         else:
