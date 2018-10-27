@@ -15,7 +15,7 @@ from speaker import Speaker
 from recording import Recording
 from t2t_stt import T2t_stt
 
-from speaker_recognition.speaker_recognition import Speaker_recognition
+#from speaker_recognition.speaker_recognition import Speaker_recognition
 
 # kevins ros changes
 import rospy
@@ -40,8 +40,8 @@ class SAM:
         self.num_speakers = 0
         self.stt = T2t_stt()
         self.speaker_recognition = speaker_recognition
-        if self.speaker_recognition:
-            self.sr = Speaker_recognition()
+        # if self.speaker_recognition:
+        #     self.sr = Speaker_recognition()
         self.text_queue = mult_Queue()
         self.bing_allowed = False
 
@@ -307,12 +307,12 @@ class SAM:
 
                     rec.new = False
 
-                elif self.speaker_recognition and (not rec.was_sent_sr and rec.audio.shape[
-                    0] > 16000 * 3):  # its longer than 3 sec, time to send it to speaker recognition
-                    sr_requests[rec_id] = Queue(maxsize=1)
-                    self.sr.test(rec.audio, rec.preliminary_speaker_id, sr_requests[rec_id])
-                    rec.was_sent_sr = True
-                    rec.time_sent_to_sr = time.time()
+                # elif self.speaker_recognition and (not rec.was_sent_sr and rec.audio.shape[
+                #     0] > 16000 * 3):  # its longer than 3 sec, time to send it to speaker recognition
+                #     sr_requests[rec_id] = Queue(maxsize=1)
+                #     self.sr.test(rec.audio, rec.preliminary_speaker_id, sr_requests[rec_id])
+                #     rec.was_sent_sr = True
+                #     rec.time_sent_to_sr = time.time()
 
                 elif rec.stopped:
                     # speaker finished, handle this
@@ -356,10 +356,10 @@ class SAM:
                                 rospy.logdebug("text_queue lenght in main: " + str(self.text_queue.qsize()))
 
                             # send this to trainer
-                            if self.speaker_recognition and rec.send_to_trainer:
-                                #self.sr.train(rec.final_speaker_id, rec.audio)
-                                output_string = "sending recording %d to trainer" % (rec_id)
-                                rospy.loginfo(output_string)
+                            # if self.speaker_recognition and rec.send_to_trainer:
+                            #     #self.sr.train(rec.final_speaker_id, rec.audio)
+                            #     output_string = "sending recording %d to trainer" % (rec_id)
+                            #     rospy.loginfo(output_string)
 
                             output_string = "succesfully handeld recording " + str(rec_id)
                             rospy.logdebug(output_string)

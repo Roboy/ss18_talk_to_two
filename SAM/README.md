@@ -112,6 +112,9 @@ If you want to know more about the theoretical background, check out our [best-d
 
           pip install wave
           
+    - monotonic
+          pip install monotonic
+          
     - pyAudioAnalysis
           git clone https://github.com/tyiannak/pyAudioAnalysis.git
           pip install -e pyAudioAnalysis
