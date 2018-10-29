@@ -74,7 +74,9 @@ class LedVisualizer(Visualizer):
                                                                 2], "| z: ", rec_for_vis, "| marker size: ", rec_for_vis[
                                                                                                                   :, 4]
                 print "------------------------------------"
-
+                if len(rec_for_vis[:, 1]) >= 4:
+                    self.leds.visualize_da_4(led_by_angle(rec_for_vis[1, 1]), led_by_angle(rec_for_vis[2, 1]),
+                                             led_by_angle(rec_for_vis[3, 1]), led_by_angle(rec_for_vis[4, 1]))
                 for rec in rec_for_vis:  # display the assigned id
                     pass
                     # ax.text(rec[1],rec[2],rec[3],  '%s' % (str(int(rec[0]))), size=15, color='red')
