@@ -393,13 +393,14 @@ class SAM:
 
             # -----------------------------------------------------------
             # new direct led way
-            pixels = [0, 0, 0, 0] * 36
-            led_to_be = led_by_angle(rec_info_to_vis[0][1])
-            pixels[4 * led_to_be] = color_array[0][0]
-            pixels[4 * led_to_be + 1] = color_array[0][1]
-            pixels[4 * led_to_be + 2] = color_array[0][2]
-            pixels[4 * led_to_be + 3] = color_array[0][3]
-            self.leds.write_pixels(pixels)
+            if len(rec_info_to_vis) > 0:
+                pixels = [0, 0, 0, 0] * 36
+                led_to_be = led_by_angle(rec_info_to_vis[0][1])
+                pixels[4 * led_to_be] = color_array[0][0]
+                pixels[4 * led_to_be + 1] = color_array[0][1]
+                pixels[4 * led_to_be + 2] = color_array[0][2]
+                pixels[4 * led_to_be + 3] = color_array[0][3]
+                self.leds.write_pixels(pixels)
             # -----------------------------------------------------------
             # ---------------------------------------------------------------------------------------------------
             # new doa to led addon
