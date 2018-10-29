@@ -55,6 +55,7 @@ class LedVisualizer(Visualizer):
                 speakers_for_vis = np.array(speakers_for_vis)
                 # ax.scatter(speakers_for_vis[:,1], speakers_for_vis[:,2], speakers_for_vis[:,3], s=speakers_for_vis[:,4])
                 print "------------------------------------"
+                print "speakers:"
                 print "x : ", speakers_for_vis[:, 1], "| y : ", speakers_for_vis[:, 2], "| z: ", speakers_for_vis, "| marker size: ", speakers_for_vis[:, 4]
                 print "------------------------------------"
                 if len(speakers_for_vis[:, 1]) >= 4:
@@ -68,6 +69,7 @@ class LedVisualizer(Visualizer):
                 rec_for_vis = np.array(rec_for_vis)
                 # ax.scatter(rec_for_vis[:,1], rec_for_vis[:,2], rec_for_vis[:,3], s=rec_for_vis[:,4])
                 print "------------------------------------"
+                print "recordings: "
                 print "x : ", rec_for_vis[:, 1], "| y : ", rec_for_vis[:,
                                                                 2], "| z: ", rec_for_vis, "| marker size: ", rec_for_vis[
                                                                                                                   :, 4]
