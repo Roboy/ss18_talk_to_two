@@ -69,9 +69,9 @@ class LedVisualizer(Visualizer):
                 print "speakers:"
                 print "x : ", speakers_for_vis[:, 1], "| y : ", speakers_for_vis[:, 2], "| z: ", speakers_for_vis, "| marker size: ", speakers_for_vis[:, 4]
                 print "------------------------------------"
-                if len(speakers_for_vis[:, 1]) >= 4:
-                    self.leds.visualize_da_4(led_by_angle(speakers_for_vis[1, 1]), led_by_angle(speakers_for_vis[2, 1]),
-                                             led_by_angle(speakers_for_vis[3, 1]), led_by_angle(speakers_for_vis[4, 1]))
+                """if len(speakers_for_vis[:, 1]) >= 4:
+    self.leds.visualize_da_4(led_by_angle(speakers_for_vis[1, 1]), led_by_angle(speakers_for_vis[2, 1]),
+                             led_by_angle(speakers_for_vis[3, 1]), led_by_angle(speakers_for_vis[4, 1]))"""
                 for sp in speakers_for_vis:  # display the assigned id
                     if sp[0] > 0:
                         pixels[4 * led_by_angle(sp[1])] = color_array[vis_count][0]
