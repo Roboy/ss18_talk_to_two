@@ -14,7 +14,14 @@ color_array = [
     [0, 0, 0, 50],
     [50, 50, 0, 0],
     [0, 50, 50, 0],
-    [50, 0, 50, 0]
+    [50, 0, 50, 0],
+    [200, 0, 0, 0],
+    [0, 200, 0, 0],
+    [0, 0, 200, 0],
+    [0, 0, 0, 200],
+    [200, 200, 0, 0],
+    [0, 200, 200, 0],
+    [200, 0, 200, 0]
 ]
 
 class LedVisualizer(Visualizer):
@@ -100,7 +107,8 @@ if len(rec_for_vis[:, 1]) >= 4:
                         pixels[4 * led_by_angle(rec[1]) + 3] = color_array[vis_count][3]
                     except IndexError as exp:
                         print exp
-                        print "rec[1]: ", rec[1],"| led: ", led_by_angle(rec[1]),  "| pixel index: ", 4 * led_by_angle(rec[1])
+                        print "rec[1]: ", rec[1], "| led: ", led_by_angle(rec[1]),  "| pixel index: ",\
+                            4 * led_by_angle(rec[1]), "| vis_count: ", vis_count
                     vis_count += 1
                     # ax.text(rec[1],rec[2],rec[3],  '%s' % (str(int(rec[0]))), size=15, color='red')
             self.leds.write_pixels(pixels)
