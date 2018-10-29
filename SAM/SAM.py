@@ -11,6 +11,7 @@ from multiprocessing import Queue as mult_Queue
 
 from merger import Merger
 from visualizer import Visualizer
+from led_visualizer import LedVisualizer
 from speaker import Speaker
 from recording import Recording
 from t2t_stt import T2t_stt
@@ -27,14 +28,16 @@ from std_msgs.msg import Empty as msg_Empty, Int32
 
 class SAM:
 
-    def __init__(self, visualization=False, speaker_recognition=False):
+    def __init__(self, visualizer=None, speaker_recognition=False):
+
         self.merger_to_main_queue = Queue(maxsize=1000)  # very roughly 30sec
         self.merger = Merger(self.merger_to_main_queue)
-
-        self.visualization = visualization
-        if self.visualization:
+        if visualizer is None:
+            self.visualization = False
+        else:
+            self.visualization = True
             self.main_to_vis_queue = Queue(maxsize=50)
-            self.visualizer = Visualizer(self.main_to_vis_queue)
+            self.visualizer = visualizer(self.main_to_vis_queue)
 
         self.speakers = {}
         self.num_speakers = 0
@@ -453,5 +456,5 @@ def publish_point_left_right(pub, angle):
 
 
 if __name__ == "__main__":
-    sam = SAM()
+    sam = SAM(visualizer=LedVisualizer)
     sam.run()
