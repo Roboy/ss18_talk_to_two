@@ -92,7 +92,7 @@ class LedVisualizer(Visualizer):
                     pixels[4 * led_by_angle(rec[1])] = color_array[vis_count][0]
                     pixels[4 * led_by_angle(rec[1]) + 1] = color_array[vis_count][1]
                     pixels[4 * led_by_angle(rec[1]) + 2] = color_array[vis_count][2]
-                    pixels[4 * led_by_angle(rec[1]) + 4] = color_array[vis_count][3]
+                    pixels[4 * led_by_angle(rec[1]) + 3] = color_array[vis_count][3]
                     vis_count += 1
                     # ax.text(rec[1],rec[2],rec[3],  '%s' % (str(int(rec[0]))), size=15, color='red')
             self.leds.write_pixels(pixels)
