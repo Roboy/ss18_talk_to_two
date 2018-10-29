@@ -86,10 +86,6 @@ class Visualizer(threading.Thread):
             
         # plt.close()
         print("stopping visulaization")
-        
-        
+
     def stop(self):
         self.please_stop.set()
-        
-        
-        

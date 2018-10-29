@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 # import threading
+import sys
+sys.path.append('/home/pi/ros_catkin_ws/src/roboy_matrix_utils/led_control/src')
+
+from leds import MatrixLeds
+
 import time
 import numpy as np
 from Queue import Queue
@@ -11,7 +16,7 @@ from multiprocessing import Queue as mult_Queue
 
 from merger import Merger
 from visualizer import Visualizer
-from led_visualizer import LedVisualizer
+from led_visualizer import LedVisualizer, color_array, led_by_angle
 from speaker import Speaker
 from recording import Recording
 from t2t_stt import T2t_stt
@@ -47,6 +52,7 @@ class SAM:
         #     self.sr = Speaker_recognition()
         self.text_queue = mult_Queue()
         self.bing_allowed = False
+        self.leds = MatrixLeds()
 
     def handle_service(self, req):
         rospy.loginfo("entered handle service")
@@ -380,9 +386,21 @@ class SAM:
             if self.visualization:
                 try:
                     self.main_to_vis_queue.put({'speakers': self.speakers, 'recordings': rec_info_to_vis}, block=False)
+
                 except Full:
                     # print("couldn't put data into visualization queue, its full")
                     pass
+
+            # -----------------------------------------------------------
+            # new direct led way
+            pixels = [0, 0, 0, 0] * 36
+            led_to_be = led_by_angle(rec_info_to_vis[0][1])
+            pixels[4 * led_to_be] = color_array[0][0]
+            pixels[4 * led_to_be + 1] = color_array[0][1]
+            pixels[4 * led_to_be + 2] = color_array[0][2]
+            pixels[4 * led_to_be + 3] = color_array[0][3]
+            self.leds.write_pixels(pixels)
+            # -----------------------------------------------------------
             # ---------------------------------------------------------------------------------------------------
             # new doa to led addon
             # print
@@ -456,5 +474,5 @@ def publish_point_left_right(pub, angle):
 
 
 if __name__ == "__main__":
-    sam = SAM(visualizer=LedVisualizer)
+    sam = SAM()
     sam.run()
