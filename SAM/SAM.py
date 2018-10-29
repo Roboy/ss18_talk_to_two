@@ -375,13 +375,13 @@ class SAM:
                             rec.alldone = True
 
                             # visualization though
-                            pixels = [0, 0, 0, 0] * 36
-                            led_to_be = led_by_angle(self.speakers[rec.final_speaker_id][1])
-                            pixels[4 * led_to_be] = color_array[0][0]
-                            pixels[4 * led_to_be + 1] = color_array[0][1]
-                            pixels[4 * led_to_be + 2] = color_array[0][2]
-                            pixels[4 * led_to_be + 3] = color_array[0][3]
-                            self.leds.write_pixels(pixels)
+                            # pixels = [0, 0, 0, 0] * 36
+                            # led_to_be = led_by_angle(self.speakers[rec.final_speaker_id][1])
+                            # pixels[4 * led_to_be] = color_array[0][0]
+                            # pixels[4 * led_to_be + 1] = color_array[0][1]
+                            # pixels[4 * led_to_be + 2] = color_array[0][2]
+                            # pixels[4 * led_to_be + 3] = color_array[0][3]
+                            # self.leds.write_pixels(pixels)
 
                         else:
                             pass  # wait for the response of sr
@@ -473,5 +473,5 @@ def publish_point_left_right(pub, angle):
 
 
 if __name__ == "__main__":
-    sam = SAM()
+    sam = SAM(visualizer=LedVisualizer)
     sam.run()
