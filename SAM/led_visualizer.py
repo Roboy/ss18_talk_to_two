@@ -7,6 +7,15 @@ from visualizer import Visualizer
 import numpy as np
 from Queue import Empty
 
+color_array = [
+    [50, 0, 0, 0],
+    [0, 50, 0, 0],
+    [0, 0, 50, 0],
+    [0, 0, 0, 50],
+    [50, 50, 0, 0],
+    [0, 50, 50, 0],
+    [50, 0, 50, 0]
+]
 
 class LedVisualizer(Visualizer):
     """
@@ -51,6 +60,8 @@ class LedVisualizer(Visualizer):
 
             # ax.clear()
             # TODO: fic colors
+            pixels = [0, 0, 0, 0] * 36
+            vis_count = 0
             if (len(speakers_for_vis) > 0):
                 speakers_for_vis = np.array(speakers_for_vis)
                 # ax.scatter(speakers_for_vis[:,1], speakers_for_vis[:,2], speakers_for_vis[:,3], s=speakers_for_vis[:,4])
@@ -74,12 +85,17 @@ class LedVisualizer(Visualizer):
                                                                 2], "| z: ", rec_for_vis, "| marker size: ", rec_for_vis[
                                                                                                                   :, 4]
                 print "------------------------------------"
-                if len(rec_for_vis[:, 1]) >= 4:
+                """if len(rec_for_vis[:, 1]) >= 4:
                     self.leds.visualize_da_4(led_by_angle(rec_for_vis[0, 1]), led_by_angle(rec_for_vis[1, 1]),
-                                             led_by_angle(rec_for_vis[2, 1]), led_by_angle(rec_for_vis[3, 1]))
+                                             led_by_angle(rec_for_vis[2, 1]), led_by_angle(rec_for_vis[3, 1]))"""
                 for rec in rec_for_vis:  # display the assigned id
-                    pass
+                    pixels[4 * led_by_angle(rec[1])] = color_array[vis_count][0]
+                    pixels[4 * led_by_angle(rec[1]) + 1] = color_array[vis_count][1]
+                    pixels[4 * led_by_angle(rec[1]) + 2] = color_array[vis_count][2]
+                    pixels[4 * led_by_angle(rec[1]) + 4] = color_array[vis_count][3]
+                    vis_count += 1
                     # ax.text(rec[1],rec[2],rec[3],  '%s' % (str(int(rec[0]))), size=15, color='red')
+            self.leds.write_pixels(pixels)
             # ax.set_xlim3d(-1.2,1.2) #dont know why, but otherwise it keeps changin them...
             # ax.set_ylim3d(-1.2,1.2)
             # ax.set_zlim3d(-1.2,1.2)
