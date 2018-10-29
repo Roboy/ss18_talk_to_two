@@ -374,6 +374,15 @@ class SAM:
                             rospy.logdebug(output_string)
                             rec.alldone = True
 
+                            # visualization though
+                            pixels = [0, 0, 0, 0] * 36
+                            led_to_be = led_by_angle(self.speakers[rec.final_speaker_id][1])
+                            pixels[4 * led_to_be] = color_array[0][0]
+                            pixels[4 * led_to_be + 1] = color_array[0][1]
+                            pixels[4 * led_to_be + 2] = color_array[0][2]
+                            pixels[4 * led_to_be + 3] = color_array[0][3]
+                            self.leds.write_pixels(pixels)
+
                         else:
                             pass  # wait for the response of sr
 
@@ -391,17 +400,6 @@ class SAM:
                     # print("couldn't put data into visualization queue, its full")
                     pass
 
-            # -----------------------------------------------------------
-            # new direct led way
-            if len(rec_info_to_vis) > 0:
-                pixels = [0, 0, 0, 0] * 36
-                led_to_be = led_by_angle(rec_info_to_vis[0][1])
-                pixels[4 * led_to_be] = color_array[0][0]
-                pixels[4 * led_to_be + 1] = color_array[0][1]
-                pixels[4 * led_to_be + 2] = color_array[0][2]
-                pixels[4 * led_to_be + 3] = color_array[0][3]
-                self.leds.write_pixels(pixels)
-            # -----------------------------------------------------------
             # ---------------------------------------------------------------------------------------------------
             # new doa to led addon
             # print
