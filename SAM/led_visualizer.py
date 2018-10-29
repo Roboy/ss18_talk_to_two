@@ -61,7 +61,7 @@ class LedVisualizer(Visualizer):
                     break
 
             speakers_for_vis = []
-            speakers_for_vis.append([0, 0, 0, 0, 300])  # center point
+            # speakers_for_vis.append([0, 0, 0, 0, 300])  # center point
             for sp_id, sp in latest_data['speakers'].iteritems():
                 speakers_for_vis.append([sp_id, sp.pos[0], sp.pos[1], sp.pos[2], 100])
 
@@ -82,12 +82,12 @@ if len(speakers_for_vis[:, 1]) >= 4:
 self.leds.visualize_da_4(led_by_angle(speakers_for_vis[1, 1]), led_by_angle(speakers_for_vis[2, 1]),
              led_by_angle(speakers_for_vis[3, 1]), led_by_angle(speakers_for_vis[4, 1]))"""
                 for sp in speakers_for_vis:  # display the assigned id
-                    if sp[0] > 0:
-                        pixels[4 * led_by_angle(sp[1])] = color_array[vis_count][0]
-                        pixels[4 * led_by_angle(sp[1]) + 1] = color_array[vis_count][1]
-                        pixels[4 * led_by_angle(sp[1]) + 2] = color_array[vis_count][2]
-                        pixels[4 * led_by_angle(sp[1]) + 3] = color_array[vis_count][3]
-                        vis_count += 1
+                    #if sp[0] > 0:
+                    pixels[4 * led_by_angle(sp[1])] = color_array[vis_count][0]
+                    pixels[4 * led_by_angle(sp[1]) + 1] = color_array[vis_count][1]
+                    pixels[4 * led_by_angle(sp[1]) + 2] = color_array[vis_count][2]
+                    pixels[4 * led_by_angle(sp[1]) + 3] = color_array[vis_count][3]
+                    vis_count += 1
                         # ax.text(sp[1], sp[2], sp[3],  '%s' % (str(int(sp[0]))), size=15)
             if (len(rec_for_vis) > 0):
                 rec_for_vis = np.array(rec_for_vis)
