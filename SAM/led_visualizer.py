@@ -93,10 +93,14 @@ class LedVisualizer(Visualizer):
                     self.leds.visualize_da_4(led_by_angle(rec_for_vis[0, 1]), led_by_angle(rec_for_vis[1, 1]),
                                              led_by_angle(rec_for_vis[2, 1]), led_by_angle(rec_for_vis[3, 1]))"""
                 for rec in rec_for_vis:  # display the assigned id
-                    pixels[4 * led_by_angle(rec[1])] = color_array[vis_count][0]
-                    pixels[4 * led_by_angle(rec[1]) + 1] = color_array[vis_count][1]
-                    pixels[4 * led_by_angle(rec[1]) + 2] = color_array[vis_count][2]
-                    pixels[4 * led_by_angle(rec[1]) + 3] = color_array[vis_count][3]
+                    try:
+                        pixels[4 * led_by_angle(rec[1])] = color_array[vis_count][0]
+                        pixels[4 * led_by_angle(rec[1]) + 1] = color_array[vis_count][1]
+                        pixels[4 * led_by_angle(rec[1]) + 2] = color_array[vis_count][2]
+                        pixels[4 * led_by_angle(rec[1]) + 3] = color_array[vis_count][3]
+                    except IndexError as exp:
+                        print exp
+                        print "rec[1]: ", rec[1],"| led: ", led_by_angle(rec[1]),  "| pixel index: ", 4 * led_by_angle(rec[1])
                     vis_count += 1
                     # ax.text(rec[1],rec[2],rec[3],  '%s' % (str(int(rec[0]))), size=15, color='red')
             self.leds.write_pixels(pixels)
