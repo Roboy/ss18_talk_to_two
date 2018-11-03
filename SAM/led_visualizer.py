@@ -78,19 +78,19 @@ class LedVisualizer(Visualizer):
         if self.idle_timeout - time.time() >= 1:
             self.idle_even = not self.idle_even
             self.idle_timeout = time.time()
-        pixels = []
-        for i in range(36):
-            if self.idle_even:
-                if i % 2 == 0:
-                    pixels += [0, 0, 20, 0]
+            pixels = []
+            for i in range(36):
+                if self.idle_even:
+                    if i % 2 == 0:
+                        pixels += [0, 0, 20, 0]
+                    else:
+                        pixels += [0, 0, 0, 0]
                 else:
-                    pixels += [0, 0, 0, 0]
-            else:
-                if i % 2 == 0:
-                    pixels += [0, 0, 0, 0]
-                else:
-                    pixels += [0, 0, 20, 0]
-        self.leds.write_pixels(pixels)
+                    if i % 2 == 0:
+                        pixels += [0, 0, 0, 0]
+                    else:
+                        pixels += [0, 0, 20, 0]
+            self.leds.write_pixels(pixels)
 
 
 def led_by_angle(angle):
