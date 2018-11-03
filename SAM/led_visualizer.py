@@ -53,7 +53,7 @@ class LedVisualizer(Visualizer):
         # fig.canvas.draw()
         # last_time = time.time()
         location_id = 0
-        while not self.please_stop.is_set():
+        while not self.please_stop.is_set() and not rospy.is_shutdown():
             # wait for data to arrive
             latest_data = self.inq.get(block=True)
 
@@ -68,7 +68,7 @@ class LedVisualizer(Visualizer):
             # speakers_for_vis.append([0, 0, 0, 0, 300])  # center point
             for sp_id, sp in latest_data['speakers'].iteritems():
                 angle = np.arctan2(sp.pos[0], sp.pos[1])
-                speakers_for_vis.append([sp_id, sp.pos[0], sp.pos[1], sp.pos[2], 100, angle, led_by_angle(angle)])
+                speakers_for_vis.append([sp_id, sp.pos[0], sp.pos[1], sp.pos[2], 100, angle * 180 / np.pi, 0])
 
             rec_for_vis = latest_data['recordings']
 
