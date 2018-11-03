@@ -51,7 +51,6 @@ class LedVisualizer(Visualizer):
         #
         # fig.show()
         # fig.canvas.draw()
-        np.arctan2()
         # last_time = time.time()
         location_id = 0
         while not self.please_stop.is_set():
