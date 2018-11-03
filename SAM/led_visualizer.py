@@ -120,7 +120,7 @@ class LedVisualizer(Visualizer):
                             speaker_id[len(speaker_id) - 1] = sp[0]
 
                 for s_id in speaker_id:
-                    pixels[4 * int(speakers_for_vis[s_id - 1, 6]) + 3] += 100
+                    pixels[4 * int(speakers_for_vis[s_id - 1][6]) + 3] += 100
 
             self.leds.write_pixels(pixels)
             # ax.set_xlim3d(-1.2,1.2) #dont know why, but otherwise it keeps changin them...
