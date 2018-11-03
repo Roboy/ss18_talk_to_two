@@ -121,8 +121,8 @@ class LedVisualizer(Visualizer):
                             min_dist = dist
                             speaker_id[len(speaker_id) - 1] = sp[0]
 
-                for s_id in speaker_id:
-                    pixels[4 * int(speakers_for_vis[int(s_id - 1)][6]) + 3] += 100
+                # for s_id in speaker_id:
+                #     pixels[4 * int(speakers_for_vis[int(s_id - 1)][6]) + 3] += 100
 
                 for r_led in record_leds:
                     pixels[4 * r_led] = 0
