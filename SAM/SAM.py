@@ -433,6 +433,7 @@ class SAM:
         self.merger.stop()
         if self.visualization:
             self.visualizer.stop()
+        rospy.signal_shutdown("SAM is done.")
 
 
 # ---------------------------------------------------------------------------------------------------
