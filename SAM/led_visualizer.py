@@ -13,19 +13,10 @@ color_array = [
     [50, 0, 0, 0],
     [0, 50, 0, 0],
     [0, 0, 50, 0],
-    [0, 0, 0, 50],
-    [50, 50, 50, 0],
-    [50, 50, 0, 50],
     [50, 50, 0, 0],
-    [50, 0, 50, 50],
     [50, 0, 50, 0],
     [50, 0, 0, 50],
-    [0, 50, 50, 50],
-    [0, 50, 50, 0],
-    [0, 50, 0, 50],
-    [0, 0, 50, 50],
-    [50, 50, 50, 50],
-    [0, 0, 0, 0]
+    [0, 50, 50, 0]
 ]
 
 
@@ -94,12 +85,14 @@ class LedVisualizer(Visualizer):
 
                 for sp in speakers_for_vis:  # display the assigned id
                     #if sp[0] > 0:
-                    pass
-                    # pixels[4 * led_by_angle(sp[1])] += color_array[vis_count][0]
-                    # pixels[4 * led_by_angle(sp[1]) + 1] += color_array[vis_count][1]
-                    # pixels[4 * led_by_angle(sp[1]) + 2] += color_array[vis_count][2]
-                    # pixels[4 * led_by_angle(sp[1]) + 3] += color_array[vis_count][3]
-                    # vis_count += 1
+                    pixels[4 * sp[6]] += color_array[vis_count][0]
+                    pixels[4 * sp[6] + 1] += color_array[vis_count][1]
+                    pixels[4 * sp[6] + 2] += color_array[vis_count][2]
+                    pixels[4 * sp[6] + 3] += color_array[vis_count][3]
+                    if vis_count < len(color_array):
+                        vis_count += 1
+                    else:
+                        vis_count = 0
                         # ax.text(sp[1], sp[2], sp[3],  '%s' % (str(int(sp[0]))), size=15)
             if (len(rec_for_vis) > 0):
                 rec_for_vis = np.array(rec_for_vis)
@@ -111,9 +104,24 @@ class LedVisualizer(Visualizer):
                 msg.y = rec_for_vis[:, 2]
                 msg.z = rec_for_vis[:, 3]
                 self.record_location_pub.publish(msg)
-                for rec in rec_for_vis:  # display the assigned id
-                    # ax.text(rec[1],rec[2],rec[3],  '%s' % (str(int(rec[0]))), size=15, color='red')
-                    pass
+                # for rec in rec_for_vis:  # display the assigned id
+                #     # ax.text(rec[1],rec[2],rec[3],  '%s' % (str(int(rec[0]))), size=15, color='red')
+                #     pass
+                speaker_id = []
+                for i in range(0, len(rec_for_vis), 2):
+                    x1 = np.array(rec_for_vis[i, 1], rec_for_vis[i, 2], rec_for_vis[i, 3])
+                    min_dist = 100
+                    speaker_id.append(0)
+                    for sp in speakers_for_vis:
+                        x2 = np.array(sp[1], sp[2], sp[3])
+                        dist = np.linalg.norm(x1 - x2)
+                        if dist < min_dist:
+                            min_dist = dist
+                            speaker_id[len(speaker_id) - 1] = sp[0]
+
+                for s_id in speaker_id:
+                    pixels[4 * speakers_for_vis[s_id - 1] + 3] += 100
+
             self.leds.write_pixels(pixels)
             # ax.set_xlim3d(-1.2,1.2) #dont know why, but otherwise it keeps changin them...
             # ax.set_ylim3d(-1.2,1.2)
@@ -146,7 +154,7 @@ def led_by_angle(angle):
 
     # map led if over 36
     # like 36 will get 0 and so on
-    if led_to_be <= 0:
+    if led_to_be < 0:
         led_to_be += 36
 
     return led_to_be
