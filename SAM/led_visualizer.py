@@ -85,10 +85,10 @@ class LedVisualizer(Visualizer):
 
                 for sp in speakers_for_vis:  # display the assigned id
                     #if sp[0] > 0:
-                    pixels[4 * sp[6]] += color_array[vis_count][0]
-                    pixels[4 * sp[6] + 1] += color_array[vis_count][1]
-                    pixels[4 * sp[6] + 2] += color_array[vis_count][2]
-                    pixels[4 * sp[6] + 3] += color_array[vis_count][3]
+                    pixels[4 * int(sp[6])] += color_array[vis_count][0]
+                    pixels[4 * int(sp[6]) + 1] += color_array[vis_count][1]
+                    pixels[4 * int(sp[6]) + 2] += color_array[vis_count][2]
+                    pixels[4 * int(sp[6]) + 3] += color_array[vis_count][3]
                     if vis_count < len(color_array):
                         vis_count += 1
                     else:
@@ -120,7 +120,7 @@ class LedVisualizer(Visualizer):
                             speaker_id[len(speaker_id) - 1] = sp[0]
 
                 for s_id in speaker_id:
-                    pixels[4 * speakers_for_vis[s_id - 1] + 3] += 100
+                    pixels[4 * int(speakers_for_vis[s_id - 1, 6]) + 3] += 100
 
             self.leds.write_pixels(pixels)
             # ax.set_xlim3d(-1.2,1.2) #dont know why, but otherwise it keeps changin them...
