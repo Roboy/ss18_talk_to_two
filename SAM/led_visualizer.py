@@ -67,8 +67,8 @@ class LedVisualizer(Visualizer):
             speakers_for_vis = []
             # speakers_for_vis.append([0, 0, 0, 0, 300])  # center point
             for sp_id, sp in latest_data['speakers'].iteritems():
-                angle = np.arctan2(sp.pos[0], sp.pos[1])
-                speakers_for_vis.append([sp_id, sp.pos[0], sp.pos[1], sp.pos[2], 100, angle * 180 / np.pi, 0])
+                angle = np.arctan2(sp.pos[0], sp.pos[1]) * 180 / np.pi
+                speakers_for_vis.append([sp_id, sp.pos[0], sp.pos[1], sp.pos[2], 100, angle, led_by_angle(angle)])
 
             rec_for_vis = latest_data['recordings']
 
@@ -137,17 +137,17 @@ def led_by_angle(angle):
     :param angle: euler angle between -1 and 1 as a float
     :return: number of according led
     """
-    zero_led = 25  # counted from 0 to 35
-    led_offset = int(angle * 17)
+    zero_led = 8  # counted from 0 to 35
+    led_offset = int(angle / 10)
 
     # zero led + the mapped offset plus 1
     # such that leds whos angles  are closer to the 17,  get 17 instead of 16
-    led_to_be = zero_led - led_offset + 1
+    led_to_be = led_offset - 1 + 8
 
     # map led if over 36
     # like 36 will get 0 and so on
-    if led_to_be >= 36:
-        led_to_be -= 36
+    if led_to_be <= 0:
+        led_to_be += 36
 
     return led_to_be
 
