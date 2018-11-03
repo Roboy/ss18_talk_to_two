@@ -56,17 +56,19 @@ class SAM:
 
     def handle_service(self, req):
         rospy.loginfo("entered handle service")
-        msg = ControlLeds()
-        msg.mode = 2
-        msg.duration = 0
-        self.ledmode_pub.publish(msg)
+        # msg = ControlLeds()
+        # msg.mode = 2
+        # msg.duration = 0
+        # self.ledmode_pub.publish(msg)
+        self.visualizer.idle = False
         queue = mult_Queue()
         self.bing_allowed = True
         p = Process(target=self.stt_subprocess, args=(queue,))
         p.start()
         p.join()
-        msg = msg_Empty()
-        self.ledfreeze_pub.publish(msg)
+        # msg = msg_Empty()
+        # self.ledfreeze_pub.publish(msg)
+        self.visualizer.idle = True
         self.bing_allowed = False
         return queue.get()
 
@@ -104,10 +106,10 @@ class SAM:
         # kevins ros changes
         pub = rospy.Publisher('SAM_output', String, queue_size=10)
         s = rospy.Service('SAM_service', RecognizeSpeech, self.handle_service)
-        self.ledmode_pub = rospy.Publisher("/roboy/control/matrix/leds/mode", ControlLeds, queue_size=3)
-        self.ledoff_pub = rospy.Publisher('/roboy/control/matrix/leds/off', msg_Empty, queue_size=10)
-        self.ledfreeze_pub = rospy.Publisher("/roboy/control/matrix/leds/freeze", msg_Empty, queue_size=1)
-        self.ledpoint_pub = rospy.Publisher("/roboy/control/matrix/leds/point", Int32, queue_size=1)
+        # self.ledmode_pub = rospy.Publisher("/roboy/control/matrix/leds/mode", ControlLeds, queue_size=3)
+        # self.ledoff_pub = rospy.Publisher('/roboy/control/matrix/leds/off', msg_Empty, queue_size=10)
+        # self.ledfreeze_pub = rospy.Publisher("/roboy/control/matrix/leds/freeze", msg_Empty, queue_size=1)
+        # self.ledpoint_pub = rospy.Publisher("/roboy/control/matrix/leds/point", Int32, queue_size=1)
         rospy.init_node("SAM", anonymous=True)
 
         # operation average
