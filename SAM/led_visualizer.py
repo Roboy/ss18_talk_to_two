@@ -107,11 +107,13 @@ class LedVisualizer(Visualizer):
                 # for rec in rec_for_vis:  # display the assigned id
                 #     # ax.text(rec[1],rec[2],rec[3],  '%s' % (str(int(rec[0]))), size=15, color='red')
                 #     pass
+                record_leds = []
                 speaker_id = []
                 for i in range(0, len(rec_for_vis), 2):
                     x1 = np.array([rec_for_vis[i, 1], rec_for_vis[i, 2], rec_for_vis[i, 3]])
                     min_dist = 100
                     speaker_id.append(0)
+                    record_leds.append(led_by_angle(np.arctan2(rec_for_vis[i, 1], rec_for_vis[i, 2]) * 180/np.pi))
                     for sp in speakers_for_vis:
                         x2 = np.array([sp[1], sp[2], sp[3]])
                         dist = np.linalg.norm(x1 - x2)
@@ -120,10 +122,13 @@ class LedVisualizer(Visualizer):
                             speaker_id[len(speaker_id) - 1] = sp[0]
 
                 for s_id in speaker_id:
-                    print "speaker_for_vis[", int(s_id -1), "][", 6, "]"
-                    print "pixels[", 4, " * ", int(speakers_for_vis[int(s_id - 1)][6]), " + ", 3, "] = ", 100
-                    print "pixels[", type(4), " * ", type(int(speakers_for_vis[int(s_id - 1)][6])), "] = ", color_array[vis_count][0]
                     pixels[4 * int(speakers_for_vis[int(s_id - 1)][6]) + 3] += 100
+
+                for r_led in record_leds:
+                    pixels[4 * r_led] = 0
+                    pixels[4 * r_led + 1] = 200
+                    pixels[4 * r_led + 2] = 200
+                    pixels[4 * r_led + 3] = 50
 
             self.leds.write_pixels(pixels)
             # ax.set_xlim3d(-1.2,1.2) #dont know why, but otherwise it keeps changin them...
@@ -160,5 +165,5 @@ def led_by_angle(angle):
     if led_to_be < 0:
         led_to_be += 36
 
-    return led_to_be
+    return int(led_to_be)
 
