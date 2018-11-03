@@ -109,11 +109,11 @@ class LedVisualizer(Visualizer):
                 #     pass
                 speaker_id = []
                 for i in range(0, len(rec_for_vis), 2):
-                    x1 = np.array(rec_for_vis[i, 1], rec_for_vis[i, 2], rec_for_vis[i, 3])
+                    x1 = np.array([rec_for_vis[i, 1], rec_for_vis[i, 2], rec_for_vis[i, 3]])
                     min_dist = 100
                     speaker_id.append(0)
                     for sp in speakers_for_vis:
-                        x2 = np.array(sp[1], sp[2], sp[3])
+                        x2 = np.array([sp[1], sp[2], sp[3]])
                         dist = np.linalg.norm(x1 - x2)
                         if dist < min_dist:
                             min_dist = dist
