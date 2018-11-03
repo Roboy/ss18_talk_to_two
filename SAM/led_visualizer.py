@@ -28,6 +28,7 @@ color_array = [
     [0, 0, 0, 0]
 ]
 
+
 class LedVisualizer(Visualizer):
     """
     Specialized Visualizer class, that visualizes the speaker by using the LEDs
@@ -50,7 +51,7 @@ class LedVisualizer(Visualizer):
         #
         # fig.show()
         # fig.canvas.draw()
-
+        np.arctan2()
         # last_time = time.time()
         location_id = 0
         while not self.please_stop.is_set():
@@ -67,7 +68,8 @@ class LedVisualizer(Visualizer):
             speakers_for_vis = []
             # speakers_for_vis.append([0, 0, 0, 0, 300])  # center point
             for sp_id, sp in latest_data['speakers'].iteritems():
-                speakers_for_vis.append([sp_id, sp.pos[0], sp.pos[1], sp.pos[2], 100])
+                angle = np.arctan2(sp.pos[0], sp.pos[1])
+                speakers_for_vis.append([sp_id, sp.pos[0], sp.pos[1], sp.pos[2], 100, angle, led_by_angle(angle)])
 
             rec_for_vis = latest_data['recordings']
 
@@ -85,6 +87,10 @@ class LedVisualizer(Visualizer):
                 msg.x = speakers_for_vis[:, 1]
                 msg.y = speakers_for_vis[:, 2]
                 msg.z = speakers_for_vis[:, 3]
+                msg.azimuth = speakers_for_vis[:, 5]
+                msg.led = speakers_for_vis[:, 6]
+
+
                 self.speaker_location_pub.publish(msg)
 
                 for sp in speakers_for_vis:  # display the assigned id
@@ -121,6 +127,9 @@ class LedVisualizer(Visualizer):
 
         # plt.close()
         print("stopping visulaization")
+
+    def stop(self):
+        self.please_stop.set()
 
 
 def led_by_angle(angle):
