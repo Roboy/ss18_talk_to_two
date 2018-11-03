@@ -75,7 +75,7 @@ class LedVisualizer(Visualizer):
         self.please_stop.set()
 
     def idle_light(self):
-        if self.idle_timeout - time.time() >= 1:
+        if time.time() - self.idle_timeout >= 1:
             self.idle_even = not self.idle_even
             self.idle_timeout = time.time()
             pixels = []
