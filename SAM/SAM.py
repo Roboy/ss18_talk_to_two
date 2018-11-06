@@ -358,7 +358,8 @@ class SAM:
                                 text = self.stt.get_text(rec.audio)
                             else:
                                 text = "bing is not allowed yet"
-                            output_string = "Speaker {}: ".format(rec.final_speaker_id) + text.encode('utf-8')
+                            # output_string = "Speaker {}: ".format(rec.final_speaker_id) + text.encode('utf-8')
+                            output_string = text.encode('utf-8')
                             rospy.loginfo(output_string)
                             pub.publish(output_string)
 

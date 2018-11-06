@@ -63,10 +63,34 @@ class LedVisualizer(Visualizer):
                         record_leds.append(led_by_angle(np.arctan2(rec_for_vis[i, 1], rec_for_vis[i, 2]) * 180/np.pi))
 
                     for r_led in record_leds:
+                        # find the other leds
+                        sup_leds = [r_led + 1, r_led - 1, r_led + 2, r_led -2]
+                        for s_l in sup_leds:
+                            if s_l < 0:
+                                s_l += 36
+                            if s_l >= 36:
+                                s_l -= 36
+
                         pixels[4 * r_led] = 0
                         pixels[4 * r_led + 1] = 200
                         pixels[4 * r_led + 2] = 200
                         pixels[4 * r_led + 3] = 50
+
+                        sup_cnt = 0
+                        for s_l in sup_leds:
+                            if sup_cnt < 2:
+                                pixels[4 * s_l] = 0
+                                pixels[4 * s_l + 1] = 150
+                                pixels[4 * s_l + 2] = 150
+                                pixels[4 * s_l + 3] = 30
+                                sup_cnt += 1
+                            else:
+                                pixels[4 * s_l] = 0
+                                pixels[4 * s_l + 1] = 100
+                                pixels[4 * s_l + 2] = 100
+                                pixels[4 * s_l + 3] = 10
+                                sup_cnt += 1
+
 
                 self.leds.write_pixels(pixels)
         print("stopping visualization")
