@@ -58,18 +58,18 @@ class LedVisualizer(Visualizer):
                     rec_for_vis = np.array(rec_for_vis)
                     record_leds = []
                     speaker_id = []
-                    for i in range(0, len(rec_for_vis), 2):
+                    for i in range(0, len(rec_for_vis)):
                         speaker_id.append(0)
                         record_leds.append(led_by_angle(np.arctan2(rec_for_vis[i, 1], rec_for_vis[i, 2]) * 180/np.pi))
 
                     for r_led in record_leds:
                         # find the other leds
                         sup_leds = [r_led + 1, r_led - 1, r_led + 2, r_led -2]
-                        for s_l in sup_leds:
-                            if s_l < 0:
-                                s_l += 36
-                            if s_l >= 36:
-                                s_l -= 36
+                        for i in range(len(sup_leds)):
+                            if sup_leds[i] < 0:
+                                sup_leds[i] += 36
+                            if sup_leds[i] >= 36:
+                                sup_leds[i] -= 36
 
                         pixels[4 * r_led] = 0
                         pixels[4 * r_led + 1] = 200
@@ -91,9 +91,8 @@ class LedVisualizer(Visualizer):
                                     pixels[4 * s_l + 2] = 100
                                     pixels[4 * s_l + 3] = 10
                                     sup_cnt += 1
-                            except IndexError as ex:
+                            except IndexError:
                                 rospy.logerr("caught an IndexError.r_led : " + str(r_led) + " s_l : " + str(s_l))
-
 
                 self.leds.write_pixels(pixels)
         print("stopping visualization")

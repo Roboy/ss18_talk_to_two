@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 # import threading
 import sys
-sys.path.append('/home/pi/ros_catkin_ws/src/roboy_matrix_utils/led_control/src')
-
-from leds import MatrixLeds
-
 import time
 import numpy as np
 from Queue import Queue
@@ -16,12 +12,12 @@ from multiprocessing import Queue as mult_Queue
 
 from merger import Merger
 from visualizer import Visualizer
-from led_visualizer import LedVisualizer, color_array, led_by_angle
+from led_visualizer import LedVisualizer
 from speaker import Speaker
 from recording import Recording
 from t2t_stt import T2t_stt
 
-#from speaker_recognition.speaker_recognition import Speaker_recognition
+from speaker_recognition.speaker_recognition import Speaker_recognition
 
 # kevins ros changes
 import rospy
@@ -29,7 +25,10 @@ from std_msgs.msg import String
 from roboy_communication_cognition.srv import RecognizeSpeech
 from roboy_communication_control.msg import ControlLeds
 from std_msgs.msg import Empty as msg_Empty, Int32
+from ros_led_visualizer import RosVisualizer
 
+# export audio
+from scipy.io import wavfile
 
 class SAM:
 
@@ -48,11 +47,10 @@ class SAM:
         self.num_speakers = 0
         self.stt = T2t_stt()
         self.speaker_recognition = speaker_recognition
-        # if self.speaker_recognition:
-        #     self.sr = Speaker_recognition()
+        if self.speaker_recognition:
+            self.sr = Speaker_recognition()
         self.text_queue = mult_Queue()
         self.bing_allowed = False
-        self.leds = MatrixLeds()
 
     def handle_service(self, req):
         rospy.loginfo("entered handle service")
@@ -234,55 +232,16 @@ class SAM:
             # here we go through our recordings and handle them based on their current status
             ####################################################################################
             to_delete = []
-            if self.visualization:
-                rec_info_to_vis = []
 
-            # ---------------------------------------------------------------------------------------------------
-            # new doa to led addon
             rec_info_to_vis = []
-            # ---------------------------------------------------------------------------------------------------
 
             for rec_id, rec in recordings.iteritems():
-
-                # print
-                # print "-------------------------------"
-                # print "maybe position info"
-                # print "-------------------------------"
-                # print "rec_id: ", rec_id
-                # print "rec.currentpos[0]: ", rec.currentpos[0]
-                # print "rec.currentpos[1]: ", rec.currentpos[1]
-                # print "rec.currentpos[2]: ", rec.currentpos[2]
-                # print "-------------------------------"
-                # print
-                # msg = Int32()
-                # if 1 > rec.currentpos[0] >= 0.5:
-                #     msg.data = 0
-                #     self.ledpoint_pub.publish(msg)
-                # elif 0.5 > rec.currentpos[0] >= 0:
-                #     msg.data = 9
-                #     self.ledpoint_pub.publish(msg)
-                # elif 0 > rec.currentpos[0] >= -0.5:
-                #     msg.data = 18
-                #     self.ledpoint_pub.publish(msg)
-                # elif -0.5 > rec.currentpos[0] >= -1:
-                #     msg.data = 27
-                #     self.ledpoint_pub.publish(msg)
-                if self.visualization:
+                if self.visualization and not rec.stopped:
                     if not rec.stopped:
                         rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2],
                                                 200])  # 200 is the size of the blob
                     else:
                         rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2], 50])
-
-                # ---------------------------------------------------------------------------------------------------
-                # new doa to led addon
-                if not rec.stopped:
-                    rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2],
-                                            200])  # 200 is the size of the blob
-                else:
-                    rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2], 50])
-
-                # ---------------------------------------------------------------------------------------------------
 
                 if rec.new:
                     output_string = "new recording " + str(rec_id)
@@ -318,12 +277,12 @@ class SAM:
 
                     rec.new = False
 
-                # elif self.speaker_recognition and (not rec.was_sent_sr and rec.audio.shape[
-                #     0] > 16000 * 3):  # its longer than 3 sec, time to send it to speaker recognition
-                #     sr_requests[rec_id] = Queue(maxsize=1)
-                #     self.sr.test(rec.audio, rec.preliminary_speaker_id, sr_requests[rec_id])
-                #     rec.was_sent_sr = True
-                #     rec.time_sent_to_sr = time.time()
+                elif self.speaker_recognition and (not rec.was_sent_sr and rec.audio.shape[
+                    0] > 16000 * 3):  # its longer than 3 sec, time to send it to speaker recognition
+                    sr_requests[rec_id] = Queue(maxsize=1)
+                    self.sr.test(rec.audio, rec.preliminary_speaker_id, sr_requests[rec_id])
+                    rec.was_sent_sr = True
+                    rec.time_sent_to_sr = time.time()
 
                 elif rec.stopped:
                     # speaker finished, handle this
@@ -356,6 +315,7 @@ class SAM:
                             # send to speech to text
                             if self.bing_allowed:
                                 text = self.stt.get_text(rec.audio)
+                                wavfile.write(text.encode('utf-8') + ".wav", 16000, rec.audio.data)
                             else:
                                 text = "bing is not allowed yet"
                             # output_string = "Speaker {}: ".format(rec.final_speaker_id) + text.encode('utf-8')
@@ -368,24 +328,14 @@ class SAM:
                                 rospy.logdebug("text_queue lenght in main: " + str(self.text_queue.qsize()))
 
                             # send this to trainer
-                            # if self.speaker_recognition and rec.send_to_trainer:
-                            #     #self.sr.train(rec.final_speaker_id, rec.audio)
-                            #     output_string = "sending recording %d to trainer" % (rec_id)
-                            #     rospy.loginfo(output_string)
+                            if self.speaker_recognition and rec.send_to_trainer:
+                                self.sr.train(rec.final_speaker_id, rec.audio)
+                                output_string = "sending recording %d to trainer" % (rec_id)
+                                rospy.logdebug(output_string)
 
                             output_string = "succesfully handeld recording " + str(rec_id)
                             rospy.logdebug(output_string)
                             rec.alldone = True
-
-                            # visualization though
-                            # pixels = [0, 0, 0, 0] * 36
-                            # led_to_be = led_by_angle(self.speakers[rec.final_speaker_id][1])
-                            # pixels[4 * led_to_be] = color_array[0][0]
-                            # pixels[4 * led_to_be + 1] = color_array[0][1]
-                            # pixels[4 * led_to_be + 2] = color_array[0][2]
-                            # pixels[4 * led_to_be + 3] = color_array[0][3]
-                            # self.leds.write_pixels(pixels)
-
                         else:
                             pass  # wait for the response of sr
 
@@ -477,5 +427,5 @@ def publish_point_left_right(pub, angle):
 
 
 if __name__ == "__main__":
-    sam = SAM(visualizer=LedVisualizer)
+    sam = SAM(visualizer=RosVisualizer)
     sam.run()

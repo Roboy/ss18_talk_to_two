@@ -1,0 +1,3 @@
+<launch>
+	<node name="ODAS" pkg="rosam" type="remote_odas.sh" output="screen" />
+</launch>
