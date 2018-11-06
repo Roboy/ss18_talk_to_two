@@ -28,7 +28,7 @@ from std_msgs.msg import Empty as msg_Empty, Int32
 from ros_led_visualizer import RosVisualizer
 
 # export audio
-from scipy.io import wavfile
+#from scipy.io import wavfile
 
 class SAM:
 
