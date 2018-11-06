@@ -78,18 +78,21 @@ class LedVisualizer(Visualizer):
 
                         sup_cnt = 0
                         for s_l in sup_leds:
-                            if sup_cnt < 2:
-                                pixels[4 * s_l] = 0
-                                pixels[4 * s_l + 1] = 150
-                                pixels[4 * s_l + 2] = 150
-                                pixels[4 * s_l + 3] = 30
-                                sup_cnt += 1
-                            else:
-                                pixels[4 * s_l] = 0
-                                pixels[4 * s_l + 1] = 100
-                                pixels[4 * s_l + 2] = 100
-                                pixels[4 * s_l + 3] = 10
-                                sup_cnt += 1
+                            try:
+                                if sup_cnt < 2:
+                                    pixels[4 * s_l] = 0
+                                    pixels[4 * s_l + 1] = 150
+                                    pixels[4 * s_l + 2] = 150
+                                    pixels[4 * s_l + 3] = 30
+                                    sup_cnt += 1
+                                else:
+                                    pixels[4 * s_l] = 0
+                                    pixels[4 * s_l + 1] = 100
+                                    pixels[4 * s_l + 2] = 100
+                                    pixels[4 * s_l + 3] = 10
+                                    sup_cnt += 1
+                            except IndexError as ex:
+                                rospy.logerr("caught an IndexError.r_led : " + str(r_led) + " s_l : " + str(s_l))
 
 
                 self.leds.write_pixels(pixels)
