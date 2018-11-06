@@ -54,11 +54,10 @@ class SAM:
 
     def handle_service(self, req):
         rospy.loginfo("entered handle service")
-        # msg = ControlLeds()
-        # msg.mode = 2
-        # msg.duration = 0
-        # self.ledmode_pub.publish(msg)
         self.visualizer.idle = False
+        # msg = Int32()
+        # msg.data = 0
+        # self.ledmode_pub.publish(msg)
         queue = mult_Queue()
         self.bing_allowed = True
         p = Process(target=self.stt_subprocess, args=(queue,))
@@ -104,7 +103,7 @@ class SAM:
         # kevins ros changes
         pub = rospy.Publisher('/roboy/cognition/sam/output', String, queue_size=10)
         s = rospy.Service('/roboy/cognition/speech/recognition', RecognizeSpeech, self.handle_service)
-        # self.ledmode_pub = rospy.Publisher("/roboy/control/matrix/leds/mode", ControlLeds, queue_size=3)
+        # self.ledmode_pub = rospy.Publisher("/roboy/control/matrix/leds/mode/simple", Int32, queue_size=3)
         # self.ledoff_pub = rospy.Publisher('/roboy/control/matrix/leds/off', msg_Empty, queue_size=10)
         # self.ledfreeze_pub = rospy.Publisher("/roboy/control/matrix/leds/freeze", msg_Empty, queue_size=1)
         # self.ledpoint_pub = rospy.Publisher("/roboy/control/matrix/leds/point", Int32, queue_size=1)
@@ -315,7 +314,7 @@ class SAM:
                             # send to speech to text
                             if self.bing_allowed:
                                 text = self.stt.get_text(rec.audio)
-                                wavfile.write(text.encode('utf-8') + ".wav", 16000, rec.audio.data)
+                                # wavfile.write(text.encode('utf-8') + ".wav", 16000, rec.audio.data)
                             else:
                                 text = "bing is not allowed yet"
                             # output_string = "Speaker {}: ".format(rec.final_speaker_id) + text.encode('utf-8')

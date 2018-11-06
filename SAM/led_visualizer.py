@@ -1,6 +1,6 @@
 import sys
-# sys.path.append('/home/parallels/catkin_ws/src/roboy_matrix_utils/led_control/src')
-sys.path.append('/home/pi/ros_catkin_ws/src/roboy_matrix_utils/led_control/src')
+sys.path.append('/home/parallels/catkin_ws/src/roboy_matrix_utils/led_control/src')
+# sys.path.append('/home/pi/ros_catkin_ws/src/roboy_matrix_utils/led_control/src')
 
 from leds import MatrixLeds
 from visualizer import Visualizer

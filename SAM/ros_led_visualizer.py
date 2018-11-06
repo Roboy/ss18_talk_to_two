@@ -27,7 +27,7 @@ class RosVisualizer(Visualizer):
         Visualizer.__init__(self, inq)
         self.speaker_location_pub = rospy.Publisher("/roboy/cognition/audio/speaker/location", AudioLocation)
         self.record_location_pub = rospy.Publisher("/roboy/cognition/audio/record/location", AudioLocation)
-        self.ledmode_pub = rospy.Publisher("/roboy/control/matrix/leds/mode/simple", Int32)
+        self.ledmode_pub = rospy.Publisher("/roboy/control/matrix/leds/mode/simple", Int32, queue_size=1)
         self.led_point = rospy.ServiceProxy('/roboy/control/matrix/leds/point', SetPoint)
         self.idle_timeout = time.time()
         self.idle_even = True
@@ -63,9 +63,16 @@ class RosVisualizer(Visualizer):
 
                     for r_led in record_leds:
                         try:
-                            self.led_point(r_led)
+                            if self.led_point(r_led):
+                                rospy.logdebug("led point did work")
+                            else:
+                                rospy.logdebug("led point didn't work")
                         except rospy.ServiceException, e:
                             print "Service called failed: %s" % e
+                # else:
+                #     msg = Int32()
+                #     msg.data = 2
+                #     self.ledmode_pub.publish(msg)
 
         print("stopping visualization")
 
