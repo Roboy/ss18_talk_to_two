@@ -1,0 +1,4 @@
+<launch>
+	<node name="SAM" pkg="rosam" type="SAM.py" output="screen" />
+	<node name="ODAS" pkg="rosam" type="odas.sh" output="screen" />
+</launch>
