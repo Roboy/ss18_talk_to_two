@@ -7,6 +7,7 @@ import time
 from std_msgs.msg import Int32
 from roboy_communication_cognition.srv import SetPoint
 from led_visualizer import led_by_angle
+import time
 
 color_array = [
     [50, 0, 0, 0],
@@ -25,16 +26,15 @@ class RosVisualizer(Visualizer):
     """
     def __init__(self, inq):
         Visualizer.__init__(self, inq)
-        self.speaker_location_pub = rospy.Publisher("/roboy/cognition/audio/speaker/location", AudioLocation)
-        self.record_location_pub = rospy.Publisher("/roboy/cognition/audio/record/location", AudioLocation)
         self.ledmode_pub = rospy.Publisher("/roboy/control/matrix/leds/mode/simple", Int32, queue_size=1)
-        self.led_point = rospy.ServiceProxy('/roboy/control/matrix/leds/point', SetPoint)
+        self.led_point = rospy.ServiceProxy('/roboy/control/matrix/leds/point/service', SetPoint)
         self.idle_timeout = time.time()
         self.idle_even = True
         self.idle = True
 
     def run(self):
 
+        start = time.time()
         while not self.please_stop.is_set() and not rospy.is_shutdown():
             # wait for data to arrive
             latest_data = self.inq.get(block=True)
@@ -49,9 +49,11 @@ class RosVisualizer(Visualizer):
             rec_for_vis = latest_data['recordings']
 
             if self.idle:
-                msg = Int32()
-                msg.data = 9
-                self.ledmode_pub.publish(msg)
+                if time.time() - start > 2:
+                    msg = Int32()
+                    msg.data = 9
+                    self.ledmode_pub.publish(msg)
+                    start = time.time()
             else:
                 if len(rec_for_vis) > 0:
                     rec_for_vis = np.array(rec_for_vis)
