@@ -31,10 +31,75 @@ class LedVisualizer(Visualizer):
         self.idle_timeout = time.time()
         self.idle_even = True
         self.idle = False
+        self.heartbeat = True
         self.rec_loc_pub = rospy.Publisher('/roboy/cognition/audio/record/location', AudioLocation, queue_size=1)
 
     def run(self):
+        # ----- Heartbeat preperation ----------
+        self.duration = 0
+        self.color = 3
+        # mode 2
+        self.brightness = 50
+        self.tail = 30
+        point_led = 8
+        self.led_r = point_led
+        self.led_l = point_led
+        # print "duration: ",duration
+        self.start = time.time()
+        # while mode == 2:
+        #     if duration != 0 and time.time() - start > duration:
+        #         break
+        #     intensity = brightness
+        #     pixels = [0] * channels * leds_num
+        #     if led > 35 or led < 0:
+        #         led = 0
+        #     for l in range(led - tail, led):
+        #         intensity += 4
+        #         pixels[l * channels + 3] = intensity
+        #     write_pixels(pixels)
+        #     led += 1
+        #     time.sleep(0.02)
+        self.clockwise_r = False
+        self.clockwise_l = True
 
+        allowed_l = list()
+        for i in range(1, 6):
+            allowed_l.append(point_led - i)
+
+        # map them to our range
+        for i in range(len(allowed_l)):
+            if allowed_l[i] < 0:
+                allowed_l[i] = 36 + allowed_l[i]
+
+        for i in range(len(allowed_l)):
+            if allowed_l[i] > 35:
+                allowed_l[i] = allowed_l[i] - 36
+        # print "allowed_l: ", allowed_l
+
+        allowed_r = list()
+        for i in range(1, 6):
+            allowed_r.append(point_led + i)
+
+        # map them to our range
+        for i in range(len(allowed_r)):
+            if allowed_r[i] < 0:
+                allowed_r[i] = 36 + allowed_r[i]
+
+        for i in range(len(allowed_r)):
+            if allowed_r[i] > 35:
+                allowed_r[i] = allowed_r[i] - 36
+        # print "allowed_r: ", allowed_r
+
+        self.forbidden_l = list()
+        for i in range(0, 36):
+            if i not in allowed_l:
+                self.forbidden_l.append(i)
+
+        self.forbidden_r = list()
+        for i in range(0, 36):
+            if i not in allowed_r:
+                self.forbidden_r.append(i)
+         # ----------------------
         while not self.please_stop.is_set() and not rospy.is_shutdown():
             # wait for data to arrive
             latest_data = self.inq.get(block=True)
@@ -51,7 +116,7 @@ class LedVisualizer(Visualizer):
             if self.idle:
                 self.idle_light()
             else:
-                pixels = [0, 0, 0, 0] * 36
+                self.pixels = [0, 0, 0, 0] * 36
 
                 if len(rec_for_vis) > 0:
                     rec_for_vis = np.array(rec_for_vis)
@@ -77,30 +142,33 @@ class LedVisualizer(Visualizer):
                             if sup_leds[i] >= 36:
                                 sup_leds[i] -= 36
 
-                        pixels[4 * r_led] = 0
-                        pixels[4 * r_led + 1] = 200
-                        pixels[4 * r_led + 2] = 200
-                        pixels[4 * r_led + 3] = 50
+                        self.pixels[4 * r_led] = 0
+                        self.pixels[4 * r_led + 1] = 200
+                        self.pixels[4 * r_led + 2] = 200
+                        self.pixels[4 * r_led + 3] = 50
 
                         sup_cnt = 0
                         for s_l in sup_leds:
                             try:
                                 if sup_cnt < 2:
-                                    pixels[4 * s_l] = 0
-                                    pixels[4 * s_l + 1] = 150
-                                    pixels[4 * s_l + 2] = 150
-                                    pixels[4 * s_l + 3] = 30
+                                    self.pixels[4 * s_l] = 0
+                                    self.pixels[4 * s_l + 1] = 150
+                                    self.pixels[4 * s_l + 2] = 150
+                                    self.pixels[4 * s_l + 3] = 30
                                     sup_cnt += 1
                                 else:
-                                    pixels[4 * s_l] = 0
-                                    pixels[4 * s_l + 1] = 100
-                                    pixels[4 * s_l + 2] = 100
-                                    pixels[4 * s_l + 3] = 10
+                                    self.pixels[4 * s_l] = 0
+                                    self.pixels[4 * s_l + 1] = 100
+                                    self.pixels[4 * s_l + 2] = 100
+                                    self.pixels[4 * s_l + 3] = 10
                                     sup_cnt += 1
                             except IndexError:
                                 rospy.logerr("caught an IndexError.r_led : " + str(r_led) + " s_l : " + str(s_l))
 
-                self.leds.write_pixels(pixels)
+                if self.heartbeat:
+                    self.heartbeat_light()
+
+                self.leds.write_pixels(self.pixels)
         print("stopping visualization")
 
     def stop(self):
@@ -123,6 +191,46 @@ class LedVisualizer(Visualizer):
                     else:
                         pixels += [0, 0, 20, 0]
             self.leds.write_pixels(pixels)
+
+    def heartbeat_light(self):
+
+            if self.led_l == 36:
+                self.led_l = 0
+            if self.led_r == 36:
+                self.led_r = 0
+            # print "led_l: ", led_l
+            # print "led_r: ", led_r
+            # print "clockwise_l, ", clockwise_l
+            # print "clockwise_r, ", clockwise_r
+
+            # pixels = [0] * self.channels * self.leds_num
+            self.pixels[self.led_r * 4 + self.color] = self.brightness
+            self.pixels[self.led_l * 4 + self.color] = self.brightness
+
+            # self.write_pixels(pixels)
+
+            if self.led_l in self.forbidden_l:
+                self.clockwise_l = not self.clockwise_l
+
+            if self.led_r in self.forbidden_r:
+                self.clockwise_r = not self.clockwise_r
+
+            if self.led_r == 0 and not self.clockwise_r:
+                self.led_r = 36
+
+            if self.led_l == 0 and not self.clockwise_l:
+                self.led_l = 36
+
+            if self.clockwise_r:
+                self.led_r += 1
+            else:
+                self.led_r -= 1
+
+            if self.clockwise_l:
+                self.led_l += 1
+            else:
+                self.led_l -= 1
+            time.sleep(0.05)
 
 
 def led_by_angle(angle):
