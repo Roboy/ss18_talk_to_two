@@ -1,13 +1,13 @@
 import sys
 #sys.path.append('/home/parallels/catkin_ws/src/roboy_matrix_utils/led_control/src')
-sys.path.append('/home/pi/ros_catkin_ws/src/roboy_matrix_utils/led_control/src')
+sys.path.append('/home/pi/workspace/src/roboy_matrix_utils/led_control/src')
 
 from leds import MatrixLeds
 from visualizer import Visualizer
 import numpy as np
 from Queue import Empty
 import rospy
-from roboy_communication_cognition.msg import AudioLocation
+#from roboy_communication_cognition.msg import AudioLocation
 import time
 
 color_array = [
