@@ -31,6 +31,7 @@ class LedVisualizer(Visualizer):
         self.idle_timeout = time.time()
         self.idle_even = True
         self.idle = False
+        self.rec_loc_pub = rospy.Publisher('/roboy/cognition/audio/record/location', AudioLocation)
 
     def run(self):
 
@@ -46,6 +47,12 @@ class LedVisualizer(Visualizer):
                     break
 
             rec_for_vis = latest_data['recordings']
+
+            msg = AudioLocation()
+            msg.x = rec_for_vis[:, 1]
+            msg.y = rec_for_vis[:, 2]
+            msg.z = rec_for_vis[:, 3]
+            self.rec_loc_pub.publish(msg)
 
             if self.idle:
                 self.idle_light()

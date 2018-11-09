@@ -102,7 +102,7 @@ class SAM:
 
         # kevins ros changes
         pub = rospy.Publisher('/roboy/cognition/sam/output', String, queue_size=10)
-        s = rospy.Service('/roboy/cognition/speech/recognition', RecognizeSpeech, self.handle_service)
+        # s = rospy.Service('/roboy/cognition/speech/recognition', RecognizeSpeech, self.handle_service)
         # self.ledmode_pub = rospy.Publisher("/roboy/control/matrix/leds/mode/simple", Int32, queue_size=3)
         # self.ledoff_pub = rospy.Publisher('/roboy/control/matrix/leds/off', msg_Empty, queue_size=10)
         # self.ledfreeze_pub = rospy.Publisher("/roboy/control/matrix/leds/freeze", msg_Empty, queue_size=1)
