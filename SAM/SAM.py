@@ -25,7 +25,7 @@ from std_msgs.msg import String
 from roboy_communication_cognition.srv import RecognizeSpeech
 from roboy_communication_control.msg import ControlLeds
 from std_msgs.msg import Empty as msg_Empty, Int32
-from ros_led_visualizer import RosVisualizer
+#from ros_led_visualizer import RosVisualizer
 
 # export audio
 #from scipy.io import wavfile
