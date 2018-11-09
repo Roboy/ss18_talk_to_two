@@ -90,6 +90,9 @@ class SAM:
         if msg.mode == 2:
             self.visualizer.heartbeat = True
 
+    def freeze_callback(self):
+        self.visualizer.heartbeat = False
+
     def run(self):
         self.merger.start()
 
@@ -106,8 +109,8 @@ class SAM:
 
         # kevins ros changes
         pub = rospy.Publisher('/roboy/cognition/sam/output', String, queue_size=10)
-        rospy.Subscriber("/roboy/control/matrix/leds/mode", ControlLeds, mode_callback)
-        rospy.Subscriber("/roboy/control/matrix/leds/freeze", msg_Empty, freeze_callback)
+        rospy.Subscriber("/roboy/control/matrix/leds/mode", ControlLeds, self.mode_callback)
+        rospy.Subscriber("/roboy/control/matrix/leds/freeze", msg_Empty, self.freeze_callback)
         # s = rospy.Service('/roboy/cognition/speech/recognition', RecognizeSpeech, self.handle_service)
         # self.ledmode_pub = rospy.Publisher("/roboy/control/matrix/leds/mode/simple", Int32, queue_size=3)
         # self.ledoff_pub = rospy.Publisher('/roboy/control/matrix/leds/off', msg_Empty, queue_size=10)
