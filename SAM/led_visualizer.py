@@ -31,7 +31,7 @@ class LedVisualizer(Visualizer):
         self.idle_timeout = time.time()
         self.idle_even = True
         self.idle = False
-        self.heartbeat = True
+        self.heartbeat = False
         self.rec_loc_pub = rospy.Publisher('/roboy/cognition/audio/record/location', AudioLocation, queue_size=1)
 
     def run(self):
@@ -41,7 +41,7 @@ class LedVisualizer(Visualizer):
         # mode 2
         self.brightness = 150
         self.tail = 30
-        point_led = 26
+        point_led = 25
         self.led_r = point_led
         self.led_l = point_led
         # print "duration: ",duration

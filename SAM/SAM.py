@@ -90,7 +90,7 @@ class SAM:
         if msg.mode == 2:
             self.visualizer.heartbeat = True
 
-    def freeze_callback(self):
+    def freeze_callback(self, msg):
         self.visualizer.heartbeat = False
 
     def run(self):
