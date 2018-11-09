@@ -31,7 +31,7 @@ class LedVisualizer(Visualizer):
         self.idle_timeout = time.time()
         self.idle_even = True
         self.idle = False
-        self.rec_loc_pub = rospy.Publisher('/roboy/cognition/audio/record/location', AudioLocation)
+        self.rec_loc_pub = rospy.Publisher('/roboy/cognition/audio/record/location', AudioLocation, queue_size=1)
 
     def run(self):
 
@@ -48,12 +48,6 @@ class LedVisualizer(Visualizer):
 
             rec_for_vis = latest_data['recordings']
 
-            msg = AudioLocation()
-            msg.x = rec_for_vis[:, 1]
-            msg.y = rec_for_vis[:, 2]
-            msg.z = rec_for_vis[:, 3]
-            self.rec_loc_pub.publish(msg)
-
             if self.idle:
                 self.idle_light()
             else:
@@ -63,6 +57,13 @@ class LedVisualizer(Visualizer):
                     rec_for_vis = np.array(rec_for_vis)
                     record_leds = []
                     speaker_id = []
+
+                    msg = AudioLocation()
+                    msg.x = rec_for_vis[:, 1]
+                    msg.y = rec_for_vis[:, 2]
+                    msg.z = rec_for_vis[:, 3]
+                    self.rec_loc_pub.publish(msg)
+
                     for i in range(0, len(rec_for_vis)):
                         speaker_id.append(0)
                         record_leds.append(led_by_angle(np.arctan2(rec_for_vis[i, 1], rec_for_vis[i, 2]) * 180/np.pi))
