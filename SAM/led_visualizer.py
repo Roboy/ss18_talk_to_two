@@ -39,9 +39,9 @@ class LedVisualizer(Visualizer):
         self.duration = 0
         self.color = 3
         # mode 2
-        self.brightness = 50
+        self.brightness = 150
         self.tail = 30
-        point_led = 8
+        point_led = 26
         self.led_r = point_led
         self.led_l = point_led
         # print "duration: ",duration
