@@ -135,9 +135,9 @@ class LedVisualizer(Visualizer):
                         speaker_id.append(0)
                         record_leds.append(led_by_angle(np.arctan2(rec_for_vis[i, 1], rec_for_vis[i, 2]) * 180/np.pi))
                         # if 5 than 50 if 10 than + min / max
-                        bright = int(20 + ((250 - 20) / (9 - 7)) * (rec_for_vis[i, 5] - 7))
-                        if bright > 250:
-                            bright = 250
+                        bright = int(20 + ((200 - 20) / (9 - 7.5)) * (rec_for_vis[i, 5] - 7.5))
+                        if bright > 200:
+                            bright = 200
                         if bright < 20:
                             bright = 20
                         record_brightness.append(bright)
