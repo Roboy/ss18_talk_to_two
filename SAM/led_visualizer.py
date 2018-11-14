@@ -121,6 +121,7 @@ class LedVisualizer(Visualizer):
                 if len(rec_for_vis) > 0:
                     rec_for_vis = np.array(rec_for_vis)
                     record_leds = []
+                    record_brightness = []
                     speaker_id = []
 
                     msg = AudioLocation()
@@ -133,8 +134,10 @@ class LedVisualizer(Visualizer):
                     for i in range(0, len(rec_for_vis)):
                         speaker_id.append(0)
                         record_leds.append(led_by_angle(np.arctan2(rec_for_vis[i, 1], rec_for_vis[i, 2]) * 180/np.pi))
+                        # if 5 than 50 if 10 than + min / max
+                        record_brightness.append(int(100 + ((200 - 100)/(9 - 7)) * (rec_for_vis[i, 5] - 7)))
 
-                    for r_led in record_leds:
+                    for r_led, bright in zip(record_leds, record_brightness):
                         # find the other leds
                         sup_leds = [r_led + 1, r_led - 1, r_led + 2, r_led -2]
                         for i in range(len(sup_leds)):
@@ -144,16 +147,16 @@ class LedVisualizer(Visualizer):
                                 sup_leds[i] -= self.leds.leds_num
 
                         self.pixels[4 * r_led] = 0
-                        self.pixels[4 * r_led + 1] = 200
-                        self.pixels[4 * r_led + 2] = 200
-                        self.pixels[4 * r_led + 3] = 50
+                        self.pixels[4 * r_led + 1] = bright
+                        self.pixels[4 * r_led + 2] = bright
+                        self.pixels[4 * r_led + 3] = int(bright/4)
 
                         for s_l in sup_leds:
                             try:
                                 self.pixels[4 * s_l] = 0
-                                self.pixels[4 * s_l + 1] = 200
-                                self.pixels[4 * s_l + 2] = 200
-                                self.pixels[4 * s_l + 3] = 50
+                                self.pixels[4 * s_l + 1] = bright
+                                self.pixels[4 * s_l + 2] = bright
+                                self.pixels[4 * s_l + 3] = int(bright/4)
                             except IndexError:
                                 rospy.logerr("caught an IndexError.r_led : " + str(r_led) + " s_l : " + str(s_l))
 
