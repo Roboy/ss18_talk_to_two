@@ -245,11 +245,15 @@ class SAM:
 
             for rec_id, rec in recordings.iteritems():
                 if self.visualization and not rec.stopped:
+                    # convert audio to energy and append it to the tuple
+                    # Energy is the root mean square of the signal
+                    # E = sqrt(sum(s[n]^2)/N)
+                    curr_energy = np.sqrt(np.mean(np.square(rec.audio.data)))
                     if not rec.stopped:
                         rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2],
-                                                200])  # 200 is the size of the blob
+                                                200, curr_energy])  # 200 is the size of the blob
                     else:
-                        rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2], 50])
+                        rec_info_to_vis.append([rec_id, rec.currentpos[0], rec.currentpos[1], rec.currentpos[2], 50, curr_energy])
 
                 if rec.new:
                     output_string = "new recording " + str(rec_id)

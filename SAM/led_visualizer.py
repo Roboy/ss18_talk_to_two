@@ -69,11 +69,11 @@ class LedVisualizer(Visualizer):
         # map them to our range
         for i in range(len(allowed_l)):
             if allowed_l[i] < 0:
-                allowed_l[i] = 36 + allowed_l[i]
+                allowed_l[i] = self.leds.leds_num + allowed_l[i]
 
         for i in range(len(allowed_l)):
             if allowed_l[i] > 35:
-                allowed_l[i] = allowed_l[i] - 36
+                allowed_l[i] = allowed_l[i] - self.leds.leds_num
         # print "allowed_l: ", allowed_l
 
         allowed_r = list()
@@ -83,23 +83,23 @@ class LedVisualizer(Visualizer):
         # map them to our range
         for i in range(len(allowed_r)):
             if allowed_r[i] < 0:
-                allowed_r[i] = 36 + allowed_r[i]
+                allowed_r[i] = self.leds.leds_num + allowed_r[i]
 
         for i in range(len(allowed_r)):
-            if allowed_r[i] > 35:
-                allowed_r[i] = allowed_r[i] - 36
+            if allowed_r[i] > (self.leds.leds_num - 1):
+                allowed_r[i] = allowed_r[i] - self.leds.leds_num
         # print "allowed_r: ", allowed_r
 
         self.forbidden_l = list()
-        for i in range(0, 36):
+        for i in range(0, self.leds.leds_num):
             if i not in allowed_l:
                 self.forbidden_l.append(i)
 
         self.forbidden_r = list()
-        for i in range(0, 36):
+        for i in range(0, self.leds.leds_num):
             if i not in allowed_r:
                 self.forbidden_r.append(i)
-         # ----------------------
+        # ----------------------
         while not self.please_stop.is_set() and not rospy.is_shutdown():
             # wait for data to arrive
             latest_data = self.inq.get(block=True)
@@ -116,7 +116,7 @@ class LedVisualizer(Visualizer):
             if self.idle:
                 self.idle_light()
             else:
-                self.pixels = [0, 0, 0, 0] * 36
+                self.pixels = [0, 0, 0, 0] * self.leds.leds_num
 
                 if len(rec_for_vis) > 0:
                     rec_for_vis = np.array(rec_for_vis)
@@ -127,6 +127,7 @@ class LedVisualizer(Visualizer):
                     msg.x = rec_for_vis[:, 1]
                     msg.y = rec_for_vis[:, 2]
                     msg.z = rec_for_vis[:, 3]
+                    msg.energy = rec_for_vis[:, 5]
                     self.rec_loc_pub.publish(msg)
 
                     for i in range(0, len(rec_for_vis)):
@@ -138,30 +139,21 @@ class LedVisualizer(Visualizer):
                         sup_leds = [r_led + 1, r_led - 1, r_led + 2, r_led -2]
                         for i in range(len(sup_leds)):
                             if sup_leds[i] < 0:
-                                sup_leds[i] += 36
-                            if sup_leds[i] >= 36:
-                                sup_leds[i] -= 36
+                                sup_leds[i] += self.leds.leds_num
+                            if sup_leds[i] >= self.leds.leds_num:
+                                sup_leds[i] -= self.leds.leds_num
 
                         self.pixels[4 * r_led] = 0
                         self.pixels[4 * r_led + 1] = 200
                         self.pixels[4 * r_led + 2] = 200
                         self.pixels[4 * r_led + 3] = 50
 
-                        sup_cnt = 0
                         for s_l in sup_leds:
                             try:
-                                if sup_cnt < 2:
-                                    self.pixels[4 * s_l] = 0
-                                    self.pixels[4 * s_l + 1] = 150
-                                    self.pixels[4 * s_l + 2] = 150
-                                    self.pixels[4 * s_l + 3] = 30
-                                    sup_cnt += 1
-                                else:
-                                    self.pixels[4 * s_l] = 0
-                                    self.pixels[4 * s_l + 1] = 100
-                                    self.pixels[4 * s_l + 2] = 100
-                                    self.pixels[4 * s_l + 3] = 10
-                                    sup_cnt += 1
+                                self.pixels[4 * s_l] = 0
+                                self.pixels[4 * s_l + 1] = 200
+                                self.pixels[4 * s_l + 2] = 200
+                                self.pixels[4 * s_l + 3] = 50
                             except IndexError:
                                 rospy.logerr("caught an IndexError.r_led : " + str(r_led) + " s_l : " + str(s_l))
 
@@ -179,7 +171,7 @@ class LedVisualizer(Visualizer):
             self.idle_even = not self.idle_even
             self.idle_timeout = time.time()
             pixels = []
-            for i in range(36):
+            for i in range(self.leds.leds_num):
                 if self.idle_even:
                     if i % 2 == 0:
                         pixels += [0, 0, 20, 0]
@@ -194,9 +186,9 @@ class LedVisualizer(Visualizer):
 
     def heartbeat_light(self):
 
-            if self.led_l == 36:
+            if self.led_l == self.leds.leds_num:
                 self.led_l = 0
-            if self.led_r == 36:
+            if self.led_r == self.leds.leds_num:
                 self.led_r = 0
             # print "led_l: ", led_l
             # print "led_r: ", led_r
@@ -216,10 +208,10 @@ class LedVisualizer(Visualizer):
                 self.clockwise_r = not self.clockwise_r
 
             if self.led_r == 0 and not self.clockwise_r:
-                self.led_r = 36
+                self.led_r = self.leds.leds_num
 
             if self.led_l == 0 and not self.clockwise_l:
-                self.led_l = 36
+                self.led_l = self.leds.leds_num
 
             if self.clockwise_r:
                 self.led_r += 1
