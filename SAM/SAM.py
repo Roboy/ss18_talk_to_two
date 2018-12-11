@@ -22,8 +22,8 @@ from t2t_stt import T2t_stt
 # kevins ros changes
 import rospy
 from std_msgs.msg import String
-from roboy_communication_cognition.srv import RecognizeSpeech
-from roboy_communication_control.msg import ControlLeds
+from roboy_cognition_msgs.srv import RecognizeSpeech
+from roboy_control_msgs.msg import ControlLeds
 from std_msgs.msg import Empty as msg_Empty, Int32
 #from ros_led_visualizer import RosVisualizer
 

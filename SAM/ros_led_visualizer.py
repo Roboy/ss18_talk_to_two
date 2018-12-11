@@ -2,10 +2,10 @@ from visualizer import Visualizer
 import numpy as np
 from Queue import Empty
 import rospy
-#from roboy_communication_cognition.msg import AudioLocation
+#from roboy_cognition_msgs.msg import AudioLocation
 import time
 from std_msgs.msg import Int32
-from roboy_communication_cognition.srv import SetPoint
+from roboy_cognition_msgs.srv import SetPoint
 from led_visualizer import led_by_angle
 import time
 

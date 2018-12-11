@@ -7,7 +7,7 @@ from visualizer import Visualizer
 import numpy as np
 from Queue import Empty
 import rospy
-from roboy_communication_cognition.msg import AudioLocation
+from roboy_cognition_msgs.msg import AudioLocation
 import time
 
 color_array = [
