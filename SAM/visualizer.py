@@ -4,10 +4,10 @@ from Queue import Empty
 import time
 import numpy as np 
 
-from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.cm as cm
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
+# from mpl_toolkits.mplot3d import Axes3D
+# import matplotlib.cm as cm
+# import matplotlib.pyplot as plt
+# from matplotlib.animation import FuncAnimation
 
 #matplotlib.use("gtk")
 
@@ -23,16 +23,16 @@ class Visualizer(threading.Thread):
     def run(self):
         
         
-        fig = plt.figure()
-        ax = fig.add_subplot(111, projection='3d')
-        plt.ion()
-        ax.autoscale(enable=False)
-        ax.set_xlim3d(-1.2,1.2)
-        ax.set_ylim3d(-1.2,1.2)
-        ax.set_zlim3d(-1.2,1.2)
-        
-        fig.show()
-        fig.canvas.draw()
+        # fig = plt.figure()
+        # ax = fig.add_subplot(111, projection='3d')
+        # plt.ion()
+        # ax.autoscale(enable=False)
+        # ax.set_xlim3d(-1.2,1.2)
+        # ax.set_ylim3d(-1.2,1.2)
+        # ax.set_zlim3d(-1.2,1.2)
+        #
+        # fig.show()
+        # fig.canvas.draw()
         
         #last_time = time.time()
         
@@ -58,36 +58,34 @@ class Visualizer(threading.Thread):
             rec_for_vis = latest_data['recordings']
             
                 
-            ax.clear()        
+            # ax.clear()
             #TODO: fic colors
             if(len(speakers_for_vis) > 0):
                 speakers_for_vis = np.array(speakers_for_vis)
-                ax.scatter(speakers_for_vis[:,1], speakers_for_vis[:,2], speakers_for_vis[:,3], s=speakers_for_vis[:,4])
+                # ax.scatter(speakers_for_vis[:,1], speakers_for_vis[:,2], speakers_for_vis[:,3], s=speakers_for_vis[:,4])
                 for sp in speakers_for_vis: #display the assigned id
                     if sp[0] > 0:
-                        ax.text(sp[1],sp[2],sp[3],  '%s' % (str(int(sp[0]))), size=15) 
+                        pass
+                        # ax.text(sp[1], sp[2], sp[3],  '%s' % (str(int(sp[0]))), size=15)
             if(len(rec_for_vis) > 0):
                 rec_for_vis = np.array(rec_for_vis)
-                ax.scatter(rec_for_vis[:,1], rec_for_vis[:,2], rec_for_vis[:,3], s=rec_for_vis[:,4])
+                # ax.scatter(rec_for_vis[:,1], rec_for_vis[:,2], rec_for_vis[:,3], s=rec_for_vis[:,4])
                 for rec in rec_for_vis: #display the assigned id
-                    ax.text(rec[1],rec[2],rec[3],  '%s' % (str(int(rec[0]))), size=15, color='red') 
-            ax.set_xlim3d(-1.2,1.2) #dont know why, but otherwise it keeps changin them...
-            ax.set_ylim3d(-1.2,1.2)
-            ax.set_zlim3d(-1.2,1.2) 
-            #plt.pause(0.001)
-            fig.canvas.draw()
+                    pass
+                    # ax.text(rec[1],rec[2],rec[3],  '%s' % (str(int(rec[0]))), size=15, color='red')
+            # ax.set_xlim3d(-1.2,1.2) #dont know why, but otherwise it keeps changin them...
+            # ax.set_ylim3d(-1.2,1.2)
+            # ax.set_zlim3d(-1.2,1.2)
+            # #plt.pause(0.001)
+            # fig.canvas.draw()
             
             
             
             #print("elapsed time:", time.time() - last_time)
             #last_time = time.time()
             
-        plt.close()
+        # plt.close()
         print("stopping visulaization")
-        
-        
+
     def stop(self):
         self.please_stop.set()
-        
-        
-        
