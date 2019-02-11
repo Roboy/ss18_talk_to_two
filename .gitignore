@@ -1,1 +1,6 @@
 work
+*.bmp
+*.m~
+*.pyc
+.idea
+

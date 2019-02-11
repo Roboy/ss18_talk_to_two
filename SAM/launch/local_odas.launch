@@ -1,0 +1,3 @@
+<launch>
+	<node name="ODAS" pkg="rosam" type="local_odas.sh" output="screen" />
+</launch>

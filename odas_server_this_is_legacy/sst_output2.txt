@@ -1,0 +1,498 @@
+got:
+{'timeStamp': 3588, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.397, 'z': 0.337, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0009980201721191406
+got:
+{'timeStamp': 3589, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.397, 'z': 0.337, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3590, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.397, 'z': 0.336, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.022042512893676758
+got:
+{'timeStamp': 3591, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.397, 'z': 0.334, 'activity': 0.998}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0029926300048828125
+got:
+{'timeStamp': 3592, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.397, 'z': 0.335, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0024967193603515625
+got:
+{'timeStamp': 3593, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.397, 'z': 0.335, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004973411560058594
+got:
+{'timeStamp': 3594, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.397, 'z': 0.333, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.020676374435424805
+got:
+{'timeStamp': 3595, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.397, 'z': 0.332, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3596, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.397, 'z': 0.332, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004975795745849609
+got:
+{'timeStamp': 3597, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.398, 'z': 0.333, 'activity': 0.998}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3598, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.398, 'z': 0.333, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.02893996238708496
+got:
+{'timeStamp': 3599, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.398, 'z': 0.333, 'activity': 0.998}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3600, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.397, 'z': 0.334, 'activity': 0.998}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0009982585906982422
+got:
+{'timeStamp': 3601, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.397, 'z': 0.334, 'activity': 0.998}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004992485046386719
+got:
+{'timeStamp': 3602, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.397, 'z': 0.336, 'activity': 0.991}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.03149676322937012
+got:
+{'timeStamp': 3603, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.397, 'z': 0.334, 'activity': 0.874}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0024957656860351562
+got:
+{'timeStamp': 3604, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.396, 'z': 0.335, 'activity': 0.963}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0034949779510498047
+got:
+{'timeStamp': 3605, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.396, 'z': 0.333, 'activity': 0.633}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0019986629486083984
+got:
+{'timeStamp': 3606, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.396, 'z': 0.333, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.014968633651733398
+got:
+{'timeStamp': 3607, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.396, 'z': 0.334, 'activity': 0.022}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0019960403442382812
+got:
+{'timeStamp': 3608, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.396, 'z': 0.335, 'activity': 0.76}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004994869232177734
+got:
+{'timeStamp': 3609, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.394, 'z': 0.336, 'activity': 0.83}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3610, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.393, 'z': 0.336, 'activity': 0.78}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.026949644088745117
+got:
+{'timeStamp': 3611, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.392, 'z': 0.336, 'activity': 0.561}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0029916763305664062
+got:
+{'timeStamp': 3612, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.392, 'z': 0.336, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0034933090209960938
+got:
+{'timeStamp': 3613, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.392, 'z': 0.336, 'activity': 0.065}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0029916763305664062
+got:
+{'timeStamp': 3614, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.392, 'z': 0.338, 'activity': 0.595}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.013393640518188477
+got:
+{'timeStamp': 3615, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.392, 'z': 0.338, 'activity': 0.407}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0019958019256591797
+got:
+{'timeStamp': 3616, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.392, 'z': 0.337, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0019927024841308594
+got:
+{'timeStamp': 3617, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.393, 'z': 0.337, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004971027374267578
+got:
+{'timeStamp': 3618, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.394, 'z': 0.334, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.019463539123535156
+got:
+{'timeStamp': 3619, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.394, 'z': 0.333, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3620, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.395, 'z': 0.331, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0009968280792236328
+got:
+{'timeStamp': 3621, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.395, 'z': 0.33, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0005009174346923828
+got:
+{'timeStamp': 3622, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.395, 'z': 0.328, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.03543281555175781
+got:
+{'timeStamp': 3623, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.395, 'z': 0.329, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004982948303222656
+got:
+{'timeStamp': 3624, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.394, 'z': 0.328, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3625, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.394, 'z': 0.329, 'activity': 0.998}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3626, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.394, 'z': 0.33, 'activity': 0.993}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.029942750930786133
+got:
+{'timeStamp': 3627, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.395, 'z': 0.328, 'activity': 0.96}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0015025138854980469
+got:
+{'timeStamp': 3628, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.395, 'z': 0.329, 'activity': 0.607}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3629, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.395, 'z': 0.33, 'activity': 0.858}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004949569702148438
+got:
+{'timeStamp': 3630, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.395, 'z': 0.332, 'activity': 0.543}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.02645111083984375
+got:
+{'timeStamp': 3631, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.396, 'z': 0.332, 'activity': 0.005}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.002496004104614258
+got:
+{'timeStamp': 3632, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.397, 'z': 0.332, 'activity': 0.459}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3633, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.396, 'z': 0.332, 'activity': 0.093}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0005006790161132812
+got:
+{'timeStamp': 3634, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.396, 'z': 0.333, 'activity': 0.176}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.018463134765625
+got:
+{'timeStamp': 3635, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.396, 'z': 0.333, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004982948303222656
+got:
+{'timeStamp': 3636, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.397, 'z': 0.333, 'activity': 0.204}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3637, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.397, 'z': 0.334, 'activity': 0.226}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004987716674804688
+got:
+{'timeStamp': 3638, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.396, 'z': 0.335, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.03144359588623047
+got:
+{'timeStamp': 3639, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.396, 'z': 0.336, 'activity': 0.997}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.002492666244506836
+got:
+{'timeStamp': 3640, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.396, 'z': 0.336, 'activity': 0.991}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0014972686767578125
+got:
+{'timeStamp': 3641, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.396, 'z': 0.338, 'activity': 0.75}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0010004043579101562
+got:
+{'timeStamp': 3642, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.396, 'z': 0.337, 'activity': 0.16}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.018510103225708008
+got:
+{'timeStamp': 3643, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.396, 'z': 0.338, 'activity': 0.074}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3644, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.396, 'z': 0.338, 'activity': 0.018}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3645, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.396, 'z': 0.338, 'activity': 0.016}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004978179931640625
+got:
+{'timeStamp': 3646, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.396, 'z': 0.338, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.030942440032958984
+got:
+{'timeStamp': 3647, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.396, 'z': 0.338, 'activity': 0.002}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3648, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.395, 'z': 0.339, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3649, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.396, 'z': 0.336, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3650, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.397, 'z': 0.336, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.03443264961242676
+got:
+{'timeStamp': 3651, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.397, 'z': 0.333, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0024957656860351562
+got:
+{'timeStamp': 3652, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.397, 'z': 0.332, 'activity': 0.998}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3653, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.397, 'z': 0.33, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0005016326904296875
+got:
+{'timeStamp': 3654, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.398, 'z': 0.328, 'activity': 0.998}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.02445363998413086
+got:
+{'timeStamp': 3655, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.398, 'z': 0.327, 'activity': 0.998}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0014967918395996094
+got:
+{'timeStamp': 3656, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.398, 'z': 0.327, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.001995086669921875
+got:
+{'timeStamp': 3657, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.398, 'z': 0.325, 'activity': 0.997}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0029916763305664062
+got:
+{'timeStamp': 3658, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.399, 'z': 0.324, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.012961149215698242
+got:
+{'timeStamp': 3659, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.399, 'z': 0.322, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0024971961975097656
+got:
+{'timeStamp': 3660, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.4, 'z': 0.321, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3661, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.4, 'z': 0.321, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0009968280792236328
+got:
+{'timeStamp': 3662, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.401, 'z': 0.321, 'activity': 0.998}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.024947643280029297
+got:
+{'timeStamp': 3663, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.859, 'y': -0.401, 'z': 0.319, 'activity': 0.989}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.002496480941772461
+got:
+{'timeStamp': 3664, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.859, 'y': -0.401, 'z': 0.319, 'activity': 0.998}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3665, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.4, 'z': 0.321, 'activity': 0.996}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004999637603759766
+got:
+{'timeStamp': 3666, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.401, 'z': 0.321, 'activity': 0.997}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.024019956588745117
+got:
+{'timeStamp': 3667, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.859, 'y': -0.401, 'z': 0.319, 'activity': 0.993}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3668, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.859, 'y': -0.4, 'z': 0.32, 'activity': 0.685}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3669, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.4, 'z': 0.321, 'activity': 0.977}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0005004405975341797
+got:
+{'timeStamp': 3670, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.859, 'y': -0.4, 'z': 0.32, 'activity': 0.96}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.030441761016845703
+got:
+{'timeStamp': 3671, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.859, 'y': -0.4, 'z': 0.32, 'activity': 0.284}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0024945735931396484
+got:
+{'timeStamp': 3672, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.859, 'y': -0.4, 'z': 0.32, 'activity': 0.007}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004978179931640625
+got:
+{'timeStamp': 3673, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.859, 'y': -0.4, 'z': 0.32, 'activity': 0.401}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3674, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.859, 'y': -0.4, 'z': 0.32, 'activity': 0.093}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.022458314895629883
+got:
+{'timeStamp': 3675, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.859, 'y': -0.4, 'z': 0.32, 'activity': 0.027}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3676, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.4, 'z': 0.32, 'activity': 0.046}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004973411560058594
+got:
+{'timeStamp': 3677, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.859, 'y': -0.4, 'z': 0.32, 'activity': 0.001}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0005011558532714844
+got:
+{'timeStamp': 3678, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.859, 'y': -0.4, 'z': 0.32, 'activity': 0.002}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.030542373657226562
+got:
+{'timeStamp': 3679, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.4, 'z': 0.321, 'activity': 0.193}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0005004405975341797
+got:
+{'timeStamp': 3680, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.4, 'z': 0.322, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3681, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.399, 'z': 0.324, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004973411560058594
+got:
+{'timeStamp': 3682, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.399, 'z': 0.325, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.026005029678344727
+got:
+{'timeStamp': 3683, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.399, 'z': 0.327, 'activity': 0.972}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004992485046386719
+got:
+{'timeStamp': 3684, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.399, 'z': 0.325, 'activity': 0.542}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3685, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.858, 'y': -0.399, 'z': 0.324, 'activity': 0.83}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3686, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.4, 'z': 0.324, 'activity': 0.133}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.033966779708862305
+got:
+{'timeStamp': 3687, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.4, 'z': 0.324, 'activity': 0.003}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.001991748809814453
+got:
+{'timeStamp': 3688, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.4, 'z': 0.324, 'activity': 0.001}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0019922256469726562
+got:
+{'timeStamp': 3689, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.399, 'z': 0.325, 'activity': 0.404}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.002495288848876953
+got:
+{'timeStamp': 3690, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.399, 'z': 0.325, 'activity': 0.054}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.01597309112548828
+got:
+{'timeStamp': 3691, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.399, 'z': 0.326, 'activity': 0.02}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0019986629486083984
+got:
+{'timeStamp': 3692, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.399, 'z': 0.325, 'activity': 0.345}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0019958019256591797
+got:
+{'timeStamp': 3693, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.399, 'z': 0.325, 'activity': 0.02}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004980564117431641
+got:
+{'timeStamp': 3694, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.399, 'z': 0.325, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.02146148681640625
+got:
+{'timeStamp': 3695, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.399, 'z': 0.327, 'activity': 0.63}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3696, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.398, 'z': 0.327, 'activity': 0.556}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3697, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.398, 'z': 0.328, 'activity': 0.262}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3698, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.398, 'z': 0.328, 'activity': 0.145}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.03143668174743652
+got:
+{'timeStamp': 3699, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.398, 'z': 0.33, 'activity': 0.991}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3700, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.398, 'z': 0.327, 'activity': 0.946}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0005023479461669922
+got:
+{'timeStamp': 3701, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.398, 'z': 0.329, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3702, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.399, 'z': 0.327, 'activity': 0.997}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.030937910079956055
+got:
+{'timeStamp': 3703, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.4, 'z': 0.326, 'activity': 0.997}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0029973983764648438
+got:
+{'timeStamp': 3704, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.4, 'z': 0.325, 'activity': 0.916}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0019965171813964844
+got:
+{'timeStamp': 3705, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.4, 'z': 0.326, 'activity': 0.918}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004990100860595703
+got:
+{'timeStamp': 3706, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.857, 'y': -0.401, 'z': 0.325, 'activity': 0.465}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.022953271865844727
+got:
+{'timeStamp': 3707, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.856, 'y': -0.4, 'z': 0.326, 'activity': 0.494}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.002496004104614258
+got:
+{'timeStamp': 3708, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.401, 'z': 0.328, 'activity': 0.76}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.001997232437133789
+got:
+{'timeStamp': 3709, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.401, 'z': 0.329, 'activity': 0.801}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004980564117431641
+got:
+{'timeStamp': 3710, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.4, 'z': 0.33, 'activity': 0.996}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.018968582153320312
+got:
+{'timeStamp': 3711, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.399, 'z': 0.331, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004951953887939453
+got:
+{'timeStamp': 3712, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.399, 'z': 0.333, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3713, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.4, 'z': 0.332, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0010013580322265625
+got:
+{'timeStamp': 3714, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.399, 'z': 0.333, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.03243732452392578
+got:
+{'timeStamp': 3715, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.399, 'z': 0.334, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.002499103546142578
+got:
+{'timeStamp': 3716, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.4, 'z': 0.333, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0024924278259277344
+got:
+{'timeStamp': 3717, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.4, 'z': 0.331, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3718, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.401, 'z': 0.33, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.019961118698120117
+got:
+{'timeStamp': 3719, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.401, 'z': 0.33, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3720, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.401, 'z': 0.33, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004973411560058594
+got:
+{'timeStamp': 3721, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.401, 'z': 0.33, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3722, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.401, 'z': 0.33, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0339360237121582
+got:
+{'timeStamp': 3723, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.401, 'z': 0.33, 'activity': 0.998}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004966259002685547
+got:
+{'timeStamp': 3724, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.401, 'z': 0.331, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3725, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.4, 'z': 0.333, 'activity': 0.998}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0014955997467041016
+got:
+{'timeStamp': 3726, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.4, 'z': 0.33, 'activity': 0.995}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.03193950653076172
+got:
+{'timeStamp': 3727, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.4, 'z': 0.33, 'activity': 0.997}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.002000093460083008
+got:
+{'timeStamp': 3728, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.4, 'z': 0.331, 'activity': 0.992}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0024912357330322266
+got:
+{'timeStamp': 3729, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.401, 'z': 0.331, 'activity': 0.993}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0014963150024414062
+got:
+{'timeStamp': 3730, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.4, 'z': 0.332, 'activity': 0.902}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.017097949981689453
+got:
+{'timeStamp': 3731, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.4, 'z': 0.33, 'activity': 0.955}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.002994537353515625
+got:
+{'timeStamp': 3732, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.4, 'z': 0.331, 'activity': 0.567}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004985332489013672
+got:
+{'timeStamp': 3733, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.4, 'z': 0.331, 'activity': 0.599}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3734, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.4, 'z': 0.332, 'activity': 0.63}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.017461538314819336
+got:
+{'timeStamp': 3735, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.4, 'z': 0.333, 'activity': 0.581}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0024912357330322266
+got:
+{'timeStamp': 3736, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.853, 'y': -0.401, 'z': 0.333, 'activity': 0.332}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.00249481201171875
+got:
+{'timeStamp': 3737, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.853, 'y': -0.401, 'z': 0.333, 'activity': 0.03}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.001996755599975586
+got:
+{'timeStamp': 3738, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.4, 'z': 0.333, 'activity': 0.824}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.01596999168395996
+got:
+{'timeStamp': 3739, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.4, 'z': 0.333, 'activity': 0.558}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.001994609832763672
+got:
+{'timeStamp': 3740, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.4, 'z': 0.334, 'activity': 0.595}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0024857521057128906
+got:
+{'timeStamp': 3741, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.853, 'y': -0.4, 'z': 0.335, 'activity': 0.935}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.006987571716308594
+got:
+{'timeStamp': 3742, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.852, 'y': -0.4, 'z': 0.337, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.009981155395507812
+got:
+{'timeStamp': 3743, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.853, 'y': -0.4, 'z': 0.334, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004990100860595703
+got:
+{'timeStamp': 3744, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.853, 'y': -0.401, 'z': 0.332, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3745, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.402, 'z': 0.329, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3746, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.403, 'z': 0.329, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.028443336486816406
+got:
+{'timeStamp': 3747, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.403, 'z': 0.328, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004987716674804688
+got:
+{'timeStamp': 3748, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.404, 'z': 0.327, 'activity': 1.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3749, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.404, 'z': 0.328, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:Id connection closed externally
+
+done.{'timeStamp': 3750, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.854, 'y': -0.405, 'z': 0.325, 'activity': 0.999}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.018463850021362305
+got:
+{'timeStamp': 3751, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.405, 'z': 0.323, 'activity': 0.997}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0
+got:
+{'timeStamp': 3752, 'src': [{'id': 1, 'tag': 'dynamic', 'x': -0.855, 'y': -0.405, 'z': 0.324, 'activity': 0.958}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}, {'id': 0, 'tag': '', 'x': 0.0, 'y': 0.0, 'z': 0.0, 'activity': 0.0}]}
+elapsed time: 0.0004987716674804688
+
+Stopping Audio thread as requested by main
